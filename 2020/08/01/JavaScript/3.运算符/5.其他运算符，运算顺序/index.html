@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2.5 其他运算符，运算顺序 | DolphinHome的博客</title><meta name="description" content="详情内容  其他运算符，运算顺序void 运算符void运算符的作用是执行一个表达式，然后不返回任何值，或者说返回undefined。 12void 0 &#x2F;&#x2F; undefinedvoid(0) &#x2F;&#x2F; undefined  上面是void运算符的两种写法，都正确。建议采用后一种形式，即总是使用圆括号。因为void运算符的优先性很高，如果不使用括号，容易造成错误的结果。比如，void 4 +"><meta name="keywords" content="JavaScript"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/5.%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="2.5 其他运算符，运算顺序"><meta property="og:url" content="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/5.%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="详情内容  其他运算符，运算顺序void 运算符void运算符的作用是执行一个表达式，然后不返回任何值，或者说返回undefined。 12void 0 &#x2F;&#x2F; undefinedvoid(0) &#x2F;&#x2F; undefined  上面是void运算符的两种写法，都正确。建议采用后一种形式，即总是使用圆括号。因为void运算符的优先性很高，如果不使用括号，容易造成错误的结果。比如，void 4 +"><meta property="og:image" content="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg"><meta property="article:published_time" content="2020-08-01T01:13:08.000Z"><meta property="article:modified_time" content="2020-08-01T13:28:48.776Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="3.4 二进制位运算符" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/4.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/"><link rel="next" title="4.1 数据类型的转换" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/4.%E8%AF%AD%E6%B3%95%E4%B8%93%E9%A2%98/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">100</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">其他运算符，运算顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#void-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text">void 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%97%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">逗号运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.3.</span> <span class="toc-text">运算顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%86%E6%8B%AC%E5%8F%B7%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">圆括号的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E7%BB%93%E5%90%88%E4%B8%8E%E5%8F%B3%E7%BB%93%E5%90%88"><span class="toc-number">1.3.3.</span> <span class="toc-text">左结合与右结合</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">2.5 其他运算符，运算顺序</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-08-01</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-08-01 21:28:48"><i class="fas fa-history fa-fw"></i> 更新于 2020-08-01</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><a id="more"></a>
+
+<details>
+  <summary>详情内容</summary>
+
+<h1 id="其他运算符，运算顺序"><a href="#其他运算符，运算顺序" class="headerlink" title="其他运算符，运算顺序"></a>其他运算符，运算顺序</h1><h2 id="void-运算符"><a href="#void-运算符" class="headerlink" title="void 运算符"></a>void 运算符</h2><p><code>void</code>运算符的作用是执行一个表达式，然后不返回任何值，或者说返回<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="number">0</span> <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">void</span>(<span class="number">0</span>) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>上面是<code>void</code>运算符的两种写法，都正确。建议采用后一种形式，即总是使用圆括号。因为<code>void</code>运算符的优先性很高，如果不使用括号，容易造成错误的结果。比如，<code>void 4 + 7</code>实际上等同于<code>(void 4) + 7</code>。</p>
+<p>下面是<code>void</code>运算符的一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">void</span> (x = <span class="number">5</span>) <span class="comment">//undefined</span></span><br><span class="line">x <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<p>这个运算符的主要用途是浏览器的书签工具（Bookmarklet），以及在超级链接中插入代码防止网页跳转。</p>
+<p>请看下面的代码。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">&#x27;Hello World&#x27;</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://example.com&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;f(); return false;&quot;</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，点击链接后，会先执行<code>onclick</code>的代码，由于<code>onclick</code>返回<code>false</code>，所以浏览器不会跳转到 example.com。</p>
+<p><code>void</code>运算符可以取代上面的写法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript: void(f())&quot;</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>下面是一个更实际的例子，用户点击链接提交表单，但是不产生页面跳转。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript: void(document.form.submit())&quot;</span>&gt;</span></span><br><span class="line">  提交</span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h2><p>逗号运算符用于对两个表达式求值，并返回后一个表达式的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span> <span class="comment">// &quot;b&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> y = (x++, <span class="number">10</span>);</span><br><span class="line">x <span class="comment">// 1</span></span><br><span class="line">y <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，逗号运算符返回后一个表达式的值。</p>
+<p>逗号运算符的一个用途是，在返回一个值之前，进行一些辅助操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = (<span class="built_in">console</span>.log(<span class="string">&#x27;Hi!&#x27;</span>), <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// Hi!</span></span><br><span class="line"></span><br><span class="line">value <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，先执行逗号之前的操作，然后返回逗号后面的值。</p>
+<h2 id="运算顺序"><a href="#运算顺序" class="headerlink" title="运算顺序"></a>运算顺序</h2><h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>JavaScript 各种运算符的优先级别（Operator Precedence）是不一样的。优先级高的运算符先执行，优先级低的运算符后执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> + <span class="number">5</span> * <span class="number">6</span> <span class="comment">// 34</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中，乘法运算符（<code>*</code>）的优先性高于加法运算符（<code>+</code>），所以先执行乘法，再执行加法，相当于下面这样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> + (<span class="number">5</span> * <span class="number">6</span>) <span class="comment">// 34</span></span><br></pre></td></tr></table></figure>
+
+<p>如果多个运算符混写在一起，常常会导致令人困惑的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> y = arr.length &lt;= <span class="number">0</span> || arr[<span class="number">0</span>] === <span class="literal">undefined</span> ? x : arr[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，变量<code>y</code>的值就很难看出来，因为这个表达式涉及5个运算符，到底谁的优先级最高，实在不容易记住。</p>
+<p>根据语言规格，这五个运算符的优先级从高到低依次为：小于等于（<code>&lt;=</code>)、严格相等（<code>===</code>）、或（<code>||</code>）、三元（<code>?:</code>）、等号（<code>=</code>）。因此上面的表达式，实际的运算顺序如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> y = ((arr.length &lt;= <span class="number">0</span>) || (arr[<span class="number">0</span>] === <span class="literal">undefined</span>)) ? x : arr[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<p>记住所有运算符的优先级，是非常难的，也是没有必要的。</p>
+<h3 id="圆括号的作用"><a href="#圆括号的作用" class="headerlink" title="圆括号的作用"></a>圆括号的作用</h3><p>圆括号（<code>()</code>）可以用来提高运算的优先级，因为它的优先级是最高的，即圆括号中的表达式会第一个运算。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">4</span> + <span class="number">5</span>) * <span class="number">6</span> <span class="comment">// 54</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，由于使用了圆括号，加法会先于乘法执行。</p>
+<p>运算符的优先级别十分繁杂，且都是硬性规定，因此建议总是使用圆括号，保证运算顺序清晰可读，这对代码的维护和除错至关重要。</p>
+<p>顺便说一下，圆括号不是运算符，而是一种语法结构。它一共有两种用法：一种是把表达式放在圆括号之中，提升运算的优先级；另一种是跟在函数的后面，作用是调用函数。</p>
+<p>注意，因为圆括号不是运算符，所以不具有求值作用，只改变运算的优先级。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">(x) = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的第二行，如果圆括号具有求值作用，那么就会变成<code>1 = 2</code>，这是会报错了。但是，上面的代码可以运行，这验证了圆括号只改变优先级，不会求值。</p>
+<p>这也意味着，如果整个表达式都放在圆括号之中，那么不会有任何效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(expression)</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">expression</span><br></pre></td></tr></table></figure>
+
+<p>函数放在圆括号中，会返回函数本身。如果圆括号紧跟在函数的后面，就表示调用函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(f) <span class="comment">// function f()&#123;return 1;&#125;</span></span><br><span class="line">f() <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，函数放在圆括号之中会返回函数本身，圆括号跟在函数后面则是调用函数。</p>
+<p>圆括号之中，只能放置表达式，如果将语句放在圆括号之中，就会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">var</span> a = <span class="number">1</span>)</span><br><span class="line"><span class="comment">// SyntaxError: Unexpected token var</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="左结合与右结合"><a href="#左结合与右结合" class="headerlink" title="左结合与右结合"></a>左结合与右结合</h3><p>对于优先级别相同的运算符，同时出现的时候，就会有计算顺序的问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a OP b OP c</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>OP</code>表示运算符。它可以有两种解释方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line">(a OP b) OP c</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二</span></span><br><span class="line">a OP (b OP c)</span><br></pre></td></tr></table></figure>
+
+<p>上面的两种方式，得到的计算结果往往是不一样的。方式一是将左侧两个运算数结合在一起，采用这种解释方式的运算符，称为“左结合”（left-to-right associativity）运算符；方式二是将右侧两个运算数结合在一起，这样的运算符称为“右结合”运算符（right-to-left associativity）。</p>
+<p>JavaScript 语言的大多数运算符是“左结合”，请看下面加法运算符的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x + y + z</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引擎解释如下</span></span><br><span class="line">(x + y) + z</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>x</code>与<code>y</code>结合在一起，它们的预算结果再与<code>z</code>进行运算。</p>
+<p>少数运算符是“右结合”，其中最主要的是赋值运算符（<code>=</code>）和三元条件运算符（<code>?:</code>）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = x = y = z;</span><br><span class="line">q = a ? b : c ? d : e ? f : g;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的解释方式如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = (x = (y = z));</span><br><span class="line">q = a ? b : (c ? d : (e ? f : g));</span><br></pre></td></tr></table></figure>
+
+<p>上面的两行代码，都是右侧的运算数结合在一起。</p>
+<p>另外，指数运算符（<code>**</code>）也是右结合。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> ** <span class="number">3</span> ** <span class="number">2</span></span><br><span class="line"><span class="comment">// 相当于 2 ** (3 ** 2)</span></span><br><span class="line"><span class="comment">// 512</span></span><br></pre></td></tr></table></figure>
+
+</details>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DolphinHome</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/5.%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F/">http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/5.%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dolphinhome.gitee.io" target="_blank">DolphinHome的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="wechat" onclick="window.open('/img/wechat.png')"/><div class="post-qr-code__desc">wechat</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.png" alt="alipay" onclick="window.open('/img/alipay.png')"/><div class="post-qr-code__desc">alipay</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/4.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/"><img class="prev-cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">3.4 二进制位运算符</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/01/JavaScript/4.%E8%AF%AD%E6%B3%95%E4%B8%93%E9%A2%98/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2/"><img class="next-cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">4.1 数据类型的转换</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/1.入门篇/1.导论/" title="1.1 导论"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">1.1 导论</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/11.ArrayBuffer 对象，Blob 对象/" title="10.11 ArrayBuffer 对象，Blob 对象"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.11 ArrayBuffer 对象，Blob 对象</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/12.File 对象，FileList 对象，FileReader 对象/" title="10.12 File 对象，FileList 对象，FileReader 对象"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.12 File 对象，FileList 对象，FileReader 对象</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/15.Web Worker/" title="10.15 Web Worker"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.15 Web Worker</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/3.Navigator 对象，Screen 对象。/" title="10.3 Navigator 对象，Screen 对象。"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.3 Navigator 对象，Screen 对象。</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/4.Cookie/" title="10.4 Cookie"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.4 Cookie</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>

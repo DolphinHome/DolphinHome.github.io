@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DolphinHome的博客</title><meta name="description" content="私人博客"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/page/9/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="DolphinHome的博客"><meta property="og:url" content="http://dolphinhome.gitee.io/page/9/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="私人博客"><meta property="og:image" content="http://dolphinhome.gitee.io/img/avatar.png"><meta property="article:published_time" content="2020-09-09T14:41:57.001Z"><meta property="article:modified_time" content="2020-09-09T14:41:57.001Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">100</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">DolphinHome的博客</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/01/JavaScript/9.%E4%BA%8B%E4%BB%B6/10.%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E4%BA%8B%E4%BB%B6/" title="9.10 其他常见事件">     <img class="post_bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="9.10 其他常见事件"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/9.%E4%BA%8B%E4%BB%B6/10.%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E4%BA%8B%E4%BB%B6/" title="9.10 其他常见事件">9.10 其他常见事件</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+其他常见事件资源事件beforeunload 事件beforeunload事件在窗口、文档、各种资源将要卸载前触发。它可以用来防止用户不小心卸载资源。
+如果该事件对象的returnValue属性是一个非空字符串，那么浏览器就会弹出一个对话框，询问用户是否要卸载该资源。但是，用户指定的字符串可能无法显示，浏览器会展示预定义的字符串。如果用户点击“取消”按钮，资源就不会卸载。
+123window.addEventListener(&#39;beforeunload&#39;, function (event) &#123;  event.returnValue &#x3D; &#39;你确定离开吗？&#39;;&#125;);
+
+上面代码中，用户如果关闭窗口，浏览器会弹出一个窗口，要求用户确认。
+浏览器对这个事件的行为很不一致，有的浏览器调用event.preventDefault()，也会弹出对话框。IE 浏览器需要显式返回一个非空的字符串，才会弹出对话框。而且，大多数浏览器在对话框中不显示指定文本，只显示默认文本。因此，可以采用下面的写法，取得最大的兼容性。
+12 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/01/JavaScript/9.%E4%BA%8B%E4%BB%B6/4.%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/" title="9.4 鼠标事件">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="9.4 鼠标事件"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/9.%E4%BA%8B%E4%BB%B6/4.%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/" title="9.4 鼠标事件">9.4 鼠标事件</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+鼠标事件鼠标事件的种类鼠标事件指与鼠标相关的事件，继承了MouseEvent接口。具体的事件主要有以下一些。
+
+click：按下鼠标（通常是按下主按钮）时触发。
+dblclick：在同一个元素上双击鼠标时触发。
+mousedown：按下鼠标键时触发。
+mouseup：释放按下的鼠标键时触发。
+mousemove：当鼠标在一个节点内部移动时触发。当鼠标持续移动时，该事件会连续触发。为了避免性能问题，建议对该事件的监听函数做一些限定，比如限定一段时间内只能运行一次。
+mouseenter：鼠标进入一个节点时触发，进入子节点不会触发这个事件（详见后文）。
+mouseover：鼠标进入一个节点时触发，进入子节点会再一次触发这个事件（详见后文）。
+mouseout：鼠标离开一个节点时触发，离开父节点也会触发这个事件（详见后文）。
+mouseleave：鼠标离开一个节点时触发，离开父节点不会触发这个事件（详见后文）。
+contextmenu：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文菜单键”时触发。
+wheel：滚动鼠标的滚轮时触发，该事件继承的是WheelEv ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/01/JavaScript/9.%E4%BA%8B%E4%BB%B6/9.%E6%8B%96%E6%8B%89%E4%BA%8B%E4%BB%B6/" title="9.9 拖拉事件">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="9.9 拖拉事件"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/9.%E4%BA%8B%E4%BB%B6/9.%E6%8B%96%E6%8B%89%E4%BA%8B%E4%BB%B6/" title="9.9 拖拉事件">9.9 拖拉事件</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+拖拉事件拖拉事件的种类拖拉（drag）指的是，用户在某个对象上按下鼠标键不放，拖动它到另一个位置，然后释放鼠标键，将该对象放在那里。
+拖拉的对象有好几种，包括元素节点、图片、链接、选中的文字等等。在网页中，除了元素节点默认不可以拖拉，其他（图片、链接、选中的文字）都是可以直接拖拉的。为了让元素节点可拖拉，可以将该节点的draggable属性设为true。
+123&lt;div draggable&#x3D;&quot;true&quot;&gt;  此区域可拖拉&lt;&#x2F;div&gt;
+
+draggable属性可用于任何元素节点，但是图片（&lt;img&gt;）和链接（&lt;a&gt;）不加这个属性，就可以拖拉。对于它们，用到这个属性的时候，往往是将其设为false，防止拖拉这两种元素。
+注意，一旦某个元素节点的draggable属性设为true，就无法再用鼠标选中该节点内部的文字或子节点了。
+当元素节点或选中的文本被拖拉时，就会持续触发拖拉事件，包括以下一些事件。
+
+drag：拖拉过程中，在被拖拉的节点上持续触发（相隔几百毫秒）。
+dragstar ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/14.IndexedDB%20API/" title="10.14 IndexedDB API">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="10.14 IndexedDB API"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/14.IndexedDB%20API/" title="10.14 IndexedDB API">10.14 IndexedDB API</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+IndexedDB API概述随着浏览器的功能不断增强，越来越多的网站开始考虑，将大量数据储存在客户端，这样可以减少从服务器获取数据，直接从本地获取数据。
+现有的浏览器数据储存方案，都不适合储存大量数据：Cookie 的大小不超过 4KB，且每次请求都会发送回服务器；LocalStorage 在 2.5MB 到 10MB 之间（各家浏览器不同），而且不提供搜索功能，不能建立自定义的索引。所以，需要一种新的解决方案，这就是 IndexedDB 诞生的背景。
+通俗地说，IndexedDB 就是浏览器提供的本地数据库，它可以被网页脚本创建和操作。IndexedDB 允许储存大量数据，提供查找接口，还能建立索引。这些都是 LocalStorage 所不具备的。就数据库类型而言，IndexedDB 不属于关系型数据库（不支持 SQL 查询语句），更接近 NoSQL 数据库。
+IndexedDB 具有以下特点。
+（1）键值对储存。 IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/2.window%20%E5%AF%B9%E8%B1%A1/" title="10.2 window 对象">     <img class="post_bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="10.2 window 对象"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/2.window%20%E5%AF%B9%E8%B1%A1/" title="10.2 window 对象">10.2 window 对象</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+window 对象概述浏览器里面，window对象（注意，w为小写）指当前的浏览器窗口。它也是当前页面的顶层对象，即最高一层的对象，所有其他对象都是它的下属。一个变量如果未声明，那么默认就是顶层对象的属性。
+12a &#x3D; 1;window.a &#x2F;&#x2F; 1
+
+上面代码中，a是一个没有声明就直接赋值的变量，它自动成为顶层对象的属性。
+window有自己的实体含义，其实不适合当作最高一层的顶层对象，这是一个语言的设计失误。最早，设计这门语言的时候，原始设想是语言内置的对象越少越好，这样可以提高浏览器的性能。因此，语言设计者 Brendan Eich 就把window对象当作顶层对象，所有未声明就赋值的变量都自动变成window对象的属性。这种设计使得编译阶段无法检测出未声明变量，但到了今天已经没有办法纠正了。
+window 对象的属性window.namewindow.name属性是一个字符串，表示当前浏览器窗口的名字。窗口不一定需要名字，这个属性主要配合超链接和表单的target属性使用。
+123window.name &#x3D; &#39 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/01/JavaScript/5.%E6%A0%87%E5%87%86%E5%BA%93/10.RegExp%20%E5%AF%B9%E8%B1%A1/" title="5.10 RegExp 对象">     <img class="post_bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="5.10 RegExp 对象"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/5.%E6%A0%87%E5%87%86%E5%BA%93/10.RegExp%20%E5%AF%B9%E8%B1%A1/" title="5.10 RegExp 对象">5.10 RegExp 对象</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+RegExp 对象概述正则表达式（regular expression）是一种表达文本模式（即字符串结构）的方法，有点像字符串的模板，常常用来按照“给定模式”匹配文本。比如，正则表达式给出一个 Email 地址的模式，然后用它来确定一个字符串是否为 Email 地址。JavaScript 的正则表达式体系是参照 Perl 5 建立的。
+新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。
+1var regex = /xyz/;
+
+另一种是使用RegExp构造函数。
+1var regex = new RegExp(&#x27;xyz&#x27;);
+
+上面两种写法是等价的，都新建了一个内容为xyz的正则表达式对象。它们的主要区别是，第一种方法在引擎编译代码时，就会新建正则表达式，第二种方法在运行时新建正则表达式，所以前者的效率较高。而且，前者比较便利和直观，所以实际应用中，基本上都采用字面量定义正则表达式。
+RegExp构造函数还可以接受第二个参数，表示修饰符（详细解释见下文）。
+123var regex = new RegExp(&#x27;xyz& ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/01/JavaScript/8.DOM/5.Document%20%E8%8A%82%E7%82%B9/" title="8.5 Document 节点">     <img class="post_bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="8.5 Document 节点"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/8.DOM/5.Document%20%E8%8A%82%E7%82%B9/" title="8.5 Document 节点">8.5 Document 节点</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+Document 节点概述document节点对象代表整个文档，每张网页都有自己的document对象。window.document属性就指向这个对象。只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用。
+document对象有不同的办法可以获取。
+
+正常的网页，直接使用document或window.document。
+iframe框架里面的网页，使用iframe节点的contentDocument属性。
+Ajax 操作返回的文档，使用XMLHttpRequest对象的responseXML属性。
+内部节点的ownerDocument属性。
+
+document对象继承了EventTarget接口和Node接口，并且混入（mixin）了ParentNode接口。这意味着，这些接口的方法都可以在document对象上调用。除此之外，document对象还有很多自己的属性和方法。
+属性快捷方式属性以下属性是指向文档内部的某个节点的快捷方式。
+（1）document.defaultView
+document.defaultView属性返回document ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/01/JavaScript/8.DOM/6.Element%20%E8%8A%82%E7%82%B9/" title="8.6 Element 节点">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="8.6 Element 节点"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/01/JavaScript/8.DOM/6.Element%20%E8%8A%82%E7%82%B9/" title="8.6 Element 节点">8.6 Element 节点</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt"></i>2020-08-01</time></div><div class="content">
+
+
+  详情内容
+
+Element 节点简介Element节点对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。
+元素节点的nodeType属性都是1。
+123var p &#x3D; document.querySelector(&#39;p&#39;);p.nodeName &#x2F;&#x2F; &quot;P&quot;p.nodeType &#x2F;&#x2F; 1
+
+Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。
+此外，不同的 HTML 元素对应的元素节点是不一样的，浏览器使用不同的构造函数，生成不同的元素节点，比如&lt;a&gt;元素的构造函数是HTMLAnchorElement()，&lt;button&gt;是HTMLButtonElement()。因此，元素节点不是一种对象，而是许多种对象，这些对象除了继承Element对象的属性和方法，还有各自独有的属性和方法。
+实例属性元素特性的相关属性（1）Element.id
+Element.i ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/27/JavaScript/%E6%89%A9%E5%B1%95/WebRTC/" title="WebRTC">     <img class="post_bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WebRTC"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/27/JavaScript/%E6%89%A9%E5%B1%95/WebRTC/" title="WebRTC">WebRTC</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-27 21:44:14"><i class="far fa-calendar-alt"></i>2020-07-27</time></div><div class="content">
+
+
+  详情内容
+
+
+目录
+概述
+getUserMedia
+概述
+范例：获取摄像头
+范例：捕获麦克风声音
+捕获的限定条件
+MediaStreamTrack.getSources()
+RTCPeerConnectionl，RTCDataChannel
+RTCPeerConnectionl
+RTCDataChannel
+外部函数库
+参考链接
+
+重要说明：本教程已经搬迁，此处不再维护，请访问新网址：wangdoc.com/javascript。
+概述WebRTC是“网络实时通信”（Web Real Time Communication）的缩写。它最初是为了解决浏览器上视频通话而提出的，即两个浏览器之间直接进行视频和音频的通信，不经过服务器。后来发展到除了音频和视频，还可以传输文字和其他数据。
+Google是WebRTC的主要支持者和开发者，它最初在Gmail上推出了视频聊天，后来在2011年推出了Hangouts，语序在浏览器中打电话。它推动了WebRTC标准的确立。
+WebRTC主要让浏览器具备三个作用。
+
+获取音频和视频
+进行音频和视频通信
+进行任意数据的通信
+
+WebRTC共分成三个 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/25/Hexo%E4%B8%BB%E9%A2%98/Hexo-Butterfly%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE_%E5%AE%98%E6%96%B9/" title="Hexo Butterfly主题配置_官方版">     <img class="post_bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly主题配置_官方版"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/25/Hexo%E4%B8%BB%E9%A2%98/Hexo-Butterfly%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE_%E5%AE%98%E6%96%B9/" title="Hexo Butterfly主题配置_官方版">Hexo Butterfly主题配置_官方版</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-25 08:46:47"><i class="far fa-calendar-alt"></i>2020-07-25</time></div><div class="content">
+
+
+  详情内容
+
+
+Butterfly 安装文档(一) 快速开始hexo-theme-butterfly 是基于 Molunerfinn 的 hexo-theme-melody 的基础上进行开发的。文档也是在 hexo-theme-melody 的文档基础上修改。因为一些配置变更导致与原主题配置上有部分区别。故如果安装 hexo-theme-butterfly 主题，请参考这篇文档。
+安装稳定版【建议】在你的博客根目录里
+1git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+
+应用主题修改站点配置文件_config.yml，把主题改为 butterfly
+1theme: butterfly
+
+安装插件如果你没有 pug 以及 stylus 的渲染器，请下载安装(在博客根目录里操作)：
+1npm install hexo-renderer-pug hexo-renderer-stylus --save
+
+升级建议为了减少升级主题后带来的不便，Butterf ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">DolphinHome</div><div class="author-info__description">私人博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">100</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">12</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/09/09/Hexo%E6%8F%92%E4%BB%B6/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Hexo插件" alt="Hexo插件"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/09/Hexo%E6%8F%92%E4%BB%B6/" title="Hexo插件">Hexo插件</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-09 22:08:50">2020-09-09</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/04/MySQL/MySQL%E9%85%8D%E7%BD%AE%E5%85%81%E8%AE%B8%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="无题" alt="无题"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/04/MySQL/MySQL%E9%85%8D%E7%BD%AE%E5%85%81%E8%AE%B8%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" title="无题">无题</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-04 18:26:41">2020-09-04</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/stat-gitee/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="无题" alt="无题"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/stat-gitee/" title="无题">无题</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-04 07:17:40">2020-09-04</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/04/hello-world/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Hello World" alt="Hello World"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/04/hello-world/" title="Hello World">Hello World</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-04 07:17:35">2020-09-04</time></div></a></div><div class="aside-recent-post"><a href="/2020/08/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/24%E5%BC%A0%E5%9B%BE%EF%BC%8C%E4%B9%9D%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%89%E6%8E%92%E5%BE%97%E6%98%8E%E6%98%8E%E7%99%BD%E7%99%BD%EF%BC%81/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="24张图，九大数据结构安排得明明白白！" alt="24张图，九大数据结构安排得明明白白！"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/08/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/24%E5%BC%A0%E5%9B%BE%EF%BC%8C%E4%B9%9D%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%89%E6%8E%92%E5%BE%97%E6%98%8E%E6%98%8E%E7%99%BD%E7%99%BD%EF%BC%81/" title="24张图，九大数据结构安排得明明白白！">24张图，九大数据结构安排得明明白白！</div><time class="aside-post_meta post-meta__date" title="发表于 2020-08-21 10:08:19">2020-08-21</time></div></a></div></div></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Hadoop%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/" style="font-size: 16px; color: #999">Hadoop平台搭建</a> <a href="/tags/JavaScript/" style="font-size: 22px; color: #99a9bf">JavaScript</a> <a href="/tags/butterfly/" style="font-size: 16px; color: #999">butterfly</a> <a href="/tags/heox/" style="font-size: 16px; color: #999">heox</a> <a href="/tags/hexo/" style="font-size: 16px; color: #999">hexo</a> <a href="/tags/js/" style="font-size: 16px; color: #999">js</a> <a href="/tags/plugin/" style="font-size: 16px; color: #999">plugin</a> <a href="/tags/yilia/" style="font-size: 16px; color: #999">yilia</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16px; color: #999">前端</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 16px; color: #999">大数据</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 16px; color: #999">数据结构</a> <a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 16px; color: #999">论坛</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">84</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">10</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">100</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "今日事&#44;今日畢,Never put off till tomorrow what you can do today".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '今日事&#44;今日畢'
+}</script></body></html>

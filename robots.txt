@@ -1,0 +1,12 @@
+User-agent:*
+Disallow:/
+Disallow:/*.html$
+Disallow:/*.js$
+Disallow:/*.inc$
+Disallow:/*.css$
+Disallow:/*.json$
+Disallow:/.jpg$
+Disallow:/.png$
+
+Sitemap: https://hoxis.github.io/sitemap.xml
+Sitemap: https://hoxis.github.io/baidusitemap.xml
