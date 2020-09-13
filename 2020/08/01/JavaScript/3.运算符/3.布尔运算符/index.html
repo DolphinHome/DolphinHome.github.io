@@ -1,167 +1,179 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.3 布尔运算符 | DolphinHome的博客</title><meta name="description" content="详情内容  布尔运算符概述布尔运算符用于将表达式转为布尔值，一共包含四个运算符。  取反运算符：! 且运算符：&amp;&amp; 或运算符：|| 三元运算符：?:  取反运算符（!）取反运算符是一个感叹号，用于将布尔值变为相反值，即true变成false，false变成true。 12!true &#x2F;&#x2F; false!false &#x2F;&#x2F; true  对于非布尔值，取反运算符会将其转为布尔值。"><meta name="keywords" content="JavaScript"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/3.%E5%B8%83%E5%B0%94%E8%BF%90%E7%AE%97%E7%AC%A6/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="3.3 布尔运算符"><meta property="og:url" content="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/3.%E5%B8%83%E5%B0%94%E8%BF%90%E7%AE%97%E7%AC%A6/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="详情内容  布尔运算符概述布尔运算符用于将表达式转为布尔值，一共包含四个运算符。  取反运算符：! 且运算符：&amp;&amp; 或运算符：|| 三元运算符：?:  取反运算符（!）取反运算符是一个感叹号，用于将布尔值变为相反值，即true变成false，false变成true。 12!true &#x2F;&#x2F; false!false &#x2F;&#x2F; true  对于非布尔值，取反运算符会将其转为布尔值。"><meta property="og:image" content="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg"><meta property="article:published_time" content="2020-08-01T01:13:08.000Z"><meta property="article:modified_time" content="2020-08-01T13:28:48.858Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+#article-container ol,
+#article-container ul {
+  margin-top: 0.4rem;
+}
+#article-container ol p,
+#article-container ul p {
+  margin: 0 0 0.5rem;
+}
+#article-container ol ol,
+#article-container ul ol,
+#article-container ol ul,
+#article-container ul ul {
+  padding-left: 0.5rem;
+}
+#article-container ol li,
+#article-container ul li {
+  position: relative;
+  margin: 0.3rem 0;
+  padding-left: 0.3rem;
+}
+a {
+  color: $a-link-color;
+  text-decoration: none;
+  word-wrap: break-word;
+  transition: all 0.2s;
+  overflow-wrap: break-word;
+}
+a:hover {
+  color: $light-blue;
+}
+a.fancybox {
+  outline: none;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+a.fancybox:focus {
+  outline: none;
+}
+img {
+  max-width: 100%;
+  transition: all 0.2s;
+}
+.katex-wrap {
+  overflow: auto;
+}
+.katex-wrap::-webkit-scrollbar {
+  display: none;
+}
+.layout_post {
+  margin: 0 auto;
+  padding: 2rem 15px;
+  max-width: 1000px;
+}
+.layout_post img {
+  display: block;
+}
+.layout_post .tag_share .post-meta__tag-list {
+  display: inline-block;
+}
+.layout_post .tag_share .post-meta__tags {
+  display: inline-block;
+  margin: 0.4rem 0.4rem 0.4rem 0;
+  padding: 0 0.6rem;
+  width: fit-content;
+  border: 1px solid $light-blue;
+  border-radius: 0.6rem;
+  color: $light-blue;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.layout_post .tag_share .post-meta__tags:hover {
+  background: $light-blue;
+  color: $button-color;
+}
+.layout_post .tag_share .post_share {
+  display: inline-block;
+  float: right;
+  margin: 0.4rem 0;
+  width: fit-content;
+}
+.layout_post .tag_share .post_share .social-share {
+  font-size: 12px;
+}
+.layout_post .tag_share .post_share .social-share .social-share-icon {
+  margin: 0 4px;
+  width: 26px;
+  height: 26px;
+  font-size: 15px;
+  line-height: 25px;
+}
+.layout_post .post-copyright {
+  position: relative;
+  margin: 2rem 0 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid $light-grey;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.layout_post .post-copyright:before {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 0.8rem;
+  background: $light-blue;
+  content: '';
+}
+.layout_post .post-copyright:after {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 0.4rem;
+  background: $white;
+  content: '';
+}
+.layout_post .post-copyright:hover {
+  box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
+}
+.layout_post .post-copyright .post-copyright-meta {
+  color: $light-blue;
+  font-weight: bold;
+}
+.layout_post .post-copyright .post-copyright-info {
+  padding-left: 0.3rem;
+}
+.layout_post .post-copyright .post-copyright-info a {
+  text-decoration: underline;
+  word-break: break-word;
+}
+.layout_post .post-copyright .post-copyright-info a:hover {
+  text-decoration: none;
+}
+#article-container {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+#article-container a {
+  color: $theme-link-color;
+}
+#article-container a:hover {
+  text-decoration: underline;
+}
+#article-container img {
+  margin: 0 auto 0.8rem;
+}
+#article-container p {
+  margin: 0 0 0.8rem;
+}
+#article-container iframe {
+  margin: 0 0 1rem;
+}
+@media screen and (max-width: 1024px) {
+  .layout_post {
+    width: auto;
   }
 }
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+@media screen and (max-width: $sm) {
+  .layout_post {
+    padding: 1rem 5px;
+  }
+  .layout_post > #post {
+    padding: 1.8rem 0.7rem;
   }
 }
-
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
+@media screen and (min-width: $lr) {
+  .layout_post {
+    max-width: 1300px;
+  }
+  .layout_page {
+    max-width: 1500px;
+  }
+  .layout_page.hide-aside {
+    max-width: 1300px;
+  }
 }
-
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="2.5 其他运算符，运算顺序" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/5.%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F/"><link rel="next" title="4.1 数据类型的转换" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/4.%E8%AF%AD%E6%B3%95%E4%B8%93%E9%A2%98/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isSidebar: true
-  }</script><noscript><style>
-#nav {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">135</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">28</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">布尔运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%8F%8D%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">取反运算符（!）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%94%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-amp-amp-%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">且运算符（&amp;&amp;）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">或运算符（||）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%85%83%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">三元条件运算符（?:）</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">3.3 布尔运算符</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-08-01</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-08-01 21:28:48"><i class="fas fa-history fa-fw"></i> 更新于 2020-08-01</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><a id="more"></a>
-
-<details>
-  <summary>详情内容</summary>
-
-<h1 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>布尔运算符用于将表达式转为布尔值，一共包含四个运算符。</p>
-<ul>
-<li>取反运算符：<code>!</code></li>
-<li>且运算符：<code>&amp;&amp;</code></li>
-<li>或运算符：<code>||</code></li>
-<li>三元运算符：<code>?:</code></li>
-</ul>
-<h2 id="取反运算符（-）"><a href="#取反运算符（-）" class="headerlink" title="取反运算符（!）"></a>取反运算符（!）</h2><p>取反运算符是一个感叹号，用于将布尔值变为相反值，即<code>true</code>变成<code>false</code>，<code>false</code>变成<code>true</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!<span class="literal">true</span> <span class="comment">// false</span></span><br><span class="line">!<span class="literal">false</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>对于非布尔值，取反运算符会将其转为布尔值。可以这样记忆，以下六个值取反后为<code>true</code>，其他值都为<code>false</code>。</p>
-<ul>
-<li><code>undefined</code></li>
-<li><code>null</code></li>
-<li><code>false</code></li>
-<li><code>0</code></li>
-<li><code>NaN</code></li>
-<li>空字符串（<code>&#39;&#39;</code>）</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">!<span class="literal">undefined</span> <span class="comment">// true</span></span><br><span class="line">!<span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line">!<span class="number">0</span> <span class="comment">// true</span></span><br><span class="line">!<span class="literal">NaN</span> <span class="comment">// true</span></span><br><span class="line">!<span class="string">&quot;&quot;</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">!<span class="number">54</span> <span class="comment">// false</span></span><br><span class="line">!<span class="string">&#x27;hello&#x27;</span> <span class="comment">// false</span></span><br><span class="line">![] <span class="comment">// false</span></span><br><span class="line">!&#123;&#125; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，不管什么类型的值，经过取反运算后，都变成了布尔值。</p>
-<p>如果对一个值连续做两次取反运算，等于将其转为对应的布尔值，与<code>Boolean</code>函数的作用相同。这是一种常用的类型转换的写法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!!x</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">Boolean</span>(x)</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，不管<code>x</code>是什么类型的值，经过两次取反运算后，变成了与<code>Boolean</code>函数结果相同的布尔值。所以，两次取反就是将一个值转为布尔值的简便写法。</p>
-<h2 id="且运算符（-amp-amp-）"><a href="#且运算符（-amp-amp-）" class="headerlink" title="且运算符（&amp;&amp;）"></a>且运算符（&amp;&amp;）</h2><p>且运算符（<code>&amp;&amp;</code>）往往用于多个表达式的求值。</p>
-<p>它的运算规则是：如果第一个运算子的布尔值为<code>true</code>，则返回第二个运算子的值（注意是值，不是布尔值）；如果第一个运算子的布尔值为<code>false</code>，则直接返回第一个运算子的值，且不再对第二个运算子求值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;t&#x27;</span> &amp;&amp; <span class="string">&#x27;&#x27;</span> <span class="comment">// &quot;&quot;</span></span><br><span class="line"><span class="string">&#x27;t&#x27;</span> &amp;&amp; <span class="string">&#x27;f&#x27;</span> <span class="comment">// &quot;f&quot;</span></span><br><span class="line"><span class="string">&#x27;t&#x27;</span> &amp;&amp; (<span class="number">1</span> + <span class="number">2</span>) <span class="comment">// 3</span></span><br><span class="line"><span class="string">&#x27;&#x27;</span> &amp;&amp; <span class="string">&#x27;f&#x27;</span> <span class="comment">// &quot;&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;</span> &amp;&amp; <span class="string">&#x27;&#x27;</span> <span class="comment">// &quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">(<span class="number">1</span> - <span class="number">1</span>) &amp;&amp; ( x += <span class="number">1</span>) <span class="comment">// 0</span></span><br><span class="line">x <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码的最后一个例子，由于且运算符的第一个运算子的布尔值为<code>false</code>，则直接返回它的值<code>0</code>，而不再对第二个运算子求值，所以变量<code>x</code>的值没变。</p>
-<p>这种跳过第二个运算子的机制，被称为“短路”。有些程序员喜欢用它取代<code>if</code>结构，比如下面是一段<code>if</code>结构的代码，就可以用且运算符改写。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i) &#123;</span><br><span class="line">  doSomething();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"></span><br><span class="line">i &amp;&amp; doSomething();</span><br></pre></td></tr></table></figure>
-
-<p>上面代码的两种写法是等价的，但是后一种不容易看出目的，也不容易除错，建议谨慎使用。</p>
-<p>且运算符可以多个连用，这时返回第一个布尔值为<code>false</code>的表达式的值。如果所有表达式的布尔值都为<code>true</code>，则返回最后一个表达式的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> &amp;&amp; <span class="string">&#x27;foo&#x27;</span> &amp;&amp; <span class="string">&#x27;&#x27;</span> &amp;&amp; <span class="number">4</span> &amp;&amp; <span class="string">&#x27;foo&#x27;</span> &amp;&amp; <span class="literal">true</span></span><br><span class="line"><span class="comment">// &#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> &amp;&amp; <span class="number">2</span> &amp;&amp; <span class="number">3</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，例一里面，第一个布尔值为<code>false</code>的表达式为第三个表达式，所以得到一个空字符串。例二里面，所有表达式的布尔值都是<code>true</code>，所以返回最后一个表达式的值<code>3</code>。</p>
-<h2 id="或运算符（-）"><a href="#或运算符（-）" class="headerlink" title="或运算符（||）"></a>或运算符（||）</h2><p>或运算符（<code>||</code>）也用于多个表达式的求值。它的运算规则是：如果第一个运算子的布尔值为<code>true</code>，则返回第一个运算子的值，且不再对第二个运算子求值；如果第一个运算子的布尔值为<code>false</code>，则返回第二个运算子的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;t&#x27;</span> || <span class="string">&#x27;&#x27;</span> <span class="comment">// &quot;t&quot;</span></span><br><span class="line"><span class="string">&#x27;t&#x27;</span> || <span class="string">&#x27;f&#x27;</span> <span class="comment">// &quot;t&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;</span> || <span class="string">&#x27;f&#x27;</span> <span class="comment">// &quot;f&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;</span> || <span class="string">&#x27;&#x27;</span> <span class="comment">// &quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>短路规则对这个运算符也适用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="literal">true</span> || (x = <span class="number">2</span>) <span class="comment">// true</span></span><br><span class="line">x <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，或运算符的第一个运算子为<code>true</code>，所以直接返回<code>true</code>，不再运行第二个运算子。所以，<code>x</code>的值没有改变。这种只通过第一个表达式的值，控制是否运行第二个表达式的机制，就称为“短路”（short-cut）。</p>
-<p>或运算符可以多个连用，这时返回第一个布尔值为<code>true</code>的表达式的值。如果所有表达式都为<code>false</code>，则返回最后一个表达式的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span> || <span class="number">0</span> || <span class="string">&#x27;&#x27;</span> || <span class="number">4</span> || <span class="string">&#x27;foo&#x27;</span> || <span class="literal">true</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> || <span class="number">0</span> || <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，例一里面，第一个布尔值为<code>true</code>的表达式是第四个表达式，所以得到数值4。例二里面，所有表达式的布尔值都为<code>false</code>，所以返回最后一个表达式的值。</p>
-<p>或运算符常用于为一个变量设置默认值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  text = text || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者写成</span></span><br><span class="line">saveText(<span class="built_in">this</span>.text || <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>上面代码表示，如果函数调用时，没有提供参数，则该参数默认设置为空字符串。</p>
-<h2 id="三元条件运算符（-）"><a href="#三元条件运算符（-）" class="headerlink" title="三元条件运算符（?:）"></a>三元条件运算符（?:）</h2><p>三元条件运算符由问号（?）和冒号（:）组成，分隔三个表达式。它是 JavaScript 语言唯一一个需要三个运算子的运算符。如果第一个表达式的布尔值为<code>true</code>，则返回第二个表达式的值，否则返回第三个表达式的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;t&#x27;</span> ? <span class="string">&#x27;hello&#x27;</span> : <span class="string">&#x27;world&#x27;</span> <span class="comment">// &quot;hello&quot;</span></span><br><span class="line"><span class="number">0</span> ? <span class="string">&#x27;hello&#x27;</span> : <span class="string">&#x27;world&#x27;</span> <span class="comment">// &quot;world&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码的<code>t</code>和<code>0</code>的布尔值分别为<code>true</code>和<code>false</code>，所以分别返回第二个和第三个表达式的值。</p>
-<p>通常来说，三元条件表达式与<code>if...else</code>语句具有同样表达效果，前者可以表达的，后者也能表达。但是两者具有一个重大差别，<code>if...else</code>是语句，没有返回值；三元条件表达式是表达式，具有返回值。所以，在需要返回值的场合，只能使用三元条件表达式，而不能使用<code>if..else</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> ? <span class="string">&#x27;T&#x27;</span> : <span class="string">&#x27;F&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>console.log</code>方法的参数必须是一个表达式，这时就只能使用三元条件表达式。如果要用<code>if...else</code>语句，就必须改变整个代码写法了。</p>
-</details>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DolphinHome</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/3.%E5%B8%83%E5%B0%94%E8%BF%90%E7%AE%97%E7%AC%A6/">http://dolphinhome.gitee.io/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/3.%E5%B8%83%E5%B0%94%E8%BF%90%E7%AE%97%E7%AC%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dolphinhome.gitee.io" target="_blank">DolphinHome的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="wechat" onclick="window.open('/img/wechat.png')"/><div class="post-qr-code__desc">wechat</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.png" alt="alipay" onclick="window.open('/img/alipay.png')"/><div class="post-qr-code__desc">alipay</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/01/JavaScript/3.%E8%BF%90%E7%AE%97%E7%AC%A6/5.%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BF%90%E7%AE%97%E9%A1%BA%E5%BA%8F/"><img class="prev-cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2.5 其他运算符，运算顺序</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/01/JavaScript/4.%E8%AF%AD%E6%B3%95%E4%B8%93%E9%A2%98/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2/"><img class="next-cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">4.1 数据类型的转换</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/1.入门篇/1.导论/" title="1.1 导论"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">1.1 导论</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/11.ArrayBuffer 对象，Blob 对象/" title="10.11 ArrayBuffer 对象，Blob 对象"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.11 ArrayBuffer 对象，Blob 对象</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/12.File 对象，FileList 对象，FileReader 对象/" title="10.12 File 对象，FileList 对象，FileReader 对象"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/10.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.12 File 对象，FileList 对象，FileReader 对象</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/15.Web Worker/" title="10.15 Web Worker"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.15 Web Worker</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/3.Navigator 对象，Screen 对象。/" title="10.3 Navigator 对象，Screen 对象。"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.3 Navigator 对象，Screen 对象。</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/4.Cookie/" title="10.4 Cookie"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.4 Cookie</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>

