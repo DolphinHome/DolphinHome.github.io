@@ -1,0 +1,406 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>操作系统期末复习 | DolphinHome的博客</title><meta name="description" content="url 名称    https:&#x2F;&#x2F;blog.csdn.net&#x2F;iwanderu&#x2F;article&#x2F;details&#x2F;103934127 操作系统期末复习                           文章目录 1. 时间  2. 题型   2.1. 选择 2.2. 填空5,1 2.3. 判断10 1 2.4. 简答3,4 5 2.5. 计算3 10,15   3. 重点   3.1. 第"><meta name="keywords" content="计算机组成原理"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="操作系统期末复习"><meta property="og:url" content="http://dolphinhome.gitee.io/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="url 名称    https:&#x2F;&#x2F;blog.csdn.net&#x2F;iwanderu&#x2F;article&#x2F;details&#x2F;103934127 操作系统期末复习                           文章目录 1. 时间  2. 题型   2.1. 选择 2.2. 填空5,1 2.3. 判断10 1 2.4. 简答3,4 5 2.5. 计算3 10,15   3. 重点   3.1. 第"><meta property="og:image" content="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png"><meta property="article:published_time" content="2020-09-13T13:20:49.000Z"><meta property="article:modified_time" content="2020-09-13T16:07:40.163Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="第二章_进程的描述与控制" href="http://dolphinhome.gitee.io/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8F%8F%E8%BF%B0%E4%B8%8E%E6%8E%A7%E5%88%B6/"><link rel="next" title="计算机操作系统总结_汤子瀛版" href="http://dolphinhome.gitee.io/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93_%E6%B1%A4%E5%AD%90%E7%80%9B%E7%89%88/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">134</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">29</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">文章目录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%97%B6%E9%97%B4"><span class="toc-number"></span> <span class="toc-text">1. 时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E9%A2%98%E5%9E%8B"><span class="toc-number"></span> <span class="toc-text">2. 题型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E9%80%89%E6%8B%A9"><span class="toc-number"></span> <span class="toc-text">2.1. 选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%A1%AB%E7%A9%BA5-1"><span class="toc-number"></span> <span class="toc-text">2.2. 填空5,1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%88%A4%E6%96%AD10-1"><span class="toc-number"></span> <span class="toc-text">2.3. 判断10 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E7%AE%80%E7%AD%943-4-5"><span class="toc-number"></span> <span class="toc-text">2.4. 简答3,4 5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E8%AE%A1%E7%AE%973-10-15"><span class="toc-number"></span> <span class="toc-text">2.5. 计算3 10,15</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E9%87%8D%E7%82%B9"><span class="toc-number"></span> <span class="toc-text">3. 重点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%AC%AC1%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.1. 第1章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-P2-OS%E4%BD%9C%E4%B8%BA%E2%80%A6%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">3.1.1. P2 OS作为…的接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-P7-%E5%A4%9A%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%8C%E5%88%86%E6%97%B6%EF%BC%8C%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%EF%BC%88%E7%89%B9%E7%82%B9-%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">3.1.2. P7 多道批处理系统，分时，实时系统（特点 理解）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-P32-%E5%BE%AE%E5%86%85%E6%A0%B8%EF%BC%8C%E4%BA%86%E8%A7%A3%EF%BC%8834-25%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3.1.3. P32 微内核，了解（34,25）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%AC%AC2%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.2. 第2章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-P35-%E5%89%8D%E8%B6%8B%E5%9B%BE%EF%BC%88%E8%BD%AC%E5%8C%96%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">3.2.1. P35 前趋图（转化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-P39-%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BB%84%E6%88%90%EF%BC%8845%EF%BC%89%E5%92%8C%E7%8A%B6%E6%80%81%EF%BC%887%E8%A1%8C%EF%BC%8C40%E9%A1%B5%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">3.2.2. P39 进程的组成（45）和状态（7行，40页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-P43-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97PCB%E4%BD%9C%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3.2.3. P43 进程控制块PCB作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-P45-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">3.2.4. P45 进程控制块组织方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-5-P47-%E5%8E%9F%E8%AF%AD%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">3.2.5. P47 原语操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-6-P53-P55-%E4%B8%B4%E7%95%8C%E8%B5%84%E6%BA%90%E4%B8%8E%E4%B8%B4%E7%95%8C%E5%8C%BA"><span class="toc-number">6.</span> <span class="toc-text">3.2.6. P53,P55 临界资源与临界区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-7-P61-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">3.2.7. P61 信号量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-8-P62-%E7%AE%A1%E7%A8%8B%EF%BC%8C%E7%89%B9%E7%82%B9"><span class="toc-number">8.</span> <span class="toc-text">3.2.8. P62 管程，特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-9-P81-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">9.</span> <span class="toc-text">3.2.9. P81 线程的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-10-P82-%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%AF%94%E8%BE%83%EF%BC%88%E8%AE%B0%E5%BF%86%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">3.2.10. P82 线程与进程的比较（记忆）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-11-P91-%EF%BC%889%EF%BC%8C11%EF%BC%8C19%E9%A2%98%EF%BC%89"><span class="toc-number">11.</span> <span class="toc-text">3.2.11. P91 （9，11，19题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E7%AC%AC3%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.3. 第3章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-P92-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%9A%84%E5%B1%82%E6%AC%A1"><span class="toc-number">1.</span> <span class="toc-text">3.3.1. P92 处理机调度的层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-P95-%E4%BD%9C%E4%B8%9A%E4%B8%89%E9%98%B6%E6%AE%B5%E4%B8%89%E7%8A%B6%E6%80%81"><span class="toc-number">2.</span> <span class="toc-text">3.3.2. P95 作业三阶段三状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-P96-%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1%EF%BC%8C%E7%9F%AD%E4%BD%9C%E4%B8%9A%E4%BC%98%E5%85%88%E6%9C%8D%E5%8A%A1%EF%BC%8C%E9%AB%98%E5%93%8D%E5%BA%94%E6%AF%94"><span class="toc-number">3.</span> <span class="toc-text">3.3.3. P96 先来先服务，短作业优先服务，高响应比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-P99-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%8A%A2%E5%8D%A0%E6%96%B9%E5%BC%8F%E5%92%8C%E9%9D%9E%E6%8A%A2%E5%8D%A0%E6%96%B9%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">3.3.4. P99 进程调度方式，抢占方式和非抢占方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-5-P101-%E8%BD%AE%E8%BD%AC%E8%B0%83%E5%BA%A6%EF%BC%8C%E5%91%A8%E8%BD%AC%E6%97%B6%E9%97%B4%EF%BC%8C%E5%B8%A6%E6%9D%83%E5%91%A8%E8%BD%AC%E6%97%B6%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">3.3.5. P101 轮转调度，周转时间，带权周转时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-6-P115-%E6%AD%BB%E9%94%81%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%8E%9F%E5%9B%A0%EF%BC%8C%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">3.3.6. P115 死锁的定义和原因，必要条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-7-P120-%E5%88%A9%E7%94%A8%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">3.3.7. P120 利用银行家算法（掌握）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-8-P126-%E5%9B%9B%E7%A7%8D%E6%9D%A1%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">3.3.8. P126 四种条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-9-P127%EF%BC%887%E9%A2%98%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">3.3.9. P127（7题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E7%AC%AC4%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.4. 第4章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-1-P139-%E5%9F%BA%E4%BA%8E%E9%A1%BA%E5%BA%8F%E7%9A%84%EF%BC%8C%E5%9B%9B%E7%A7%8D%E7%AE%97%E6%B3%95%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%8C%E9%80%89%E6%8B%A9%E9%A2%98%EF%BC%8C%E5%9B%9B%E7%A7%8D%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">3.4.1. P139 基于顺序的，四种算法优缺点，选择题，四种算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-2-P142-%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="toc-number">2.</span> <span class="toc-text">3.4.2. P142 重定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-3-P148-%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%EF%BC%8C%E5%88%86%E6%AE%B5%EF%BC%8C%E6%AE%B5%E9%A1%B5%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">3.4.3. P148 分页存储，分段，段页式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-4-P149-%E9%A1%B5%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">3.4.4. P149 页表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-5-P158-%E5%88%86%E9%A1%B5%E5%92%8C%E5%88%86%E6%AE%B5%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB"><span class="toc-number">5.</span> <span class="toc-text">3.4.5. P158 分页和分段的主要区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-6-P162-7-8-10-19-26"><span class="toc-number">6.</span> <span class="toc-text">3.4.6. P162 7,8,10,19,26</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E7%AC%AC5%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.5. 第5章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-1-P164-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%88166%E9%A1%B5%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">3.5.1. P164 虚拟存储器的定义（166页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-2-P174-%E7%BC%BA%E9%A1%B5%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">3.5.2. P174 缺页率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-3-P181-%E4%BB%80%E4%B9%88%E6%98%AF%E6%8A%96%E5%8A%A8%E7%8E%B0%E8%B1%A1%EF%BC%8C%E4%BA%A7%E7%94%9F%E6%8A%96%E5%8A%A8%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">3.</span> <span class="toc-text">3.5.3. P181 什么是抖动现象，产生抖动的原因</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E7%AC%AC6%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.6. 第6章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-1-P200-IO%E9%80%9A%E9%81%93%EF%BC%8CIO%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">3.6.1. P200 IO通道，IO作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-2-P213-%E6%97%A0%E5%85%B3%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">3.6.2. P213 无关性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-3-P220-%E5%81%87%E8%84%B1%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%95%E5%85%A5"><span class="toc-number">3.</span> <span class="toc-text">3.6.3. P220 假脱机系统，为什么引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-4-P224-%E7%BC%93%E5%86%B2"><span class="toc-number">4.</span> <span class="toc-text">3.6.4. P224 缓冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-5-P232-%E7%A3%81%E7%9B%98%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">3.6.5. P232 磁盘访问时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-6-P233-%E5%AF%BB%E9%81%93%E6%97%B6%E9%97%B4%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">3.6.6. P233 寻道时间（掌握）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E7%AC%AC7%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.7. 第7章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-1-P249-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E4%BD%9C%E7%94%A8%EF%BC%8C%E6%96%B9%E4%BE%BF%E6%9F%A5%E6%89%BE"><span class="toc-number">1.</span> <span class="toc-text">3.7.1. P249 文件目录作用，方便查找</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-%E7%AC%AC8%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.8. 第8章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-1-P280-%E4%BD%8D%E7%A4%BA%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">3.8.1. P280 位示图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-%E7%AC%AC9%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">3.9. 第9章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-1-P298-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8F%90%E4%BE%9B%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">3.9.1. P298 操作系统提供的接口</span></a></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">操作系统期末复习</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-13 21:20:49"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-09-13</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-14 00:07:40"><i class="fas fa-history fa-fw"></i> 更新于 2020-09-14</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><table>
+<thead>
+<tr>
+<th>url</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://blog.csdn.net/iwanderu/article/details/103934127">https://blog.csdn.net/iwanderu/article/details/103934127</a></td>
+<td>操作系统期末复习</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#1__2">1. 时间</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#2__17">2. 题型</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#21__18">2.1. 选择</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#22_51_19">2.2. 填空5,1</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#23_10_1_20">2.3. 判断10 1</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#24_34_5_21">2.4. 简答3,4 5</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#25_3_1015_22">2.5. 计算3 10,15</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#3__27">3. 重点</a></p>
+</li>
+<li><ul>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#31_1_28">3.1. 第1章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#311_P2_OS_29">3.1.1. P2 OS作为…的接口</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#312_P7___31">3.1.2. P7 多道批处理系统，分时，实时系统（特点 理解）</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#313_P32_3425_39">3.1.3. P32 微内核，了解（34,25）</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#32_2_42">3.2. 第2章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#321_P35__43">3.2.1. P35 前趋图（转化）</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#322_P39_45740_52">3.2.2. P39 进程的组成（45）和状态（7行，40页）</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#323_P43_PCB_54">3.2.3. P43 进程控制块PCB作用</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#324_P45__57">3.2.4. P45 进程控制块组织方式</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#325_P47__60">3.2.5. P47 原语操作</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#326_P53P55__62">3.2.6. P53,P55 临界资源与临界区</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#327_P61__65">3.2.7. P61 信号量</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#328_P62__69">3.2.8. P62 管程，特点</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#329_P81__78">3.2.9. P81 线程的定义</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#3210_P82__81">3.2.10. P82 线程与进程的比较（记忆）</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#3211_P91_91119_85">3.2.11. P91 （9，11，19题）</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#33_3_94">3.3. 第3章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#331_P92__95">3.3.1. P92 处理机调度的层次</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#332_P95__99">3.3.2. P95 作业三阶段三状态</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#333_P96__102">3.3.3. P96 先来先服务，短作业优先服务，高响应比</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#334_P99__106">3.3.4. P99 进程调度方式，抢占方式和非抢占方式</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#335_P101__107">3.3.5. P101 轮转调度，周转时间，带权周转时间</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#336_P115__111">3.3.6. P115 死锁的定义和原因，必要条件</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#337_P120__117">3.3.7. P120 利用银行家算法（掌握）</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#338_P126__134">3.3.8. P126 四种条件</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#339_P1277_140">3.3.9. P127（7题）</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#34_4_143">3.4. 第4章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#341_P139__144">3.4.1. P139 基于顺序的，四种算法优缺点，选择题，四种算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#342_P142__151">3.4.2. P142 重定位</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#343_P148__152">3.4.3. P148 分页存储，分段，段页式</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#344_P149__153">3.4.4. P149 页表</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#345_P158__154">3.4.5. P158 分页和分段的主要区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#346_P162_78101926_162">3.4.6. P162 7,8,10,19,26</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#35_5_163">3.5. 第5章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#351_P164_166_164">3.5.1. P164 虚拟存储器的定义（166页）</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#352_P174__168">3.5.2. P174 缺页率</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#353_P181__170">3.5.3. P181 什么是抖动现象，产生抖动的原因</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#36_6_174">3.6. 第6章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#361_P200_IOIO_175">3.6.1. P200 IO通道，IO作用</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#362_P213__177">3.6.2. P213 无关性</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#363_P220__183">3.6.3. P220 假脱机系统，为什么引入</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#364_P224__184">3.6.4. P224 缓冲</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#365_P232__187">3.6.5. P232 磁盘访问时间</a></li>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#366_P233__195">3.6.6. P233 寻道时间（掌握）</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#37_7_198">3.7. 第7章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#371_P249__199">3.7.1. P249 文件目录作用，方便查找</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#38_8_205">3.8. 第8章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#381_P280__206">3.8.1. P280 位示图</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#39_9_208">3.9. 第9章</a></p>
+</li>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://coco56.blog.csdn.net/article/details/103664993#391_P298__209">3.9.1. P298 操作系统提供的接口</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-时间"><a href="#1-时间" class="headerlink" title="1. 时间"></a>1. 时间</h1><p>20191230, 10:10-12:00</p>
+<p>p233<br>103<br>143<br>页表<br>寻道时间最长<br>128 31<br>【记忆】<br>线程与进程的区别<br>113 产生死锁的原因和必要条件<br>虚拟存储技术<br>信号量</p>
+<h1 id="2-题型"><a href="#2-题型" class="headerlink" title="2. 题型"></a>2. 题型</h1><h2 id="2-1-选择"><a href="#2-1-选择" class="headerlink" title="2.1. 选择"></a>2.1. 选择</h2><h2 id="2-2-填空5-1"><a href="#2-2-填空5-1" class="headerlink" title="2.2. 填空5,1"></a>2.2. 填空5,1</h2><h2 id="2-3-判断10-1"><a href="#2-3-判断10-1" class="headerlink" title="2.3. 判断10 1"></a>2.3. 判断10 1</h2><h2 id="2-4-简答3-4-5"><a href="#2-4-简答3-4-5" class="headerlink" title="2.4. 简答3,4 5"></a>2.4. 简答3,4 5</h2><h2 id="2-5-计算3-10-15"><a href="#2-5-计算3-10-15" class="headerlink" title="2.5. 计算3 10,15"></a>2.5. 计算3 10,15</h2><ul>
+<li>银行家算法</li>
+<li>页面置换算法（填空）</li>
+<li>寻找磁道</li>
+</ul>
+<h1 id="3-重点"><a href="#3-重点" class="headerlink" title="3. 重点"></a>3. 重点</h1><h2 id="3-1-第1章"><a href="#3-1-第1章" class="headerlink" title="3.1. 第1章"></a>3.1. 第1章</h2><h3 id="3-1-1-P2-OS作为…的接口"><a href="#3-1-1-P2-OS作为…的接口" class="headerlink" title="3.1.1. P2 OS作为…的接口"></a>3.1.1. P2 OS作为…的接口</h3><p>OS作为<strong>用户</strong>与<strong>计算机硬件系统</strong>之间的<strong>接口</strong></p>
+<h3 id="3-1-2-P7-多道批处理系统，分时，实时系统（特点-理解）"><a href="#3-1-2-P7-多道批处理系统，分时，实时系统（特点-理解）" class="headerlink" title="3.1.2. P7 多道批处理系统，分时，实时系统（特点 理解）"></a>3.1.2. P7 多道批处理系统，分时，实时系统（特点 理解）</h3><ul>
+<li>多道程序设计特征：多道性，无序性，调度性<br>优点：1.资源利用率高<br>2.系统吞吐量大<br>缺点：3.平均周转时间长<br>4.无交互能力</li>
+<li>分时系统特征:多路性，独立性，及时性，交互性。</li>
+<li>实时系统特征:多路性，独立性，及时性，交互性,可靠性。</li>
+</ul>
+<h3 id="3-1-3-P32-微内核，了解（34-25）"><a href="#3-1-3-P32-微内核，了解（34-25）" class="headerlink" title="3.1.3. P32 微内核，了解（34,25）"></a>3.1.3. P32 微内核，了解（34,25）</h3><ul>
+<li>微内核os结构是基于客户/服务器模式。</li>
+</ul>
+<h2 id="3-2-第2章"><a href="#3-2-第2章" class="headerlink" title="3.2. 第2章"></a>3.2. 第2章</h2><h3 id="3-2-1-P35-前趋图（转化）"><a href="#3-2-1-P35-前趋图（转化）" class="headerlink" title="3.2.1. P35 前趋图（转化）"></a>3.2.1. P35 前趋图（转化）</h3><p>前趋图(Precedence Graph)是一个<strong>有向无循环图</strong>，记为DAG(Directed Acyclic Graph)，用于描述进程之间执行的前后关系。<br>画出下面四条语句的前趋图:<br>S1: a=x+y;<br>S2: b=z+1;<br>S3: c=a-b;<br>S4: w=c+1;<br>答：其前趋图为:<br><img src= "/img/loading.gif" data-src="/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/20191027091312890.png" alt="在这里插入图片描述"></p>
+<h3 id="3-2-2-P39-进程的组成（45）和状态（7行，40页）"><a href="#3-2-2-P39-进程的组成（45）和状态（7行，40页）" class="headerlink" title="3.2.2. P39 进程的组成（45）和状态（7行，40页）"></a>3.2.2. P39 进程的组成（45）和状态（7行，40页）</h3><p>三种状态之间的转换</p>
+<h3 id="3-2-3-P43-进程控制块PCB作用"><a href="#3-2-3-P43-进程控制块PCB作用" class="headerlink" title="3.2.3. P43 进程控制块PCB作用"></a>3.2.3. P43 进程控制块PCB作用</h3><p>试说明PCB的作用，为什么说PCB是进程存在的唯一标志?<br>答：PCB是进程实体的一部分，是操作系统中最重要的记录型数据结构。作用是使一个在多道程序环境下不能独立运行的程序，成为一个能独立运行的基本单位，成为能与其它进程并发执行的进程。OS是根据PCB对并发执行的进程进行控制和管理的。</p>
+<h3 id="3-2-4-P45-进程控制块组织方式"><a href="#3-2-4-P45-进程控制块组织方式" class="headerlink" title="3.2.4. P45 进程控制块组织方式"></a>3.2.4. P45 进程控制块组织方式</h3><p>进程控制块的组织方式有哪几种?<br>线性方式、链接方式、索引方式</p>
+<h3 id="3-2-5-P47-原语操作"><a href="#3-2-5-P47-原语操作" class="headerlink" title="3.2.5. P47 原语操作"></a>3.2.5. P47 原语操作</h3><p>一个操作中的所有动作要么全做，要么全不做。换言之，它是一个不可分割的基本单位。</p>
+<h3 id="3-2-6-P53-P55-临界资源与临界区"><a href="#3-2-6-P53-P55-临界资源与临界区" class="headerlink" title="3.2.6. P53,P55 临界资源与临界区"></a>3.2.6. P53,P55 临界资源与临界区</h3><p>临界资源：多道程序系统中存在许多进程，它们共享各种资源，然而有很多资源一次只能供一个进程使用。<strong>一次仅允许一个进程使用的资源称为临界资源。</strong>许多物理设备都属于临界资源，如输入机、打印机、磁带机等。<br>临界区：访问临界资源的那段代码称为临界区。</p>
+<h3 id="3-2-7-P61-信号量"><a href="#3-2-7-P61-信号量" class="headerlink" title="3.2.7. P61 信号量"></a>3.2.7. P61 信号量</h3><p>为使多个进程能互斥地访问某临界资源，只需为该资源设置一信号量metex，并设其初始值为1，然后将各进程访问该资源的临界区CS置于wait(mutex)和signal(mutex)操作之间即可。<br>申请临界资源：对mutex执行wait操作。<br>释放临界资源：对mutex执行signal操作。</p>
+<h3 id="3-2-8-P62-管程，特点"><a href="#3-2-8-P62-管程，特点" class="headerlink" title="3.2.8. P62 管程，特点"></a>3.2.8. P62 管程，特点</h3><p>代表共享资源的数据结构以及由对该共享数据结构实施操作的一组过程所组成的资源管理程序共同构成了一个操作系统的资源管理模块，我们称之为管程。</p>
+<p>管程由四部分组成：</p>
+<ol>
+<li>管程的名称；</li>
+<li>局部于管程的共享数据结构说明；</li>
+<li>对该数据结构进行操作的一组过程；</li>
+<li>对局部于管程的共享数据设置初始值的语句。</li>
+</ol>
+<h3 id="3-2-9-P81-线程的定义"><a href="#3-2-9-P81-线程的定义" class="headerlink" title="3.2.9. P81 线程的定义"></a>3.2.9. P81 线程的定义</h3><p>线程（英语：thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。</p>
+<h3 id="3-2-10-P82-线程与进程的比较（记忆）"><a href="#3-2-10-P82-线程与进程的比较（记忆）" class="headerlink" title="3.2.10. P82 线程与进程的比较（记忆）"></a>3.2.10. P82 线程与进程的比较（记忆）</h3><ol>
+<li>同一进程可以包含多个线程，一个进程中至少包含一个线程，一个线程只能存在于一个进程中。</li>
+<li>进程结束，该进程下的所有线程将销毁，而一个线程结束不会影响同一进程中的其他线程。</li>
+<li>在操作系统中，进程是拥有系统资源的独立单元，它可以拥有自己的资源，而线程不能，但是能够访问其隶属进程的资源。</li>
+</ol>
+<h3 id="3-2-11-P91-（9，11，19题）"><a href="#3-2-11-P91-（9，11，19题）" class="headerlink" title="3.2.11. P91 （9，11，19题）"></a>3.2.11. P91 （9，11，19题）</h3><ol>
+<li>试说明进程在三个基本状态之间转换的典型原因。<br>答：<br>\1. 就绪状态→执行状态：进程分配到CPU资源<br>\2. 执行状态→就绪状态：时间片用完<br>\3. 执行状态→阻塞状态：I/0请求<br>\4. 阻塞状态→就绪状态：I/0完成</li>
+<li>为什么要在0S中引入线程?<br>答：在操作系统中引入线程，则是为了减少程序在并发执行时所付出的时空开销，使0S具有更好的并发性，提高CPU的利用率。进程是分配资源的基本单位，而线程则是系统调度的基本单位。</li>
+</ol>
+<h2 id="3-3-第3章"><a href="#3-3-第3章" class="headerlink" title="3.3. 第3章"></a>3.3. 第3章</h2><h3 id="3-3-1-P92-处理机调度的层次"><a href="#3-3-1-P92-处理机调度的层次" class="headerlink" title="3.3.1. P92 处理机调度的层次"></a>3.3.1. P92 处理机调度的层次</h3><ol>
+<li>高级调度：又称长程调度或作业调度，他的调度对象是作业，将外存处于后备队列的作业调入内存，为他们创建进程，分配必要的资源，并将它们放入就绪队列。(用于多道批处理系统，在分时和实时中不设置)</li>
+<li>低级调度：又称进程调度或短程调度，调度对象是进程(或内核级线程)决定就绪队列中的哪个进程应获得处理机，并由分派程度将处理机分配给选中的进程。(必须：多道批处理，分时，实时OS)</li>
+<li>中级调度：对称内存调度，提高内存利用率和系统吞吐量</li>
+</ol>
+<h3 id="3-3-2-P95-作业三阶段三状态"><a href="#3-3-2-P95-作业三阶段三状态" class="headerlink" title="3.3.2. P95 作业三阶段三状态"></a>3.3.2. P95 作业三阶段三状态</h3><p>三个阶段：收容、运行、完成<br>三种状态：后备状态、运行状态、完成状态</p>
+<h3 id="3-3-3-P96-先来先服务，短作业优先服务，高响应比"><a href="#3-3-3-P96-先来先服务，短作业优先服务，高响应比" class="headerlink" title="3.3.3. P96 先来先服务，短作业优先服务，高响应比"></a>3.3.3. P96 先来先服务，短作业优先服务，高响应比</h3><p>高响应比：优先权=等待时间+要求服务时间要求服务时间高响应比：优先权=\frac{等待时间+要求服务时间}{要求服务时间}高响应比：优先权=要求服务时间等待时间+要求服务时间</p>
+<h3 id="3-3-4-P99-进程调度方式，抢占方式和非抢占方式"><a href="#3-3-4-P99-进程调度方式，抢占方式和非抢占方式" class="headerlink" title="3.3.4. P99 进程调度方式，抢占方式和非抢占方式"></a>3.3.4. P99 进程调度方式，抢占方式和非抢占方式</h3><h3 id="3-3-5-P101-轮转调度，周转时间，带权周转时间"><a href="#3-3-5-P101-轮转调度，周转时间，带权周转时间" class="headerlink" title="3.3.5. P101 轮转调度，周转时间，带权周转时间"></a>3.3.5. P101 轮转调度，周转时间，带权周转时间</h3><p>轮转调度：</p>
+<ul>
+<li>周转时间=完成时间-到达时间</li>
+<li>带权周转时间=周转时间/服务时间</li>
+</ul>
+<h3 id="3-3-6-P115-死锁的定义和原因，必要条件"><a href="#3-3-6-P115-死锁的定义和原因，必要条件" class="headerlink" title="3.3.6. P115 死锁的定义和原因，必要条件"></a>3.3.6. P115 死锁的定义和原因，必要条件</h3><ol>
+<li><p>何谓死锁?产生死锁的原因和必要条件是什么?</p>
+<p>答:</p>
+<ol>
+<li>死锁是指多个进程因竞争资源而造成的一种僵局，若无外力作用，这些进程都将永远不能再向前推进；</li>
+<li>产生死锁的原因有二：一是竞争资源，二是进程推进顺序非法；</li>
+<li>必要条件是：互斥条件，请求和保持条件，不剥夺条件和环路等待条件。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-3-7-P120-利用银行家算法（掌握）"><a href="#3-3-7-P120-利用银行家算法（掌握）" class="headerlink" title="3.3.7. P120 利用银行家算法（掌握）"></a>3.3.7. P120 利用银行家算法（掌握）</h3><p>31 在银行家算法中，若出现下述资源分配情</p>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Allocatio n</th>
+<th>Need</th>
+<th>Available</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P0P_0<em>P</em>0</td>
+<td>0032</td>
+<td>0012</td>
+<td>1622</td>
+</tr>
+<tr>
+<td>P1P_1<em>P</em>1</td>
+<td>1000</td>
+<td>1750</td>
+<td></td>
+</tr>
+<tr>
+<td>P2P_2<em>P</em>2</td>
+<td>1354</td>
+<td>2356</td>
+<td></td>
+</tr>
+<tr>
+<td>P3P_3<em>P</em>3</td>
+<td>0332</td>
+<td>0652</td>
+<td></td>
+</tr>
+<tr>
+<td>P4P_4<em>P</em>4</td>
+<td>0014</td>
+<td>0656</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>试问:<br>(1)该状态是否安全?<br>(2)若进程P2P_2<em>P</em>2​提出请求Request(1，2，2，2)后，系统能否将资源分配给它?<br>答:<br>(1)该状态是安全的，因为存在一个安全序列&lt;P0P3P4P1P2P_0P_3P_4P_1P_2*P*0​*P*3​*P*4​*P*1​*P*2​&gt;。 下表为该时刻的安全序列表。<br><img src= "/img/loading.gif" data-src="/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/20191125120444306.png" alt="在这里插入图片描述"><br>(2)若进程P2提出请求Request(1, 2, 2，2)后，系统不能将资源分配给它，若分配给进程P2，系统还剩的资源情况为(0, 4, 0, 0)，此时系统中的资源将无法满足任何一个进程的资源请求，从而导致系统进入不安全状态，容易引起死锁的发生。</p>
+<h3 id="3-3-8-P126-四种条件"><a href="#3-3-8-P126-四种条件" class="headerlink" title="3.3.8. P126 四种条件"></a>3.3.8. P126 四种条件</h3><p>选择被终止的进程时应考虑的若干因素：</p>
+<ol>
+<li>进程的优先级大小</li>
+<li>进程已执行了多少时间，还需要多少时间方能完成</li>
+<li>进程在运行中已经使用资源的多少，以后还需要多少资源</li>
+<li>进程的性质是交互式的还是批处理式的。</li>
+</ol>
+<h3 id="3-3-9-P127（7题）"><a href="#3-3-9-P127（7题）" class="headerlink" title="3.3.9. P127（7题）"></a>3.3.9. P127（7题）</h3><ol>
+<li>试说明低级调度的主要功能。<br>答：(1)保存处理机的现场信息(2)按某种算法选取进程(3)把处理机分配给进程。</li>
+</ol>
+<h2 id="3-4-第4章"><a href="#3-4-第4章" class="headerlink" title="3.4. 第4章"></a>3.4. 第4章</h2><h3 id="3-4-1-P139-基于顺序的，四种算法优缺点，选择题，四种算法"><a href="#3-4-1-P139-基于顺序的，四种算法优缺点，选择题，四种算法" class="headerlink" title="3.4.1. P139 基于顺序的，四种算法优缺点，选择题，四种算法"></a>3.4.1. P139 基于顺序的，四种算法优缺点，选择题，四种算法</h3><ol>
+<li><p>分区存储管理中常采用哪些分配策略？比较它们的优缺点。</p>
+<p>分区存储管理中常采用的分配策略有：首次适应算法、循环首次适应算法、最佳适应算法、最坏适应算法。</p>
+<ol>
+<li>首次适应算法的优缺点：保留了高址部分的大空闲区，有利于后到来的大型作业的分配；低址部分不断被划分，留下许多难以利用的、小的空闲区，且每次分区分配查找时都是从低址部分开始，会增加查找时的系统开销。</li>
+<li>循环首次适应算法的优缺点：使内存中的空闲分区分布得更为均匀，减少了查找时的系统开销；缺乏大的空闲分区，从而导致不能装入大型作业。</li>
+<li>最佳适应算法的优缺点：每次分配给文件的都是最适合该文件大小的分区；内存中留下许多难以利用的小的空闲区。</li>
+<li>最坏适应算法的优缺点：给文件分配分区后剩下的的空闲区不至于太小，产生碎片的几率最小，对中小型文件分配分区操作有利；使存储器中缺乏大的空闲区，对大型文件的分区分配不利。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-4-2-P142-重定位"><a href="#3-4-2-P142-重定位" class="headerlink" title="3.4.2. P142 重定位"></a>3.4.2. P142 重定位</h3><h3 id="3-4-3-P148-分页存储，分段，段页式"><a href="#3-4-3-P148-分页存储，分段，段页式" class="headerlink" title="3.4.3. P148 分页存储，分段，段页式"></a>3.4.3. P148 分页存储，分段，段页式</h3><h3 id="3-4-4-P149-页表"><a href="#3-4-4-P149-页表" class="headerlink" title="3.4.4. P149 页表"></a>3.4.4. P149 页表</h3><h3 id="3-4-5-P158-分页和分段的主要区别"><a href="#3-4-5-P158-分页和分段的主要区别" class="headerlink" title="3.4.5. P158 分页和分段的主要区别"></a>3.4.5. P158 分页和分段的主要区别</h3><p>26 分页和分段有何区别？<br>答:</p>
+<ol>
+<li>共同点：分页和分段都采用离散分配的方式，且都要通过地址映射机构来实现地址变换；</li>
+<li>不同点：<ol>
+<li>从功能上看，页是信息的物理单位，分页是为实现离散分配方式，以消减内存的外零头，提高内存的利用率，即满足系统管理的需要，而不是用户的需要；而段是信息的逻辑单位，它含有一组其意义相对完整的信息，目的是为了能更好地满足用户的需要；</li>
+<li>页的大小固定且由系统确定，而段的长度却不固定，决定于用户所编写的程序；</li>
+<li>分页的作业地址空间是一维的，而分段的作业地址空间是二维的。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-4-6-P162-7-8-10-19-26"><a href="#3-4-6-P162-7-8-10-19-26" class="headerlink" title="3.4.6. P162 7,8,10,19,26"></a>3.4.6. P162 7,8,10,19,26</h3><h2 id="3-5-第5章"><a href="#3-5-第5章" class="headerlink" title="3.5. 第5章"></a>3.5. 第5章</h2><h3 id="3-5-1-P164-虚拟存储器的定义（166页）"><a href="#3-5-1-P164-虚拟存储器的定义（166页）" class="headerlink" title="3.5.1. P164 虚拟存储器的定义（166页）"></a>3.5.1. P164 虚拟存储器的定义（166页）</h3><p>虚拟存储器的特征<br>\3. 虚拟存储器有哪些特征？其中最本质的特征是什么？<br>答：虚拟存储器有多次性、对换性、虚拟性三大特征。最本质的特征是虚拟性。</p>
+<h3 id="3-5-2-P174-缺页率"><a href="#3-5-2-P174-缺页率" class="headerlink" title="3.5.2. P174 缺页率"></a>3.5.2. P174 缺页率</h3><p>页面置换算法：先进先出、最近最久未使用</p>
+<h3 id="3-5-3-P181-什么是抖动现象，产生抖动的原因"><a href="#3-5-3-P181-什么是抖动现象，产生抖动的原因" class="headerlink" title="3.5.3. P181 什么是抖动现象，产生抖动的原因"></a>3.5.3. P181 什么是抖动现象，产生抖动的原因</h3><ol>
+<li>什么是抖动？产生抖动的原因是什么？<ol>
+<li>抖动(Thrashing)就是指当内存中已无空闲空间而又发生缺页中断时，需要从内存中调出一页程序或数据送入磁盘的对换区中，如果算法不适当，刚被换出的页很快被访问，需重新调入，因此需再选一页调出，而此时被换出的页很快又要被访问，因而又需将它调入，如此频繁更换页面，使得系统把大部分时间用在了页面的调进换出上，而几乎不能完成任何有效的工作，我们称这种现象为”抖动”。</li>
+<li>产生抖动的原因是由于CPU的利用率和多道程序度的对立统一矛盾关系引起的，为了提高CPU利用率，可提高多道程序度，但单纯提高多道程序度又会造成缺页率的急剧上升，导致CPU的利用率下降，而系统的调度程序又会为了提高CPU利用率而继续提高多道程序度，形成恶性循环，我们称这时的进程是处于”抖动”状态。</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-6-第6章"><a href="#3-6-第6章" class="headerlink" title="3.6. 第6章"></a>3.6. 第6章</h2><h3 id="3-6-1-P200-IO通道，IO作用"><a href="#3-6-1-P200-IO通道，IO作用" class="headerlink" title="3.6.1. P200 IO通道，IO作用"></a>3.6.1. P200 IO通道，IO作用</h3><h3 id="3-6-2-P213-无关性"><a href="#3-6-2-P213-无关性" class="headerlink" title="3.6.2. P213 无关性"></a>3.6.2. P213 无关性</h3><ol>
+<li>与设备无关性的基本含义是什么?为什么要设置该层?<br>答：为了提高OS的可适应性和可扩展性,在现代OS中都毫无例外地实现了设备独立性，也称设备无关性。基本含义:应用程序独立于具体使用的物理设备。为了实现设备独立性而引入了逻辑设备和物理设备两概念。在应用程序中,使用逻辑设备名称来请求使用某类设备;而系统在实际执行时，还必须使用物理设备名称。<br>优点：</li>
+<li>设备分配时的灵活性</li>
+<li>易于实现I/0重定向(用于I/0操作的设备可以更换(即重定向)，而不必改变应用程序。</li>
+</ol>
+<h3 id="3-6-3-P220-假脱机系统，为什么引入"><a href="#3-6-3-P220-假脱机系统，为什么引入" class="headerlink" title="3.6.3. P220 假脱机系统，为什么引入"></a>3.6.3. P220 假脱机系统，为什么引入</h3><h3 id="3-6-4-P224-缓冲"><a href="#3-6-4-P224-缓冲" class="headerlink" title="3.6.4. P224 缓冲"></a>3.6.4. P224 缓冲</h3><ol>
+<li>引入缓冲的主要原因是什么?<br>答：缓和CPU与I/0设备之间速度不匹配的矛盾；减少对CPU的中断频率；放宽对中断响应时间的限制；解决数据力度不匹配的问题：提高CPU和I/0设备之间的并行性。</li>
+</ol>
+<h3 id="3-6-5-P232-磁盘访问时间"><a href="#3-6-5-P232-磁盘访问时间" class="headerlink" title="3.6.5. P232 磁盘访问时间"></a>3.6.5. P232 磁盘访问时间</h3><ol>
+<li>磁盘访问时间由哪几部分组成？每部分时间应如何计算？<br>答：磁盘访问时间由寻道时间TsT_s<em>T**s</em>​、旋转延迟时间TrT_r<em>T**r</em>​.传输时间TtT_t<em>T**t</em>​三部分组成。<br>(1)TsT_s<em>T**s</em>​是启动磁臂时间s与磁头移动n条磁道的时间和，即Ts=m×n+sT_s=m\times n+s<em>T**s</em>​=<em>m</em>×<em>n</em>+<em>s</em>。<br>其中，m是一常数，与磁盘驱动器的速度有关。<br>(2)TrT_r<em>T**r</em>​是指定扇区移动到磁头下面所经历的时间。硬盘15000r/min15000r/min15000<em>r</em>/<em>m<strong>i</strong>n</em>时TrT_r<em>T**r</em>​为2ms2ms2<em>m**s</em>;<br>软盘300300300或600r/min600r/min600<em>r</em>/<em>m<strong>i</strong>n</em>时TrT_r<em>T**r</em>​为50 100ms50~100ms50 100<em>m**s</em>.<br>(3)TtT_t<em>T**t</em>​是指数据从磁盘读出或向磁盘写入经历的时间。TtT_t<em>T**t</em>​的大小与每次读/写的字节数bb<em>b</em>和旋转速度有关：Tt=b/rNTt=b/rN<em>T**t</em>=<em>b</em>/<em>r**N</em>。</li>
+</ol>
+<h3 id="3-6-6-P233-寻道时间（掌握）"><a href="#3-6-6-P233-寻道时间（掌握）" class="headerlink" title="3.6.6. P233 寻道时间（掌握）"></a>3.6.6. P233 寻道时间（掌握）</h3><p>寻道时间Ts=m×n+sT_s=m\times n+s<em>T**s</em>=<em>m</em>×<em>n</em>+<em>s</em><br>其中，m是一常数，与磁盘驱动器的速度有关。</p>
+<h2 id="3-7-第7章"><a href="#3-7-第7章" class="headerlink" title="3.7. 第7章"></a>3.7. 第7章</h2><h3 id="3-7-1-P249-文件目录作用，方便查找"><a href="#3-7-1-P249-文件目录作用，方便查找" class="headerlink" title="3.7.1. P249 文件目录作用，方便查找"></a>3.7.1. P249 文件目录作用，方便查找</h3><p>文件目录是指：为实现“按名存取”，必须建立文件名与辅存空间中物理地址的对应关系，体现这种对应关系的数据结构称为文件目录。</p>
+<ol>
+<li>实现“按名存取”</li>
+<li>提高对目录的检索速度</li>
+<li>文件共享</li>
+<li>允许文件重名</li>
+</ol>
+<h2 id="3-8-第8章"><a href="#3-8-第8章" class="headerlink" title="3.8. 第8章"></a>3.8. 第8章</h2><h3 id="3-8-1-P280-位示图"><a href="#3-8-1-P280-位示图" class="headerlink" title="3.8.1. P280 位示图"></a>3.8.1. P280 位示图</h3><p>位示图是利用二进制的一位来表示磁盘中的一个盘块的使用情况。当其值为“0”时，表示对应的盘块空闲；为“1”时，表示已经分配。有的系统把”0”作为盘块已分配的标记，把“1”作为空闲标志。(它们的本质上是相同的，都是用一位的两种状态标志空闲和已分配两种情况。)磁盘上的所有盘块都有一个二进制位与之对应，这样，由所有盘块所对应的位构成一个集合，称为位示图。</p>
+<h2 id="3-9-第9章"><a href="#3-9-第9章" class="headerlink" title="3.9. 第9章"></a>3.9. 第9章</h2><h3 id="3-9-1-P298-操作系统提供的接口"><a href="#3-9-1-P298-操作系统提供的接口" class="headerlink" title="3.9.1. P298 操作系统提供的接口"></a>3.9.1. P298 操作系统提供的接口</h3><p>一般地，操作系统向用户提供了两类接口：用户接口和程序接口。值得说明的是，在Internet广为流行的今天，OS又增加了一种面向网络的网络用户接口。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DolphinHome</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dolphinhome.gitee.io/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">http://dolphinhome.gitee.io/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dolphinhome.gitee.io" target="_blank">DolphinHome的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="wechat" onclick="window.open('/img/wechat.png')"/><div class="post-qr-code__desc">wechat</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.png" alt="alipay" onclick="window.open('/img/alipay.png')"/><div class="post-qr-code__desc">alipay</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8F%8F%E8%BF%B0%E4%B8%8E%E6%8E%A7%E5%88%B6/"><img class="prev-cover" data-src="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第二章_进程的描述与控制</div></div></a></div><div class="next-post pull-right"><a href="/2020/09/13/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93_%E6%B1%A4%E5%AD%90%E7%80%9B%E7%89%88/"><img class="next-cover" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机操作系统总结_汤子瀛版</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/09/13/蚌埠学院/计算机组成原理/第一章_计算机系统概论/" title="第一章_计算机系统概论"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="relatedPosts_title">第一章_计算机系统概论</div></div></a></div><div class="relatedPosts_item"><a href="/2020/09/13/蚌埠学院/计算机组成原理/第三章_系统总线/" title="第三章_系统总线"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="relatedPosts_title">第三章_系统总线</div></div></a></div><div class="relatedPosts_item"><a href="/2020/09/13/蚌埠学院/计算机操作系统/第三章_处理机调度与死锁/" title="第二章_进程的描述与控制"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/10.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="relatedPosts_title">第二章_进程的描述与控制</div></div></a></div><div class="relatedPosts_item"><a href="/2020/09/13/蚌埠学院/计算机操作系统/第一章_操作系统引论/" title="第一章_操作系统引论"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/10.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="relatedPosts_title">第一章_操作系统引论</div></div></a></div><div class="relatedPosts_item"><a href="/2020/09/13/蚌埠学院/计算机操作系统/第二章_进程的描述与控制/" title="第二章_进程的描述与控制"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="relatedPosts_title">第二章_进程的描述与控制</div></div></a></div><div class="relatedPosts_item"><a href="/2020/09/13/蚌埠学院/计算机操作系统/计算机操作系统总结_汤子瀛版/" title="计算机操作系统总结_汤子瀛版"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="relatedPosts_title">计算机操作系统总结_汤子瀛版</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>
