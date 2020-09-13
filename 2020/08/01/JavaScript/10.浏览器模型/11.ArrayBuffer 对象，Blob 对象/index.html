@@ -1,179 +1,167 @@
-#article-container ol,
-#article-container ul {
-  margin-top: 0.4rem;
-}
-#article-container ol p,
-#article-container ul p {
-  margin: 0 0 0.5rem;
-}
-#article-container ol ol,
-#article-container ul ol,
-#article-container ol ul,
-#article-container ul ul {
-  padding-left: 0.5rem;
-}
-#article-container ol li,
-#article-container ul li {
-  position: relative;
-  margin: 0.3rem 0;
-  padding-left: 0.3rem;
-}
-a {
-  color: $a-link-color;
-  text-decoration: none;
-  word-wrap: break-word;
-  transition: all 0.2s;
-  overflow-wrap: break-word;
-}
-a:hover {
-  color: $light-blue;
-}
-a.fancybox {
-  outline: none;
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-}
-a.fancybox:focus {
-  outline: none;
-}
-img {
-  max-width: 100%;
-  transition: all 0.2s;
-}
-.katex-wrap {
-  overflow: auto;
-}
-.katex-wrap::-webkit-scrollbar {
-  display: none;
-}
-.layout_post {
-  margin: 0 auto;
-  padding: 2rem 15px;
-  max-width: 1000px;
-}
-.layout_post img {
-  display: block;
-}
-.layout_post .tag_share .post-meta__tag-list {
-  display: inline-block;
-}
-.layout_post .tag_share .post-meta__tags {
-  display: inline-block;
-  margin: 0.4rem 0.4rem 0.4rem 0;
-  padding: 0 0.6rem;
-  width: fit-content;
-  border: 1px solid $light-blue;
-  border-radius: 0.6rem;
-  color: $light-blue;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.layout_post .tag_share .post-meta__tags:hover {
-  background: $light-blue;
-  color: $button-color;
-}
-.layout_post .tag_share .post_share {
-  display: inline-block;
-  float: right;
-  margin: 0.4rem 0;
-  width: fit-content;
-}
-.layout_post .tag_share .post_share .social-share {
-  font-size: 12px;
-}
-.layout_post .tag_share .post_share .social-share .social-share-icon {
-  margin: 0 4px;
-  width: 26px;
-  height: 26px;
-  font-size: 15px;
-  line-height: 25px;
-}
-.layout_post .post-copyright {
-  position: relative;
-  margin: 2rem 0 0.5rem;
-  padding: 0.5rem 0.8rem;
-  border: 1px solid $light-grey;
-  transition: box-shadow 0.3s ease-in-out;
-}
-.layout_post .post-copyright:before {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 0.8rem;
-  background: $light-blue;
-  content: '';
-}
-.layout_post .post-copyright:after {
-  position: absolute;
-  top: 0.7rem;
-  right: 0.7rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 0.4rem;
-  background: $white;
-  content: '';
-}
-.layout_post .post-copyright:hover {
-  box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
-}
-.layout_post .post-copyright .post-copyright-meta {
-  color: $light-blue;
-  font-weight: bold;
-}
-.layout_post .post-copyright .post-copyright-info {
-  padding-left: 0.3rem;
-}
-.layout_post .post-copyright .post-copyright-info a {
-  text-decoration: underline;
-  word-break: break-word;
-}
-.layout_post .post-copyright .post-copyright-info a:hover {
-  text-decoration: none;
-}
-#article-container {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-#article-container a {
-  color: $theme-link-color;
-}
-#article-container a:hover {
-  text-decoration: underline;
-}
-#article-container img {
-  margin: 0 auto 0.8rem;
-}
-#article-container p {
-  margin: 0 0 0.8rem;
-}
-#article-container iframe {
-  margin: 0 0 1rem;
-}
-@media screen and (max-width: 1024px) {
-  .layout_post {
-    width: auto;
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>10.11 ArrayBuffer 对象，Blob 对象 | DolphinHome的博客</title><meta name="description" content="详情内容  ArrayBuffer 对象，Blob 对象ArrayBuffer 对象ArrayBuffer 对象表示一段二进制数据，用来模拟内存里面的数据。通过这个对象，JavaScript 可以读写二进制数据。这个对象可以看作内存数据的表达。 这个对象是 ES6 才写入标准的，普通的网页编程用不到它，为了教程体系的完整，下面只提供一个简略的介绍，详细介绍请看《ES6 标准入门》里面的章"><meta name="keywords" content="JavaScript"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/11.ArrayBuffer%20%E5%AF%B9%E8%B1%A1%EF%BC%8CBlob%20%E5%AF%B9%E8%B1%A1/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="10.11 ArrayBuffer 对象，Blob 对象"><meta property="og:url" content="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/11.ArrayBuffer%20%E5%AF%B9%E8%B1%A1%EF%BC%8CBlob%20%E5%AF%B9%E8%B1%A1/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="详情内容  ArrayBuffer 对象，Blob 对象ArrayBuffer 对象ArrayBuffer 对象表示一段二进制数据，用来模拟内存里面的数据。通过这个对象，JavaScript 可以读写二进制数据。这个对象可以看作内存数据的表达。 这个对象是 ES6 才写入标准的，普通的网页编程用不到它，为了教程体系的完整，下面只提供一个简略的介绍，详细介绍请看《ES6 标准入门》里面的章"><meta property="og:image" content="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png"><meta property="article:published_time" content="2020-08-01T01:13:08.000Z"><meta property="article:modified_time" content="2020-08-01T06:44:05.262Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
   }
 }
-@media screen and (max-width: $sm) {
-  .layout_post {
-    padding: 1rem 5px;
-  }
-  .layout_post > #post {
-    padding: 1.8rem 0.7rem;
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
   }
 }
-@media screen and (min-width: $lr) {
-  .layout_post {
-    max-width: 1300px;
-  }
-  .layout_page {
-    max-width: 1500px;
-  }
-  .layout_page.hide-aside {
-    max-width: 1300px;
-  }
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
 }
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="11.7 &lt;video&gt; , &lt;audio&gt;" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/11.%E9%99%84%E5%BD%95%EF%BC%9A%E7%BD%91%E9%A1%B5%E5%85%83%E7%B4%A0%E6%8E%A5%E5%8F%A3/7.%E3%80%8Avideo%E3%80%8B%EF%BC%8C%E3%80%8Aaudio%E3%80%8B/"><link rel="next" title="10.12 File 对象，FileList 对象，FileReader 对象" href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/12.File%20%E5%AF%B9%E8%B1%A1%EF%BC%8CFileList%20%E5%AF%B9%E8%B1%A1%EF%BC%8CFileReader%20%E5%AF%B9%E8%B1%A1/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">127</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">28</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ArrayBuffer-%E5%AF%B9%E8%B1%A1%EF%BC%8CBlob-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text">ArrayBuffer 对象，Blob 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayBuffer-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.</span> <span class="toc-text">ArrayBuffer 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blob-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.</span> <span class="toc-text">Blob 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">实例属性和实例方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-number">1.2.3.</span> <span class="toc-text">获取文件信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.4.</span> <span class="toc-text">下载文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90-URL"><span class="toc-number">1.2.5.</span> <span class="toc-text">生成 URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.6.</span> <span class="toc-text">读取文件</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">10.11 ArrayBuffer 对象，Blob 对象</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-01 09:13:08"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-08-01</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-08-01 14:44:05"><i class="fas fa-history fa-fw"></i> 更新于 2020-08-01</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><a id="more"></a>
+
+<details>
+  <summary>详情内容</summary>
+
+<h1 id="ArrayBuffer-对象，Blob-对象"><a href="#ArrayBuffer-对象，Blob-对象" class="headerlink" title="ArrayBuffer 对象，Blob 对象"></a>ArrayBuffer 对象，Blob 对象</h1><h2 id="ArrayBuffer-对象"><a href="#ArrayBuffer-对象" class="headerlink" title="ArrayBuffer 对象"></a>ArrayBuffer 对象</h2><p>ArrayBuffer 对象表示一段二进制数据，用来模拟内存里面的数据。通过这个对象，JavaScript 可以读写二进制数据。这个对象可以看作内存数据的表达。</p>
+<p>这个对象是 ES6 才写入标准的，普通的网页编程用不到它，为了教程体系的完整，下面只提供一个简略的介绍，详细介绍请看《ES6 标准入门》里面的章节。</p>
+<p>浏览器原生提供<code>ArrayBuffer()</code>构造函数，用来生成实例。它接受一个整数作为参数，表示这段二进制数据占用多少个字节。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var buffer &#x3D; new ArrayBuffer(8);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，实例对象<code>buffer</code>占用8个字节。</p>
+<p>ArrayBuffer 对象有实例属性<code>byteLength</code>，表示当前实例占用的内存长度（单位字节）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var buffer &#x3D; new ArrayBuffer(8);</span><br><span class="line">buffer.byteLength &#x2F;&#x2F; 8</span><br></pre></td></tr></table></figure>
+
+<p>ArrayBuffer 对象有实例方法<code>slice()</code>，用来复制一部分内存。它接受两个整数参数，分别表示复制的开始位置（从0开始）和结束位置（复制时不包括结束位置），如果省略第二个参数，则表示一直复制到结束。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var buf1 &#x3D; new ArrayBuffer(8);</span><br><span class="line">var buf2 &#x3D; buf1.slice(0);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示复制原来的实例。</p>
+<h2 id="Blob-对象"><a href="#Blob-对象" class="headerlink" title="Blob 对象"></a>Blob 对象</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Blob 对象表示一个二进制文件的数据内容，比如一个图片文件的内容就可以通过 Blob 对象读写。它通常用来读写文件，它的名字是 Binary Large Object （二进制大型对象）的缩写。它与 ArrayBuffer 的区别在于，它用于操作二进制文件，而 ArrayBuffer 用于操作内存。</p>
+<p>浏览器原生提供<code>Blob()</code>构造函数，用来生成实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Blob(array [, options])</span><br></pre></td></tr></table></figure>
+
+<p><code>Blob</code>构造函数接受两个参数。第一个参数是数组，成员是字符串或二进制对象，表示新生成的<code>Blob</code>实例对象的内容；第二个参数是可选的，是一个配置对象，目前只有一个属性<code>type</code>，它的值是一个字符串，表示数据的 MIME 类型，默认是空字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var htmlFragment &#x3D; [&#39;&lt;a id&#x3D;&quot;a&quot;&gt;&lt;b id&#x3D;&quot;b&quot;&gt;hey!&lt;&#x2F;b&gt;&lt;&#x2F;a&gt;&#39;];</span><br><span class="line">var myBlob &#x3D; new Blob(htmlFragment, &#123;type : &#39;text&#x2F;html&#39;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，实例对象<code>myBlob</code>包含的是字符串。生成实例的时候，数据类型指定为<code>text/html</code>。</p>
+<p>下面是另一个例子，Blob 保存 JSON 数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123; hello: &#39;world&#39; &#125;;</span><br><span class="line">var blob &#x3D; new Blob([ JSON.stringify(obj) ], &#123;type : &#39;application&#x2F;json&#39;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例属性和实例方法"><a href="#实例属性和实例方法" class="headerlink" title="实例属性和实例方法"></a>实例属性和实例方法</h3><p><code>Blob</code>具有两个实例属性<code>size</code>和<code>type</code>，分别返回数据的大小和类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var htmlFragment &#x3D; [&#39;&lt;a id&#x3D;&quot;a&quot;&gt;&lt;b id&#x3D;&quot;b&quot;&gt;hey!&lt;&#x2F;b&gt;&lt;&#x2F;a&gt;&#39;];</span><br><span class="line">var myBlob &#x3D; new Blob(htmlFragment, &#123;type : &#39;text&#x2F;html&#39;&#125;);</span><br><span class="line"></span><br><span class="line">myBlob.size &#x2F;&#x2F; 32</span><br><span class="line">myBlob.type &#x2F;&#x2F; &quot;text&#x2F;html&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>Blob</code>具有一个实例方法<code>slice</code>，用来拷贝原来的数据，返回的也是一个<code>Blob</code>实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myBlob.slice(start, end, contentType)</span><br></pre></td></tr></table></figure>
+
+<p><code>slice</code>方法有三个参数，都是可选的。它们依次是起始的字节位置（默认为0）、结束的字节位置（默认为<code>size</code>属性的值，该位置本身将不包含在拷贝的数据之中）、新实例的数据类型（默认为空字符串）。</p>
+<h3 id="获取文件信息"><a href="#获取文件信息" class="headerlink" title="获取文件信息"></a>获取文件信息</h3><p>文件选择器<code>&lt;input type=&quot;file&quot;&gt;</code>用来让用户选取文件。出于安全考虑，浏览器不允许脚本自行设置这个控件的<code>value</code>属性，即文件必须是用户手动选取的，不能是脚本指定的。一旦用户选好了文件，脚本就可以读取这个文件。</p>
+<p>文件选择器返回一个 FileList 对象，该对象是一个类似数组的成员，每个成员都是一个 File 实例对象。File 实例对象是一个特殊的 Blob 实例，增加了<code>name</code>和<code>lastModifiedDate</code>属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; HTML 代码如下</span><br><span class="line">&#x2F;&#x2F; &lt;input type&#x3D;&quot;file&quot; accept&#x3D;&quot;image&#x2F;*&quot; multiple onchange&#x3D;&quot;fileinfo(this.files)&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">function fileinfo(files) &#123;</span><br><span class="line">  for (var i &#x3D; 0; i &lt; files.length; i++) &#123;</span><br><span class="line">    var f &#x3D; files[i];</span><br><span class="line">    console.log(</span><br><span class="line">      f.name, &#x2F;&#x2F; 文件名，不含路径</span><br><span class="line">      f.size, &#x2F;&#x2F; 文件大小，Blob 实例属性</span><br><span class="line">      f.type, &#x2F;&#x2F; 文件类型，Blob 实例属性</span><br><span class="line">      f.lastModifiedDate &#x2F;&#x2F; 文件的最后修改时间</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了文件选择器，拖放 API 的<code>dataTransfer.files</code>返回的也是一个FileList 对象，它的成员因此也是 File 实例对象。</p>
+<h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><p>AJAX 请求时，如果指定<code>responseType</code>属性为<code>blob</code>，下载下来的就是一个 Blob 对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getBlob(url, callback) &#123;</span><br><span class="line">  var xhr &#x3D; new XMLHttpRequest();</span><br><span class="line">  xhr.open(&#39;GET&#39;, url);</span><br><span class="line">  xhr.responseType &#x3D; &#39;blob&#39;;</span><br><span class="line">  xhr.onload &#x3D; function () &#123;</span><br><span class="line">    callback(xhr.response);</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.send(null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>xhr.response</code>拿到的就是一个 Blob 对象。</p>
+<h3 id="生成-URL"><a href="#生成-URL" class="headerlink" title="生成 URL"></a>生成 URL</h3><p>浏览器允许使用<code>URL.createObjectURL()</code>方法，针对 Blob 对象生成一个临时 URL，以便于某些 API 使用。这个 URL 以<code>blob://</code>开头，表明对应一个 Blob 对象，协议头后面是一个识别符，用来唯一对应内存里面的 Blob 对象。这一点与<code>data://URL</code>（URL 包含实际数据）和<code>file://URL</code>（本地文件系统里面的文件）都不一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var droptarget &#x3D; document.getElementById(&#39;droptarget&#39;);</span><br><span class="line"></span><br><span class="line">droptarget.ondrop &#x3D; function (e) &#123;</span><br><span class="line">  var files &#x3D; e.dataTransfer.files;</span><br><span class="line">  for (var i &#x3D; 0; i &lt; files.length; i++) &#123;</span><br><span class="line">    var type &#x3D; files[i].type;</span><br><span class="line">    if (type.substring(0,6) !&#x3D;&#x3D; &#39;image&#x2F;&#39;)</span><br><span class="line">      continue;</span><br><span class="line">    var img &#x3D; document.createElement(&#39;img&#39;);</span><br><span class="line">    img.src &#x3D; URL.createObjectURL(files[i]);</span><br><span class="line">    img.onload &#x3D; function () &#123;</span><br><span class="line">      this.width &#x3D; 100;</span><br><span class="line">      document.body.appendChild(this);</span><br><span class="line">      URL.revokeObjectURL(this.src);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码通过为拖放的图片文件生成一个 URL，产生它们的缩略图，从而使得用户可以预览选择的文件。</p>
+<p>浏览器处理 Blob URL 就跟普通的 URL 一样，如果 Blob 对象不存在，返回404状态码；如果跨域请求，返回403状态码。Blob URL 只对 GET 请求有效，如果请求成功，返回200状态码。由于 Blob URL 就是普通 URL，因此可以下载。</p>
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><p>取得 Blob 对象以后，可以通过<code>FileReader</code>对象，读取 Blob 对象的内容，即文件内容。</p>
+<p>FileReader 对象提供四个方法，处理 Blob 对象。Blob 对象作为参数传入这些方法，然后以指定的格式返回。</p>
+<ul>
+<li><code>FileReader.readAsText()</code>：返回文本，需要指定文本编码，默认为 UTF-8。</li>
+<li><code>FileReader.readAsArrayBuffer()</code>：返回 ArrayBuffer 对象。</li>
+<li><code>FileReader.readAsDataURL()</code>：返回 Data URL。</li>
+<li><code>FileReader.readAsBinaryString()</code>：返回原始的二进制字符串。</li>
+</ul>
+<p>下面是<code>FileReader.readAsText()</code>方法的例子，用来读取文本文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; HTML 代码如下</span><br><span class="line">&#x2F;&#x2F; &lt;input type&#x3D;’file&#39; onchange&#x3D;&#39;readfile(this.files[0])&#39;&gt;&lt;&#x2F;input&gt;</span><br><span class="line">&#x2F;&#x2F; &lt;pre id&#x3D;&#39;output&#39;&gt;&lt;&#x2F;pre&gt;</span><br><span class="line">function readfile(f) &#123;</span><br><span class="line">  var reader &#x3D; new FileReader();</span><br><span class="line">  reader.readAsText(f);</span><br><span class="line">  reader.onload &#x3D; function () &#123;</span><br><span class="line">    var text &#x3D; reader.result;</span><br><span class="line">    var out &#x3D; document.getElementById(&#39;output&#39;);</span><br><span class="line">    out.innerHTML &#x3D; &#39;&#39;;</span><br><span class="line">    out.appendChild(document.createTextNode(text));</span><br><span class="line">  &#125;</span><br><span class="line">  reader.onerror &#x3D; function(e) &#123;</span><br><span class="line">    console.log(&#39;Error&#39;, e);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，通过指定 FileReader 实例对象的<code>onload</code>监听函数，在实例的<code>result</code>属性上拿到文件内容。</p>
+<p>下面是<code>FileReader.readAsArrayBuffer()</code>方法的例子，用于读取二进制文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; HTML 代码如下</span><br><span class="line">&#x2F;&#x2F; &lt;input type&#x3D;&quot;file&quot; onchange&#x3D;&quot;typefile(this.files[0])&quot;&gt;&lt;&#x2F;input&gt;</span><br><span class="line">function typefile(file) &#123;</span><br><span class="line">  &#x2F;&#x2F; 文件开头的四个字节，生成一个 Blob 对象</span><br><span class="line">  var slice &#x3D; file.slice(0, 4);</span><br><span class="line">  var reader &#x3D; new FileReader();</span><br><span class="line">  &#x2F;&#x2F; 读取这四个字节</span><br><span class="line">  reader.readAsArrayBuffer(slice);</span><br><span class="line">  reader.onload &#x3D; function (e) &#123;</span><br><span class="line">    var buffer &#x3D; reader.result;</span><br><span class="line">    &#x2F;&#x2F; 将这四个字节的内容，视作一个32位整数</span><br><span class="line">    var view &#x3D; new DataView(buffer);</span><br><span class="line">    var magic &#x3D; view.getUint32(0, false);</span><br><span class="line">    &#x2F;&#x2F; 根据文件的前四个字节，判断它的类型</span><br><span class="line">    switch(magic) &#123;</span><br><span class="line">      case 0x89504E47: file.verified_type &#x3D; &#39;image&#x2F;png&#39;; break;</span><br><span class="line">      case 0x47494638: file.verified_type &#x3D; &#39;image&#x2F;gif&#39;; break;</span><br><span class="line">      case 0x25504446: file.verified_type &#x3D; &#39;application&#x2F;pdf&#39;; break;</span><br><span class="line">      case 0x504b0304: file.verified_type &#x3D; &#39;application&#x2F;zip&#39;; break;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(file.name, file.verified_type);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</details>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DolphinHome</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/11.ArrayBuffer%20%E5%AF%B9%E8%B1%A1%EF%BC%8CBlob%20%E5%AF%B9%E8%B1%A1/">http://dolphinhome.gitee.io/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/11.ArrayBuffer%20%E5%AF%B9%E8%B1%A1%EF%BC%8CBlob%20%E5%AF%B9%E8%B1%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dolphinhome.gitee.io" target="_blank">DolphinHome的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="wechat" onclick="window.open('/img/wechat.png')"/><div class="post-qr-code__desc">wechat</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.png" alt="alipay" onclick="window.open('/img/alipay.png')"/><div class="post-qr-code__desc">alipay</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/01/JavaScript/11.%E9%99%84%E5%BD%95%EF%BC%9A%E7%BD%91%E9%A1%B5%E5%85%83%E7%B4%A0%E6%8E%A5%E5%8F%A3/7.%E3%80%8Avideo%E3%80%8B%EF%BC%8C%E3%80%8Aaudio%E3%80%8B/"><img class="prev-cover" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">11.7 &lt;video&gt; , &lt;audio&gt;</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/01/JavaScript/10.%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B/12.File%20%E5%AF%B9%E8%B1%A1%EF%BC%8CFileList%20%E5%AF%B9%E8%B1%A1%EF%BC%8CFileReader%20%E5%AF%B9%E8%B1%A1/"><img class="next-cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/7.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">10.12 File 对象，FileList 对象，FileReader 对象</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/1.入门篇/1.导论/" title="1.1 导论"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">1.1 导论</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/11.附录：网页元素接口/1.《a》 元素/" title="11.1 <a> 元素"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">11.1 <a> 元素</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/11.附录：网页元素接口/2.《img》 元素/" title="11.2 <img> 元素"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">11.2 <img> 元素</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/11.附录：网页元素接口/3.《form》 元素/" title="11.3 <form> 元素"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">11.3 <form> 元素</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/11.附录：网页元素接口/4.《input》 元素/" title="11.4 <input> 元素"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">11.4 <input> 元素</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/01/JavaScript/11.附录：网页元素接口/6.《option》 元素/" title="11.6 <option> 元素"><img class="relatedPosts_cover" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="relatedPosts_title">11.6 <option> 元素</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>

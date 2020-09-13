@@ -1,179 +1,188 @@
-#article-container ol,
-#article-container ul {
-  margin-top: 0.4rem;
-}
-#article-container ol p,
-#article-container ul p {
-  margin: 0 0 0.5rem;
-}
-#article-container ol ol,
-#article-container ul ol,
-#article-container ol ul,
-#article-container ul ul {
-  padding-left: 0.5rem;
-}
-#article-container ol li,
-#article-container ul li {
-  position: relative;
-  margin: 0.3rem 0;
-  padding-left: 0.3rem;
-}
-a {
-  color: $a-link-color;
-  text-decoration: none;
-  word-wrap: break-word;
-  transition: all 0.2s;
-  overflow-wrap: break-word;
-}
-a:hover {
-  color: $light-blue;
-}
-a.fancybox {
-  outline: none;
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-}
-a.fancybox:focus {
-  outline: none;
-}
-img {
-  max-width: 100%;
-  transition: all 0.2s;
-}
-.katex-wrap {
-  overflow: auto;
-}
-.katex-wrap::-webkit-scrollbar {
-  display: none;
-}
-.layout_post {
-  margin: 0 auto;
-  padding: 2rem 15px;
-  max-width: 1000px;
-}
-.layout_post img {
-  display: block;
-}
-.layout_post .tag_share .post-meta__tag-list {
-  display: inline-block;
-}
-.layout_post .tag_share .post-meta__tags {
-  display: inline-block;
-  margin: 0.4rem 0.4rem 0.4rem 0;
-  padding: 0 0.6rem;
-  width: fit-content;
-  border: 1px solid $light-blue;
-  border-radius: 0.6rem;
-  color: $light-blue;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.layout_post .tag_share .post-meta__tags:hover {
-  background: $light-blue;
-  color: $button-color;
-}
-.layout_post .tag_share .post_share {
-  display: inline-block;
-  float: right;
-  margin: 0.4rem 0;
-  width: fit-content;
-}
-.layout_post .tag_share .post_share .social-share {
-  font-size: 12px;
-}
-.layout_post .tag_share .post_share .social-share .social-share-icon {
-  margin: 0 4px;
-  width: 26px;
-  height: 26px;
-  font-size: 15px;
-  line-height: 25px;
-}
-.layout_post .post-copyright {
-  position: relative;
-  margin: 2rem 0 0.5rem;
-  padding: 0.5rem 0.8rem;
-  border: 1px solid $light-grey;
-  transition: box-shadow 0.3s ease-in-out;
-}
-.layout_post .post-copyright:before {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 0.8rem;
-  background: $light-blue;
-  content: '';
-}
-.layout_post .post-copyright:after {
-  position: absolute;
-  top: 0.7rem;
-  right: 0.7rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 0.4rem;
-  background: $white;
-  content: '';
-}
-.layout_post .post-copyright:hover {
-  box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
-}
-.layout_post .post-copyright .post-copyright-meta {
-  color: $light-blue;
-  font-weight: bold;
-}
-.layout_post .post-copyright .post-copyright-info {
-  padding-left: 0.3rem;
-}
-.layout_post .post-copyright .post-copyright-info a {
-  text-decoration: underline;
-  word-break: break-word;
-}
-.layout_post .post-copyright .post-copyright-info a:hover {
-  text-decoration: none;
-}
-#article-container {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-#article-container a {
-  color: $theme-link-color;
-}
-#article-container a:hover {
-  text-decoration: underline;
-}
-#article-container img {
-  margin: 0 auto 0.8rem;
-}
-#article-container p {
-  margin: 0 0 0.8rem;
-}
-#article-container iframe {
-  margin: 0 0 1rem;
-}
-@media screen and (max-width: 1024px) {
-  .layout_post {
-    width: auto;
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java中的浮点数比较 == equals 和 compare | DolphinHome的博客</title><meta name="description" content="1、float整数计算误差 案例：会员积分字段采用float类型，导致计算会员积分时，7位整数的数据计算结果出现误差。 原因：超出float精度范围，无法精确计算。 float和double的精度是由尾数的位数来决定的。浮点数在内存中是按科学计数法来存储的，其整数部分始终是一个隐含着的“1”，由于它是不变的，故不能对精度造成影响。 float：2^23 &#x3D; 8388608，一共七位，这意味着最多能"><meta name="keywords" content="java"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/2020/08/31/Java/Other/Java%E6%B5%AE%E7%82%B9%E6%95%B0float%E5%92%8Cdouble%E7%B2%BE%E7%A1%AE%E8%AE%A1%E7%AE%97%E7%9A%84%E7%B2%BE%E5%BA%A6%E8%AF%AF%E5%B7%AE%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Java中的浮点数比较 == equals 和 compare"><meta property="og:url" content="http://dolphinhome.gitee.io/2020/08/31/Java/Other/Java%E6%B5%AE%E7%82%B9%E6%95%B0float%E5%92%8Cdouble%E7%B2%BE%E7%A1%AE%E8%AE%A1%E7%AE%97%E7%9A%84%E7%B2%BE%E5%BA%A6%E8%AF%AF%E5%B7%AE%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="1、float整数计算误差 案例：会员积分字段采用float类型，导致计算会员积分时，7位整数的数据计算结果出现误差。 原因：超出float精度范围，无法精确计算。 float和double的精度是由尾数的位数来决定的。浮点数在内存中是按科学计数法来存储的，其整数部分始终是一个隐含着的“1”，由于它是不变的，故不能对精度造成影响。 float：2^23 &#x3D; 8388608，一共七位，这意味着最多能"><meta property="og:image" content="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg"><meta property="article:published_time" content="2020-08-31T13:20:14.000Z"><meta property="article:modified_time" content="2020-09-10T23:55:36.603Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
   }
 }
-@media screen and (max-width: $sm) {
-  .layout_post {
-    padding: 1rem 5px;
-  }
-  .layout_post > #post {
-    padding: 1.8rem 0.7rem;
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
   }
 }
-@media screen and (min-width: $lr) {
-  .layout_post {
-    max-width: 1300px;
-  }
-  .layout_page {
-    max-width: 1500px;
-  }
-  .layout_page.hide-aside {
-    max-width: 1300px;
-  }
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
 }
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="java Properties配置文件写入与读取" href="http://dolphinhome.gitee.io/2020/08/31/Java/Other/java-Properties%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E4%B8%8E%E8%AF%BB%E5%8F%96/"><link rel="next" title="java写配置文件" href="http://dolphinhome.gitee.io/2020/08/31/Java/Other/java%E5%86%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">127</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">28</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Java中的浮点数比较 == equals 和 compare</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-31 21:20:14"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-08-31</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-11 07:55:36"><i class="fas fa-history fa-fw"></i> 更新于 2020-09-11</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p><strong><em>1、float整数计算误差</em></strong></p>
+<p><strong>案例：</strong>会员积分字段采用float类型，导致计算会员积分时，7位整数的数据计算结果出现误差。</p>
+<p>原因：超出float精度范围，无法精确计算。</p>
+<p>float和double的精度是由尾数的位数来决定的。浮点数在内存中是按科学计数法来存储的，其整数部分始终是一个隐含着的“1”，由于它是不变的，故不能对精度造成影响。</p>
+<p><strong>float：2^23 = 8388608，一共七位，这意味着最多能有7位有效数字，但绝对能保证的为6位，也即float的精度为6~7位有效数字；</strong><br><strong>double：2^52 = 4503599627370496，一共16位，同理，double的精度为15~16位。</strong></p>
+<p>难道只是位数多大的问题，字段类型换成double就可以解决吗？对于本案例是这样，因为都是整数计算，但如果有小数位，就不一定了，见下面案例。</p>
+<p><strong><em>2、double小数转bigdecimal后四舍五入计算有误差</em></strong></p>
+<p><strong><em>案例：</em></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> g= <span class="number">12.35</span>;  </span><br><span class="line"></span><br><span class="line">BigDecimal bigG=<span class="keyword">new</span> BigDecimal(g).setScale(<span class="number">1</span>, BigDecimal.ROUND_HALF_UP); <span class="comment">//期望得到12.4</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;test G:&quot;</span>+bigG.doubleValue()); </span><br><span class="line"></span><br><span class="line"><span class="comment">//test G:12.3 </span></span><br></pre></td></tr></table></figure>
+
+<p>原因：</p>
+<p>定义double g= 12.35;  而在计算机中二进制表示可能这是样：定义了一个g=12.34444444444444449，<br>new BigDecimal(g)  g还是12.34444444444444449<br>new BigDecimal(g).setScale(1, BigDecimal.ROUND_HALF_UP); 得到12.3<br>正确的定义方式是使用字符串构造函数：<br>new BigDecimal(“12.35”).setScale(1, BigDecimal.ROUND_HALF_UP)</p>
+<p><strong>3、float和double做四则运算误差</strong></p>
+<p><strong>案例：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="number">0.05</span>+<span class="number">0.01</span>);</span><br><span class="line">    System.out.println(<span class="number">1.0</span>-<span class="number">0.42</span>);</span><br><span class="line">    System.out.println(<span class="number">4.015</span>*<span class="number">100</span>);</span><br><span class="line">    System.out.println(<span class="number">123.3</span>/<span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">结果：</span></span><br><span class="line"><span class="comment">0.060000000000000005</span></span><br><span class="line"><span class="comment">0.5800000000000001</span></span><br><span class="line"><span class="comment">401.49999999999994</span></span><br><span class="line"><span class="comment">1.2329999999999999</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>原因：</p>
+<p>那么为什么会出现精度丢失呢？在查阅了一些资料以后，我稍微有了一些头绪，下面是本人的愚见，仅供参考。</p>
+<p>  首先得从计算机本身去讨论这个问题。我们知道，计算机并不能识别除了二进制数据以外的任何数据。无论我们使用何种编程语言，在何种编译环境下工作，都要先 把源程序翻译成二进制的机器码后才能被计算机识别。以上面提到的情况为例，我们源程序里的2.4是十进制的，计算机不能直接识别，要先编译成二进制。但问 题来了，2.4的二进制表示并非是精确的2.4，反而最为接近的二进制表示是2.3999999999999999。原因在于浮点数由两部分组成：指数和尾数，这点如果知道怎样进行浮点数的二进制与十进制转换，应该是不难理解的。如果在这个转换的过程中，浮点数参与了计算，那么转换的过程就会变得不可预 知，并且变得不可逆。我们有理由相信，就是在这个过程中，发生了精度的丢失。而至于为什么有些浮点计算会得到准确的结果，应该也是碰巧那个计算的二进制与 十进制之间能够准确转换。而当输出单个浮点型数据的时候，可以正确输出，如</p>
+<p>double d = 2.4;<br>System.out.println(d);</p>
+<p>  输出的是2.4，而不是2.3999999999999999。也就是说，不进行浮点计算的时候，在十进制里浮点数能正确显示。这更印证了我以上的想法，即如果浮点数参与了计算，那么浮点数二进制与十进制间的转换过程就会变得不可预知，并且变得不可逆。</p>
+<p>  事实上，浮点数并不适合用于精确计算，而适合进行科学计算。这里有一个小知识：既然float和double型用来表示带有小数点的数，那为什么我们不称 它们为“小数”或者“实数”，要叫浮点数呢？因为这些数都以科学计数法的形式存储。当一个数如50.534，转换成科学计数法的形式为5.053e1，它 的小数点移动到了一个新的位置（即浮动了）。可见，浮点数本来就是用于科学计算的，用来进行精确计算实在太不合适了。</p>
+<p><strong><em>4、bigdecimal构造函数使用不当带来异常</em></strong></p>
+<p><strong><em>案例：</em></strong></p>
+<p><code>BigDecimal</code>其中一个构造函数以双精度浮点数作为输入，另一个以整数和换算因子作为输入，还有一个以小数的 <code>String</code> 表示作为输入。要小心使用 <code>BigDecimal(double)</code> 构造函数，因为如果不了解它，会在计算过程中产生舍入误差。请使用基于整数或 <code>String</code> 的构造函数。</p>
+<p>如果使用 <code>BigDecimal(double)</code> 构造函数不恰当，在传递给 JDBC <code>setBigDecimal()</code> 方法时，会造成似乎很奇怪的 JDBC 驱动程序中的异常。例如，考虑以下 JDBC 代码，该代码希望将数字 <code>0.01</code> 存储到小数字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement ps &#x3D;    connection.prepareStatement(&quot;INSERT INTO Foo SET name&#x3D;?, value&#x3D;?&quot;);  ps.setString(1, &quot;penny&quot;);  ps.setBigDecimal(2, new BigDecimal(0.01));  ps.executeUpdate();</span><br></pre></td></tr></table></figure>
+
+<p>在执行这段似乎无害的代码时会抛出一些令人迷惑不解的异常（这取决于具体的 JDBC 驱动程序），因为 <code>0.01</code> 的双精度近似值会导致大的换算值，这可能会使 JDBC 驱动程序或数据库感到迷惑。JDBC 驱动程序会产生异常，但可能不会说明代码实际上错在哪里，除非意识到二进制浮点数的局限性。相反，使用 <code>BigDecimal(&quot;0.01&quot;)</code> 或 <code>BigDecimal(1, 2)</code> 构造 <code>BigDecimal</code> 来避免这类问题，因为这两种方法都可以精确地表示小数。</p>
+<p><strong><em>5、解决浮点数精确计算有误差的方法</em></strong></p>
+<p>在《Effective  Java》这本书中也提到这个原则，float和double只能用来做科学计算或者是工程计算，在商业计算中我们要用java.math.BigDecimal。使用BigDecimal并且一定要用String来够造。</p>
+<p>BigDecimal用哪个构造函数？<br>BigDecimal(double val)<br>BigDecimal(String val)<br>上面的API简要描述相当的明确，而且通常情况下，上面的那一个使用起来要方便一些。我们可能想都不想就用上了，会有什么问题呢？等到出了问题的时候，才发现参数是double的构造方法的详细说明中有这么一段：<br>Note: the results of this constructor can be somewhat unpredictable. One might assume that new BigDecimal(.1) is exactly equal to .1, but it is actually equal to .1000000000000000055511151231257827021181583404541015625. This is so because .1 cannot be represented exactly as a double (or, for that matter, as a binary fraction of any finite length). Thus, the long value that is being passed in to the constructor is not exactly equal to .1, appearances nonwithstanding.<br>The (String) constructor, on the other hand, is perfectly predictable: new BigDecimal(“.1”) is exactly equal to .1, as one would expect. Therefore, it is generally recommended that the (String) constructor be used in preference to this one.<br>原来我们如果需要精确计算，非要用String来够造BigDecimal不可！</p>
+<p><strong><em>6、定点数和浮点数的区别</em></strong></p>
+<p>在计算机系统的发展过程中，曾经提出过多种方法表达实数。典型的比如相对于浮点数的定点数（Fixed Point Number）。在这种表达方式中，小数点固定的位于实数所有数字中间的某个位置。货币的表达就可以使用这种方式，比如 99.00 或者 00.99 可以用于表达具有四位精度（Precision），小数点后有两位的货币值。由于小数点位置固定，所以可以直接用四位数值来表达相应的数值。SQL 中的 NUMBER 数据类型就是利用定点数来定义的。还有一种提议的表达方式为有理数表达方式，即用两个整数的比值来表达实数。</p>
+<p>定点数表达法的缺点在于其形式过于僵硬，固定的小数点位置决定了固定位数的整数部分和小数部分，不利于同时表达特别大的数或者特别小的数。最终，绝大多数现代的计算机系统采纳了所谓的浮点数表达方式。这种表达方式利用科学计数法来表达实数，即用一个尾数（Mantissa ），一个基数（Base），一个指数（Exponent）以及一个表示正负的符号来表达实数。比如 123.45 用十进制科学计数法可以表达为 1.2345 × 102 ，其中 1.2345 为尾数，10 为基数，2 为指数。浮点数利用指数达到了浮动小数点的效果，从而可以灵活地表达更大范围的实数。</p>
+<p>在MySQL中使用浮点数类型和定点数类型来表示小数。浮点数类型包括单精度浮点数（FLOAT型）和双精度浮点数（DOUBLE型）。定点数类型就是DECIMAL型。MySQL的浮点数类型和定点数类型如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型名称</th>
+<th align="left">字节数</th>
+<th align="left">负数的取值范围</th>
+<th align="left">非负数的取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">FLOAT</td>
+<td align="left">4</td>
+<td align="left">-3.402823466E+38～ -1.175494351E-38</td>
+<td align="left">0和1.175494351E-38～ 3.402823466E+38</td>
+</tr>
+<tr>
+<td align="left">DOUBLE</td>
+<td align="left">8</td>
+<td align="left">-1.7976931348623157E+308～ -2.2250738585072014E-308</td>
+<td align="left">0和2.2250738585072014E-308～ 1.7976931348623157E+308</td>
+</tr>
+<tr>
+<td align="left">DECIMAL(M,D)或DEC(M,D)</td>
+<td align="left">M+2</td>
+<td align="left">同DOUBLE型</td>
+<td align="left">同DOUBLE型</td>
+</tr>
+</tbody></table>
+<p>从上表中可以看出，DECIMAL型的取值范围与DOUBLE相同。但是，DECIMAL的有效取值范围由M和D决定，而且DECIMAL型的字节数是M+2，也就是说，定点数的存储空间是根据其精度决定的。</p>
+<p><strong>7、bigdecimal比等方法</strong></p>
+<p>如浮点类型一样， <code>BigDecimal</code> 也有一些令人奇怪的行为。尤其在使用 <code>equals()</code> 方法来检测数值之间是否相等时要小心。 <code>equals()</code> 方法认为，两个表示同一个数但换算值不同（例如， <code>100.00</code> 和 <code>100.000</code> ）的 <code>BigDecimal</code> 值是不相等的。然而， <code>compareTo()</code> 方法会认为这两个数是相等的，所以在从数值上比较两个 <code>BigDecimal</code> 值时，应该使用 <code>compareTo()</code> 而不是 <code>equals()</code> 。</p>
+<p>另外还有一些情形，任意精度的小数运算仍不能表示精确结果。例如， <code>1</code> 除以 <code>9</code> 会产生无限循环的小数 <code>.111111...</code> 。出于这个原因，在进行除法运算时， <code>BigDecimal</code> 可以让您显式地控制舍入。 <code>movePointLeft()</code> 方法支持 10 的幂次方的精确除法。</p>
+<p><strong>与零比较：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> r=big_decimal.compareTo(BigDecimal.Zero); <span class="comment">//和0，Zero比较</span></span><br><span class="line"><span class="keyword">if</span>(r==<span class="number">0</span>) <span class="comment">//等于</span></span><br><span class="line"><span class="keyword">if</span>(r==<span class="number">1</span>) <span class="comment">//大于</span></span><br><span class="line"><span class="keyword">if</span>(r==-<span class="number">1</span>) <span class="comment">//小于</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>8、简化bigdecimal计算的小工具类</strong></p>
+<p>如果我们要做一个加法运算，需要先将两个浮点数转为String，然后够造成BigDecimal，在其中一个上调用add方法，传入另一个作为参数，然后把运算的结果（BigDecimal）再转换为浮点数。你能够忍受这么烦琐的过程吗？网上提供的工具类Arith来简化操作。它提供以下静态方法，包括加减乘除和四舍五入：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span>   <span class="keyword">static</span>   <span class="keyword">double</span>   <span class="title">add</span><span class="params">(<span class="keyword">double</span>   v1,<span class="keyword">double</span>   v2)</span>   </span></span><br><span class="line"><span class="function"><span class="keyword">public</span>   <span class="keyword">static</span>   <span class="keyword">double</span>   <span class="title">sub</span><span class="params">(<span class="keyword">double</span>   v1,<span class="keyword">double</span>   v2)</span>   </span></span><br><span class="line"><span class="function"><span class="keyword">public</span>   <span class="keyword">static</span>   <span class="keyword">double</span>   <span class="title">mul</span><span class="params">(<span class="keyword">double</span>   v1,<span class="keyword">double</span>   v2)</span>   </span></span><br><span class="line"><span class="function"><span class="keyword">public</span>   <span class="keyword">static</span>   <span class="keyword">double</span>   <span class="title">div</span><span class="params">(<span class="keyword">double</span>   v1,<span class="keyword">double</span>   v2)</span>   </span></span><br><span class="line"><span class="function"><span class="keyword">public</span>   <span class="keyword">static</span>   <span class="keyword">double</span>   <span class="title">div</span><span class="params">(<span class="keyword">double</span>   v1,<span class="keyword">double</span>   v2,<span class="keyword">int</span>   scale)</span>   </span></span><br><span class="line"><span class="function"><span class="keyword">public</span>   <span class="keyword">static</span>   <span class="keyword">double</span>   <span class="title">round</span><span class="params">(<span class="keyword">double</span>   v,<span class="keyword">int</span>   scale)</span> </span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigDecimal;    </span><br><span class="line">  </span><br><span class="line"><span class="comment">/**  </span></span><br><span class="line"><span class="comment"> * 进行BigDecimal对象的加减乘除，四舍五入等运算的工具类  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ameyume  </span></span><br><span class="line"><span class="comment"> *  </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Arith</span> </span>&#123;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">    * 由于Java的简单类型不能够精确的对浮点数进行运算，这个工具类提供精   </span></span><br><span class="line"><span class="comment">    * 确的浮点数运算，包括加减乘除和四舍五入。   </span></span><br><span class="line"><span class="comment">    */</span>    </span><br><span class="line">    <span class="comment">//默认除法运算精度    </span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEF_DIV_SCALE = <span class="number">10</span>;    </span><br><span class="line">           </span><br><span class="line">    <span class="comment">//这个类不能实例化    </span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Arith</span><span class="params">()</span></span>&#123;    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">     * 提供精确的加法运算。   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v1 被加数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v2 加数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 两个参数的和   </span></span><br><span class="line"><span class="comment">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2)</span></span>&#123;    </span><br><span class="line">        BigDecimal b1 = <span class="keyword">new</span> BigDecimal(Double.toString(v1));    </span><br><span class="line">        BigDecimal b2 = <span class="keyword">new</span> BigDecimal(Double.toString(v2));    </span><br><span class="line">        <span class="keyword">return</span> b1.add(b2).doubleValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">     * 提供精确的减法运算。   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v1 被减数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v2 减数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 两个参数的差   </span></span><br><span class="line"><span class="comment">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2)</span></span>&#123;    </span><br><span class="line">        BigDecimal b1 = <span class="keyword">new</span> BigDecimal(Double.toString(v1));    </span><br><span class="line">        BigDecimal b2 = <span class="keyword">new</span> BigDecimal(Double.toString(v2));    </span><br><span class="line">        <span class="keyword">return</span> b1.subtract(b2).doubleValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">     * 提供精确的乘法运算。   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v1 被乘数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v2 乘数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 两个参数的积   </span></span><br><span class="line"><span class="comment">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2)</span></span>&#123;    </span><br><span class="line">        BigDecimal b1 = <span class="keyword">new</span> BigDecimal(Double.toString(v1));    </span><br><span class="line">        BigDecimal b2 = <span class="keyword">new</span> BigDecimal(Double.toString(v2));    </span><br><span class="line">        <span class="keyword">return</span> b1.multiply(b2).doubleValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">     * 提供（相对）精确的除法运算，当发生除不尽的情况时，精确到   </span></span><br><span class="line"><span class="comment">     * 小数点以后10位，以后的数字四舍五入。   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v1 被除数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v2 除数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 两个参数的商   </span></span><br><span class="line"><span class="comment">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">div</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2)</span></span>&#123;    </span><br><span class="line">        <span class="keyword">return</span> div(v1,v2,DEF_DIV_SCALE);    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">     * 提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指   </span></span><br><span class="line"><span class="comment">     * 定精度，以后的数字四舍五入。   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v1 被除数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v2 除数   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> scale 表示表示需要精确到小数点以后几位。   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 两个参数的商   </span></span><br><span class="line"><span class="comment">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">div</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2,<span class="keyword">int</span> scale)</span></span>&#123;    </span><br><span class="line">        <span class="keyword">if</span>(scale&lt;<span class="number">0</span>)&#123;    </span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(    </span><br><span class="line">                <span class="string">&quot;The scale must be a positive integer or zero&quot;</span>);    </span><br><span class="line">        &#125;    </span><br><span class="line">        BigDecimal b1 = <span class="keyword">new</span> BigDecimal(Double.toString(v1));    </span><br><span class="line">        BigDecimal b2 = <span class="keyword">new</span> BigDecimal(Double.toString(v2));    </span><br><span class="line">        <span class="keyword">return</span> b1.divide(b2,scale,BigDecimal.ROUND_HALF_UP).doubleValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">     * 提供精确的小数位四舍五入处理。   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> v 需要四舍五入的数字   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> scale 小数点后保留几位   </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 四舍五入后的结果   </span></span><br><span class="line"><span class="comment">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">round</span><span class="params">(<span class="keyword">double</span> v,<span class="keyword">int</span> scale)</span></span>&#123;    </span><br><span class="line">        <span class="keyword">if</span>(scale&lt;<span class="number">0</span>)&#123;    </span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(    </span><br><span class="line">                <span class="string">&quot;The scale must be a positive integer or zero&quot;</span>);    </span><br><span class="line">        &#125;    </span><br><span class="line">        BigDecimal b = <span class="keyword">new</span> BigDecimal(Double.toString(v));    </span><br><span class="line">        BigDecimal one = <span class="keyword">new</span> BigDecimal(<span class="string">&quot;1&quot;</span>);    </span><br><span class="line">        <span class="keyword">return</span> b.divide(one,scale,BigDecimal.ROUND_HALF_UP).doubleValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">       </span><br><span class="line">   <span class="comment">/**   </span></span><br><span class="line"><span class="comment">    * 提供精确的类型转换(Float)   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v 需要被转换的数字   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 返回转换结果   </span></span><br><span class="line"><span class="comment">    */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">convertsToFloat</span><span class="params">(<span class="keyword">double</span> v)</span></span>&#123;    </span><br><span class="line">        BigDecimal b = <span class="keyword">new</span> BigDecimal(v);    </span><br><span class="line">        <span class="keyword">return</span> b.floatValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">    * 提供精确的类型转换(Int)不进行四舍五入   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v 需要被转换的数字   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 返回转换结果   </span></span><br><span class="line"><span class="comment">    */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">convertsToInt</span><span class="params">(<span class="keyword">double</span> v)</span></span>&#123;    </span><br><span class="line">        BigDecimal b = <span class="keyword">new</span> BigDecimal(v);    </span><br><span class="line">        <span class="keyword">return</span> b.intValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">    * 提供精确的类型转换(Long)   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v 需要被转换的数字   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 返回转换结果   </span></span><br><span class="line"><span class="comment">    */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">convertsToLong</span><span class="params">(<span class="keyword">double</span> v)</span></span>&#123;    </span><br><span class="line">        BigDecimal b = <span class="keyword">new</span> BigDecimal(v);    </span><br><span class="line">        <span class="keyword">return</span> b.longValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">    * 返回两个数中大的一个值   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v1 需要被对比的第一个数   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v2 需要被对比的第二个数   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 返回两个数中大的一个值   </span></span><br><span class="line"><span class="comment">    */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">returnMax</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2)</span></span>&#123;    </span><br><span class="line">        BigDecimal b1 = <span class="keyword">new</span> BigDecimal(v1);    </span><br><span class="line">        BigDecimal b2 = <span class="keyword">new</span> BigDecimal(v2);    </span><br><span class="line">        <span class="keyword">return</span> b1.max(b2).doubleValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">    * 返回两个数中小的一个值   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v1 需要被对比的第一个数   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v2 需要被对比的第二个数   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 返回两个数中小的一个值   </span></span><br><span class="line"><span class="comment">    */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">returnMin</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2)</span></span>&#123;    </span><br><span class="line">        BigDecimal b1 = <span class="keyword">new</span> BigDecimal(v1);    </span><br><span class="line">        BigDecimal b2 = <span class="keyword">new</span> BigDecimal(v2);    </span><br><span class="line">        <span class="keyword">return</span> b1.min(b2).doubleValue();    </span><br><span class="line">    &#125;    </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**   </span></span><br><span class="line"><span class="comment">    * 精确对比两个数字   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v1 需要被对比的第一个数   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> v2 需要被对比的第二个数   </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 如果两个数一样则返回0，如果第一个数比第二个数大则返回1，反之返回-1   </span></span><br><span class="line"><span class="comment">    */</span>    </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(<span class="keyword">double</span> v1,<span class="keyword">double</span> v2)</span></span>&#123;    </span><br><span class="line">        BigDecimal b1 = <span class="keyword">new</span> BigDecimal(v1);    </span><br><span class="line">        BigDecimal b2 = <span class="keyword">new</span> BigDecimal(v2);    </span><br><span class="line">        <span class="keyword">return</span> b1.compareTo(b2);    </span><br><span class="line">    &#125;   </span><br><span class="line">  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="http://justjavac.iteye.com/blog/1073775">http://justjavac.iteye.com/blog/1073775</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.iteye.com/problems/51604">http://www.iteye.com/problems/51604</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.163.com/howl_prowler/blog/static/2661971520114553211964/">http://blog.163.com/howl_prowler/blog/static/2661971520114553211964/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/wingsless/p/3426108.html">http://www.cnblogs.com/wingsless/p/3426108.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://zhidao.baidu.com/link?url=2L4pkHgVCXlwEeDM0GRHY2gYUwR9d2JC3knqxvHwdyrrdz_LwK92gVAaIy3hhKEQYdUwNjMLe_RJO3cl8sJvbcAnFK-_rMS4Oy_viystUEe">http://zhidao.baidu.com/link?url=2L4pkHgVCXlwEeDM0GRHY2gYUwR9d2JC3knqxvHwdyrrdz_LwK92gVAaIy3hhKEQYdUwNjMLe_RJO3cl8sJvbcAnFK-_rMS4Oy_viystUEe</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DolphinHome</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dolphinhome.gitee.io/2020/08/31/Java/Other/Java%E6%B5%AE%E7%82%B9%E6%95%B0float%E5%92%8Cdouble%E7%B2%BE%E7%A1%AE%E8%AE%A1%E7%AE%97%E7%9A%84%E7%B2%BE%E5%BA%A6%E8%AF%AF%E5%B7%AE%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">http://dolphinhome.gitee.io/2020/08/31/Java/Other/Java%E6%B5%AE%E7%82%B9%E6%95%B0float%E5%92%8Cdouble%E7%B2%BE%E7%A1%AE%E8%AE%A1%E7%AE%97%E7%9A%84%E7%B2%BE%E5%BA%A6%E8%AF%AF%E5%B7%AE%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dolphinhome.gitee.io" target="_blank">DolphinHome的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="wechat" onclick="window.open('/img/wechat.png')"/><div class="post-qr-code__desc">wechat</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.png" alt="alipay" onclick="window.open('/img/alipay.png')"/><div class="post-qr-code__desc">alipay</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/31/Java/Other/java-Properties%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E4%B8%8E%E8%AF%BB%E5%8F%96/"><img class="prev-cover" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">java Properties配置文件写入与读取</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/31/Java/Other/java%E5%86%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"><img class="next-cover" data-src="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">java写配置文件</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/09/13/蚌埠学院/笔记/Java题目-1__Pro/" title="Java题目_1_Pro"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="relatedPosts_title">Java题目_1_Pro</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/31/Java/Other/Java中的浮点数比较 == equals 和 compare/" title="Java中的浮点数比较 == equals 和 compare"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-31</div><div class="relatedPosts_title">Java中的浮点数比较 == equals 和 compare</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/31/Java/Other/java-Properties配置文件写入与读取/" title="java Properties配置文件写入与读取"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-31</div><div class="relatedPosts_title">java Properties配置文件写入与读取</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/31/Java/Other/java写配置文件/" title="java写配置文件"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-31</div><div class="relatedPosts_title">java写配置文件</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/31/Java/Other/Java-使用properties配置文件加载配置/" title="Java 使用properties配置文件加载配置"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-31</div><div class="relatedPosts_title">Java 使用properties配置文件加载配置</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/22/Java/Spring/Spring-Boot-端口占用/" title="Spring Boot 端口占用"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-22</div><div class="relatedPosts_title">Spring Boot 端口占用</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>
