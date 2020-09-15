@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dolphinhome.gitee.io/2020/09/16/Python/Pandas/Pandas-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2020-09-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dolphinhome.gitee.io/2020/09/16/TensorFlow/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-tensorflow-2-%E7%9A%84hello-world/</loc>
+    
+    <lastmod>2020-09-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dolphinhome.gitee.io/2020/06/21/hello-world/</loc>
+    
+    <lastmod>2020-09-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dolphinhome.gitee.io/2020/09/10/Anaconda/conda%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/</loc>
     
     <lastmod>2020-09-15</lastmod>
@@ -2571,13 +2592,6 @@
   </url>
   
   <url>
-    <loc>http://dolphinhome.gitee.io/2020/06/21/hello-world/</loc>
-    
-    <lastmod>2020-09-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dolphinhome.gitee.io/2020/06/26/Hexo/%E9%85%8D%E7%BD%AE/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2020-09-14</lastmod>
@@ -3839,6 +3853,27 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://dolphinhome.gitee.io/tags/TensorFlow/</loc>
+    <lastmod>2020-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dolphinhome.gitee.io/tags/Python/</loc>
+    <lastmod>2020-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dolphinhome.gitee.io/tags/Pandas/</loc>
+    <lastmod>2020-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -3955,6 +3990,20 @@
   
   <url>
     <loc>http://dolphinhome.gitee.io/categories/Markdown/</loc>
+    <lastmod>2020-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dolphinhome.gitee.io/categories/TensorFlow/</loc>
+    <lastmod>2020-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dolphinhome.gitee.io/categories/Pandas/</loc>
     <lastmod>2020-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
