@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DolphinHome的博客</title><meta name="description" content="私人博客"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/page/64/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="DolphinHome的博客"><meta property="og:url" content="http://dolphinhome.gitee.io/page/64/"><meta property="og:site_name" content="DolphinHome的博客"><meta property="og:description" content="私人博客"><meta property="og:image" content="http://dolphinhome.gitee.io/img/avatar.png"><meta property="article:published_time" content="2020-09-17T01:22:31.525Z"><meta property="article:modified_time" content="2020-09-17T01:22:31.525Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">756</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">44</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome的博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">DolphinHome的博客</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/stat-gitee/" title="无题">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/stat-gitee/" title="无题">无题</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-09-04 07:17:40"><i class="far fa-calendar-alt"></i>2020-09-04</time></div><div class="content">
+
+
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab756408d0d966b0c189537747aeab2e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+
+    body {
+        color: #008800;
+        font-family: sans-serif;
+    }
+
+
+
+Statistical Analysis - gitee
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Java/Other/Java%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E6%AF%94%E8%BE%83%20==%20equals%20%E5%92%8C%20compare/" title="Java中的浮点数比较 == equals 和 compare">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java中的浮点数比较 == equals 和 compare"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Java/Other/Java%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E6%AF%94%E8%BE%83%20==%20equals%20%E5%92%8C%20compare/" title="Java中的浮点数比较 == equals 和 compare">Java中的浮点数比较 == equals 和 compare</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-31 21:20:14"><i class="far fa-calendar-alt"></i>2020-08-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">前几天有位同学问我一个问题，为什么float和double不能直接用==比较？
+例如：
+12System.out.println(0.1d == 0.1f);//结果会是flase
+
+当时我只是简单的回答，因为精度丢失，比较结果是不对的。
+那么，到底为什么不对呢？ 此文略作整理记录。
+类型升级(type promotion)首先，来看看java中的几种原生的数值类型进行==或!=比较运算的时候会发生什么。
+如果运算符两边的数值类型不同，则首先会进行类型升级(type promotion)，规则如下：
+
+如果运算符任意一方的类型为double，则另一方会转换为double
+否则，如果运算符任意一方的类型为float，则另一方会转换为float
+否则，如果运算符任意一方的类型为long，则另一方会转换为long
+否则，两边都会转换为int
+
+详情见官方文档 http://docs.oracle.com/javase/specs/jls/se7/html/jls-5.html#jls-5.6.2
+然后，浮点数执行浮点数相等比较（int或者long执行整型相等比较）
+那么，上面那个例子，flo ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Java/Other/java-Properties%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E4%B8%8E%E8%AF%BB%E5%8F%96/" title="java Properties配置文件写入与读取">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java Properties配置文件写入与读取"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Java/Other/java-Properties%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E4%B8%8E%E8%AF%BB%E5%8F%96/" title="java Properties配置文件写入与读取">java Properties配置文件写入与读取</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-31 21:20:14"><i class="far fa-calendar-alt"></i>2020-08-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">一、Properties
+1.作用：读写资源配置文件；
+2.键与值只能为字符串；
+3.方法：
+12345setProperty(String key,String value)getProperty(String key)getProperty(String key,defaultValue)
+
+
+
+后缀：.Properties
+123store(OutputStream out,String comments)store(Wirter wirter,String comments)
+
+.xml
+123storeToXML(OutputStream os,String comment);storeToXML(OutputStream os,String comment,String encoding);
+
+存储例子：
+1234567891011121314151617181920212223242526package com.uwo9.test05; import java.io.FileNotFoundException;import java.io.FileOutputStream ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Java/Other/Java%E6%B5%AE%E7%82%B9%E6%95%B0float%E5%92%8Cdouble%E7%B2%BE%E7%A1%AE%E8%AE%A1%E7%AE%97%E7%9A%84%E7%B2%BE%E5%BA%A6%E8%AF%AF%E5%B7%AE%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="Java中的浮点数比较 == equals 和 compare">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java中的浮点数比较 == equals 和 compare"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Java/Other/Java%E6%B5%AE%E7%82%B9%E6%95%B0float%E5%92%8Cdouble%E7%B2%BE%E7%A1%AE%E8%AE%A1%E7%AE%97%E7%9A%84%E7%B2%BE%E5%BA%A6%E8%AF%AF%E5%B7%AE%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="Java中的浮点数比较 == equals 和 compare">Java中的浮点数比较 == equals 和 compare</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-31 21:20:14"><i class="far fa-calendar-alt"></i>2020-08-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">1、float整数计算误差
+案例：会员积分字段采用float类型，导致计算会员积分时，7位整数的数据计算结果出现误差。
+原因：超出float精度范围，无法精确计算。
+float和double的精度是由尾数的位数来决定的。浮点数在内存中是按科学计数法来存储的，其整数部分始终是一个隐含着的“1”，由于它是不变的，故不能对精度造成影响。
+float：2^23 = 8388608，一共七位，这意味着最多能有7位有效数字，但绝对能保证的为6位，也即float的精度为6~7位有效数字；double：2^52 = 4503599627370496，一共16位，同理，double的精度为15~16位。
+难道只是位数多大的问题，字段类型换成double就可以解决吗？对于本案例是这样，因为都是整数计算，但如果有小数位，就不一定了，见下面案例。
+2、double小数转bigdecimal后四舍五入计算有误差
+案例：
+1234567double g= 12.35;  BigDecimal bigG=new BigDecimal(g).setScale(1, BigDecimal.ROUND_HALF_UP); ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Java/Other/java%E5%86%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" title="java写配置文件">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java写配置文件"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Java/Other/java%E5%86%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" title="java写配置文件">java写配置文件</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-31 21:19:24"><i class="far fa-calendar-alt"></i>2020-08-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">描述：​            java程序在编写的时候，有些参数由于不确定，或者说在开发中，测试中，生产上的数据值都是不同的，比如ip地址和端口，开发中url的是自己写的测试url，测试和生产环境中要变更url地址，如果这些信息写在java文件中，那就会非常难以修改并且不安全，因为到后期测试中，是没有java源码的，都是编译后的class文件，你要修改系统的参数，只能修改.java文件再编译成class文件再替换到测试环境中，即麻烦又不安全，所以要有配置文件，把系统重要的常变的参数写在里面，在环境切换需要修改参数时就可以直接通过修改配置文件的数据来达到目的，这也是为什么一个程序必须要有配置文件的原因。
+​         java写配置文件要注意要对配置信息进行分类，大概分为：
+​         系统固定参数：这一类的数据是在系统配置类里写死的，不会变的，如配置文件的路径，系统日志名称，系统编码等
+​         系统配置参数：这类参数写在配置文件中，如system.properties，里面保存的是系统的重要参数，如系统名称，系统唯一编码，唯一秘钥，对接服务器地址等
+​    ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Java/Other/Java-%E4%BD%BF%E7%94%A8properties%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE/" title="Java 使用properties配置文件加载配置">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/R8mwSHAU7NTuByX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java 使用properties配置文件加载配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Java/Other/Java-%E4%BD%BF%E7%94%A8properties%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE/" title="Java 使用properties配置文件加载配置">Java 使用properties配置文件加载配置</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-31 20:55:07"><i class="far fa-calendar-alt"></i>2020-08-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">一般我们不把数据库的配置信息写死在代码中。
+写好代码后，编译、调试，成功后只把输出目录中的东西（jar包、.class文件、资源文件等）拷贝到服务器上，由运维来管理。服务器上是没有源文件的（.java文件)，我们我们把数据库的配置信息写死在代码中，运维就不能修改数据库的配置了，如果要换服务器、要换数据库、要改数据库的密码了，运维是改不了的，只能由我们修改源码，重新编译、部署。
+通常的做法是，把配置信息写在配置文件（文本文件）中，从配置文件中加载配置信息，这样运维就可以直接修改配置了，无需改动源码。
+示例：1、项目根目录下新建文件夹resource，右键标识为资源根目录
+Source Root是源码的根目录，默认为src；
+Test Source Root是调试的根目录，比如JUnit调试的根目录；
+Resource Root是资源文件的根目录，常用来放置配置文件，也可以放置其他资源文件，比如新建子文件夹images，下面放置图片。
+2、在resource下新建文件mysql.properties，内容如下：1234driver=com.mysql.cj.jdbc.Driverurl=j ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/22/Java/Spring/Spring-Boot-%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/" title="Spring Boot 端口占用">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Boot 端口占用"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/22/Java/Spring/Spring-Boot-%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/" title="Spring Boot 端口占用">Spring Boot 端口占用</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-22 16:05:39"><i class="far fa-calendar-alt"></i>2020-08-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/java/spring/">spring</a></span></div><div class="content">解决错误：org.apache.catalina.LifecycleException: Protocol handler start failed
+ 错误原因：端口被占用，所以启动失败。
+解决方法：
+第一种解决方法：简单粗暴方式：直接修改端口号，重启项目。
+第二种解决方法：关掉java进程，再重启项目。
+第三种解决方法：或者直接在命令行操作：
+​          使用命令：netstat -nao|findstr 端口号
+​          杀死这个端口号的进程，使用命令：taskkill /pid 进程号 -t -f
+1234567891011121314#方法一    #查看进程一    netstat -nao|findstr 端口号    #结束进程一    taskkill -t -f /pid 进程号#方法二    #查看进程二    tasklist | findstr &quot;jav&quot;    #结束进程二    taskkill -f -t /im java.exe    taskkill /f /t /im java.exe
+
+例如：
+
+  解决方 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/22/Java/Spring/springboot2-x%E9%83%A8%E7%BD%B2ssl%E8%AF%81%E4%B9%A6%E4%BD%BF%E7%94%A8https%E5%8D%8F%E8%AE%AE/" title="springboot2.x部署ssl证书使用https协议">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springboot2.x部署ssl证书使用https协议"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/22/Java/Spring/springboot2-x%E9%83%A8%E7%BD%B2ssl%E8%AF%81%E4%B9%A6%E4%BD%BF%E7%94%A8https%E5%8D%8F%E8%AE%AE/" title="springboot2.x部署ssl证书使用https协议">springboot2.x部署ssl证书使用https协议</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-22 15:14:04"><i class="far fa-calendar-alt"></i>2020-08-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/java/spring/">spring</a></span></div><div class="content">
+
+
+  详情内容
+
+springboot2.x部署证书1.准备好ssl证书我们这里是将证书合成了jks格式的，需要注意的是合成证书时，使用的证书密码，证书别名还可以合成其它格式的，并将其放到项目的根目录下，直接放resources/keystore文件夹下就好
+1keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+放在/resources/keystore/keystore.p12
+2.修改配置文件和配置类
+配置文件
+
+1234567891011121314server:  #http监听端口  port: 443  #https监听端口  httpPort: 8080  ssl:    #证书路径 一般都是放在根目录    key-store: classpath:keystore/keystore.p12    #证书的密码    key-password: 123456    #证书的类型    key-st ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/22/Java/Spring/spring-boot%E6%94%AF%E6%8C%81https%E8%AF%B7%E6%B1%82/" title="spring boot支持https请求">     <img class="post_bg" data-src="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring boot支持https请求"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/22/Java/Spring/spring-boot%E6%94%AF%E6%8C%81https%E8%AF%B7%E6%B1%82/" title="spring boot支持https请求">spring boot支持https请求</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-22 14:32:18"><i class="far fa-calendar-alt"></i>2020-08-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/java/spring/">spring</a></span></div><div class="content">
+
+
+  详情内容
+
+
+  spring boot给我们提供了很多便利之处，包括spring boot内置了tomcat，所以我们一般启动都是spring boot内置的tomcat，用HTTP请求进行访问，但是http请求并不安全，由于我们对项目应用的权限认证变得更加谨慎，需要用到https请求，自己新建了一个 spring boot 项目进行测试，现在将怎么新建spring boot工程和使用https请求以及在此过程中遇到的问题记录一下。
+一.新建 spring boot 的web工程，我用的是Intelij idea1.创建一个项目，创建时选择Spring Initializr，然后Next
+  
+2.填写项目信息
+
+3.选择web工程
+
+注：我的intelij版本可能比较低，出现的是这样的，但是有的可能会出现下图的，都是一样的
+
+4.填写工程名字点击finish
+ok,一个新的web工程就建好了，下载依赖的过程比较慢
+我们新建的是一个web工程，可以在项目的入口类加上 @RestController 注解，使之变为一个Controller，然后里边提供一个地址转换方法
+123 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/other/24%E5%BC%A0%E5%9B%BE%EF%BC%8C%E4%B9%9D%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%89%E6%8E%92%E5%BE%97%E6%98%8E%E6%98%8E%E7%99%BD%E7%99%BD%EF%BC%81/" title="24张图，九大数据结构安排得明明白白！">     <img class="post_bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/11.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24张图，九大数据结构安排得明明白白！"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/other/24%E5%BC%A0%E5%9B%BE%EF%BC%8C%E4%B9%9D%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%89%E6%8E%92%E5%BE%97%E6%98%8E%E6%98%8E%E7%99%BD%E7%99%BD%EF%BC%81/" title="24张图，九大数据结构安排得明明白白！">24张图，九大数据结构安排得明明白白！</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-21 10:08:19"><i class="far fa-calendar-alt"></i>2020-08-21</time></div><div class="content">
+
+
+  详情内容
+
+
+数据结构想必大家都不会陌生，对于一个成熟的程序员而言，熟悉和掌握数据结构和算法也是基本功之一。数据结构本身其实不过是数据按照特点关系进行存储或者组织的集合，特殊的结构在不同的应用场景中往往会带来不一样的处理效率。
+常用的数据结构可根据数据访问的特点分为线性结构和非线性结构。线性结构包括常见的链表、栈、队列等，非线性结构包括树、图等。数据结构种类繁多，本文将通过图解的方式对常用的数据结构进行理论上的介绍和讲解，以方便大家掌握常用数据结构的基本知识。
+1  数组数组可以说是最基本最常见的数据结构。数组一般用来存储相同类型的数据，可通过数组名和下标进行数据的访问和更新。数组中元素的存储是按照先后顺序进行的，同时在内存中也是按照这个顺序进行连续存放。数组相邻元素之间的内存地址的间隔一般就是数组数据类型的大小。
+
+2  链表链表相较于数组，除了数据域，还增加了指针域用于构建链式的存储数据。链表中每一个节点都包含此节点的数据和指向下一节点地址的指针。由于是通过指针进行下一个数据元素的查找和访问，使得链表的自由度更高。
+这表现在对节点进行增加和删除时，只需要对上一节点的指针地 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/63/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/">65</a><span class="space">&hellip;</span><a class="page-number" href="/page/76/">76</a><a class="extend next" rel="next" href="/page/65/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">DolphinHome</div><div class="author-info__description">私人博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">756</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">44</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">23</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/09/16/MySQL/MySQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="MySQL基本操作" alt="MySQL基本操作"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/16/MySQL/MySQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="MySQL基本操作">MySQL基本操作</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-16 06:57:05">2020-09-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/16/%E5%A4%A7%E6%95%B0%E6%8D%AE/Sqoop/Sqoop%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/dolphinhome/picture_bed/raw/master/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Sqoop基本操作" alt="Sqoop基本操作"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/16/%E5%A4%A7%E6%95%B0%E6%8D%AE/Sqoop/Sqoop%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="Sqoop基本操作">Sqoop基本操作</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-16 06:57:05">2020-09-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/16/%E5%A4%A7%E6%95%B0%E6%8D%AE/Sqoop/Sqoop%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%8F%82%E6%95%B0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/07/29/Rf5KHNAMlTondQh.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Sqoop一些常用命令及参数" alt="Sqoop一些常用命令及参数"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/16/%E5%A4%A7%E6%95%B0%E6%8D%AE/Sqoop/Sqoop%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%8F%82%E6%95%B0/" title="Sqoop一些常用命令及参数">Sqoop一些常用命令及参数</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-16 06:57:05">2020-09-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/16/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%85%A8%E6%A0%88/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="大数据技术原理及应用" alt="大数据技术原理及应用"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/16/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%85%A8%E6%A0%88/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/" title="大数据技术原理及应用">大数据技术原理及应用</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-16 06:57:05">2020-09-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/09/16/Python/Pandas/Pandas-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Pandas 常用函数" alt="Pandas 常用函数"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/09/16/Python/Pandas/Pandas-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" title="Pandas 常用函数">Pandas 常用函数</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-16 01:21:29">2020-09-16</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">82</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Markdown/"><span class="card-category-list-name">Markdown</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Pandas/"><span class="card-category-list-name">Pandas</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Sqoop/"><span class="card-category-list-name">Sqoop</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/TensorFlow/"><span class="card-category-list-name">TensorFlow</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/c/"><span class="card-category-list-name">c</span><span class="card-category-list-count">214</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hexo/"><span class="card-category-list-name">hexo</span><span class="card-category-list-count">17</span></a></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Anaconda/" style="font-size: 17.33px; color: #999da1">Anaconda</a> <a href="/tags/Hadoop%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/" style="font-size: 16px; color: #999">Hadoop平台搭建</a> <a href="/tags/Java/" style="font-size: 16px; color: #999">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #99a4b2">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 16px; color: #999">Markdown</a> <a href="/tags/MySQL/" style="font-size: 17.33px; color: #999da1">MySQL</a> <a href="/tags/PDF/" style="font-size: 16px; color: #999">PDF</a> <a href="/tags/Pandas/" style="font-size: 16px; color: #999">Pandas</a> <a href="/tags/Python/" style="font-size: 16px; color: #999">Python</a> <a href="/tags/Sqoop/" style="font-size: 16.67px; color: #999b9d">Sqoop</a> <a href="/tags/TensorFlow/" style="font-size: 16px; color: #999">TensorFlow</a> <a href="/tags/butterfly/" style="font-size: 16.67px; color: #999b9d">butterfly</a> <a href="/tags/c/" style="font-size: 22px; color: #99a9bf">c</a> <a href="/tags/halo/" style="font-size: 16.67px; color: #999b9d">halo</a> <a href="/tags/hexo/" style="font-size: 19.33px; color: #99a2ae">hexo</a> <a href="/tags/https/" style="font-size: 16.67px; color: #999b9d">https</a> <a href="/tags/java/" style="font-size: 19.33px; color: #99a2ae">java</a> <a href="/tags/js/" style="font-size: 16px; color: #999">js</a> <a href="/tags/linux/" style="font-size: 18.67px; color: #99a0aa">linux</a> <a href="/tags/plugin/" style="font-size: 18px; color: #999ea6">plugin</a> <a href="/tags/properties/" style="font-size: 17.33px; color: #999da1">properties</a> <a href="/tags/python/" style="font-size: 17.33px; color: #999da1">python</a> <a href="/tags/shell/" style="font-size: 16.67px; color: #999b9d">shell</a> <a href="/tags/spring/" style="font-size: 16.67px; color: #999b9d">spring</a> <a href="/tags/yilia/" style="font-size: 16.67px; color: #999b9d">yilia</a> <a href="/tags/%E5%88%9D%E5%A7%8B%E5%8C%96/" style="font-size: 16px; color: #999">初始化</a> <a href="/tags/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/" style="font-size: 16px; color: #999">初始化配置</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16px; color: #999">前端</a> <a href="/tags/%E5%8A%A0%E5%AF%86/" style="font-size: 16px; color: #999">加密</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16.67px; color: #999b9d">博客</a> <a href="/tags/%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81/" style="font-size: 16px; color: #999">原码反码补码</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 16px; color: #999">大数据</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" style="font-size: 16px; color: #999">大数据技术</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #99a5b7">数据结构</a> <a href="/tags/%E6%9E%B6%E7%AB%99/" style="font-size: 16px; color: #999">架站</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 21.33px; color: #99a7bb">汇编</a> <a href="/tags/%E7%AB%AF%E5%8F%A3/" style="font-size: 16px; color: #999">端口</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83/" style="font-size: 16.67px; color: #999b9d">编程环境</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 16px; color: #999">虚拟机</a> <a href="/tags/%E8%9A%8C%E5%9F%A0%E5%AD%A6%E9%99%A2/" style="font-size: 17.33px; color: #999da1">蚌埠学院</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">631</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">104</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">17</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">756</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "今日事&#44;今日畢,Never put off till tomorrow what you can do today".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '今日事&#44;今日畢'
+}</script></body></html>
