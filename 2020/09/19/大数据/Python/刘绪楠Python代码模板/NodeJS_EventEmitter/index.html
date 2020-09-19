@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DolphinHome博客 | DolphinHome博客</title><meta name="description" content="Node.js EventEmitterNode.js 所有的异步 I&#x2F;O 操作在完成时都会发送一个事件到事件队列。 Node.js 里面的许多对象都会分发事件：一个 net.Server 对象会在每次有新连接时触发一个事件， 一个 fs.readStream 对象会在文件被打开的时候触发一个事件。 所有这些产生事件的对象都是 events.EventEmitter 的实例。  EventEmit"><meta name="author" content="DolphinHome"><meta name="copyright" content="DolphinHome"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dolphinhome.gitee.io/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_EventEmitter/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="DolphinHome博客"><meta property="og:url" content="http://dolphinhome.gitee.io/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_EventEmitter/"><meta property="og:site_name" content="DolphinHome博客"><meta property="og:description" content="Node.js EventEmitterNode.js 所有的异步 I&#x2F;O 操作在完成时都会发送一个事件到事件队列。 Node.js 里面的许多对象都会分发事件：一个 net.Server 对象会在每次有新连接时触发一个事件， 一个 fs.readStream 对象会在文件被打开的时候触发一个事件。 所有这些产生事件的对象都是 events.EventEmitter 的实例。  EventEmit"><meta property="og:image" content="https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg"><meta property="article:published_time" content="2020-09-19T10:19:20.229Z"><meta property="article:modified_time" content="2019-05-25T07:23:54.008Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="" href="http://dolphinhome.gitee.io/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1/"><link rel="next" title="" href="http://dolphinhome.gitee.io/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_Buffer/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">992</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">21</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">17</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js-EventEmitter"><span class="toc-number">1.</span> <span class="toc-text">Node.js EventEmitter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#EventEmitter-%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">EventEmitter 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">类方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.1.3.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#error-%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">error 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF-EventEmitter"><span class="toc-number">1.3.</span> <span class="toc-text">继承 EventEmitter</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/07/29/hv9BJjsmyPwnA5Q.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DolphinHome博客</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">无题</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-19 18:19:20"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-09-19</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2019-05-25 15:23:54"><i class="fas fa-history fa-fw"></i> 更新于 2019-05-25</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="Node-js-EventEmitter"><a href="#Node-js-EventEmitter" class="headerlink" title="Node.js EventEmitter"></a>Node.js EventEmitter</h1><p>Node.js 所有的异步 I/O 操作在完成时都会发送一个事件到事件队列。</p>
+<p>Node.js 里面的许多对象都会分发事件：一个 net.Server 对象会在每次有新连接时触发一个事件， 一个 fs.readStream 对象会在文件被打开的时候触发一个事件。 所有这些产生事件的对象都是 events.EventEmitter 的实例。</p>
+<hr>
+<h2 id="EventEmitter-类"><a href="#EventEmitter-类" class="headerlink" title="EventEmitter 类"></a>EventEmitter 类</h2><p>events 模块只提供了一个对象： events.EventEmitter。EventEmitter 的核心就是事件触发与事件监听器功能的封装。</p>
+<p>你可以通过require(“events”);来访问该模块。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 events 模块</span></span><br><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">&#x27;events&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建 eventEmitter 对象</span></span><br><span class="line"><span class="keyword">var</span> eventEmitter = <span class="keyword">new</span> events.EventEmitter();</span><br></pre></td></tr></table></figure>
+
+<p>EventEmitter 对象如果在实例化时发生错误，会触发 error 事件。当添加新的监听器时，newListener 事件会触发，当监听器被移除时，removeListener 事件被触发。</p>
+<p>下面我们用一个简单的例子说明 EventEmitter 的用法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//event.js 文件</span></span><br><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">&#x27;events&#x27;</span>).EventEmitter; </span><br><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> EventEmitter(); </span><br><span class="line">event.on(<span class="string">&#x27;some_event&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;some_event 事件触发&#x27;</span>); </span><br><span class="line">&#125;); </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    event.emit(<span class="string">&#x27;some_event&#x27;</span>); </span><br><span class="line">&#125;, <span class="number">1000</span>); </span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下：</p>
+<p>运行这段代码，1 秒后控制台输出了 **’some_event 事件触发’**。其原理是 event 对象注册了事件 some_event 的一个监听器，然后我们通过 setTimeout 在 1000 毫秒以后向 event 对象发送事件 some_event，此时会调用some_event 的监听器。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node event.js </span><br><span class="line">some_event 事件触发</span><br></pre></td></tr></table></figure>
+
+<p>EventEmitter 的每个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件，EventEmitter 支持 若干个事件监听器。</p>
+<p>当事件触发时，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。</p>
+<p>让我们以下面的例子解释这个过程：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//event.js 文件</span></span><br><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">&#x27;events&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter(); </span><br><span class="line">emitter.on(<span class="string">&#x27;someEvent&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;listener1&#x27;</span>, arg1, arg2); </span><br><span class="line">&#125;); </span><br><span class="line">emitter.on(<span class="string">&#x27;someEvent&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;listener2&#x27;</span>, arg1, arg2); </span><br><span class="line">&#125;); </span><br><span class="line">emitter.emit(<span class="string">&#x27;someEvent&#x27;</span>, <span class="string">&#x27;arg1 参数&#x27;</span>, <span class="string">&#x27;arg2 参数&#x27;</span>); </span><br></pre></td></tr></table></figure>
+
+<p>执行以上代码，运行的结果如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ node event.js </span><br><span class="line">listener1 arg1 参数 arg2 参数</span><br><span class="line">listener2 arg1 参数 arg2 参数</span><br></pre></td></tr></table></figure>
+
+<p>以上例子中，emitter 为事件 someEvent 注册了两个事件监听器，然后触发了 someEvent 事件。</p>
+<p>运行结果中可以看到两个事件监听器回调函数被先后调用。 这就是EventEmitter最简单的用法。</p>
+<p>EventEmitter 提供了多个属性，如 <strong>on</strong> 和 <strong>emit</strong>。<strong>on</strong> 函数用于绑定事件函数，<strong>emit</strong> 属性用于触发一个事件。接下来我们来具体看下 EventEmitter 的属性介绍。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>addListener(event, listener)</strong> 为指定事件添加一个监听器到监听器数组的尾部。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>on(event, listener)</strong> 为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数。<code>server.on(&#39;connection&#39;, function (stream) &#123;   console.log(&#39;someone connected!&#39;); &#125;);</code></td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>once(event, listener)</strong> 为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。<code>server.once(&#39;connection&#39;, function (stream) &#123;   console.log(&#39;Ah, we have our first user!&#39;); &#125;);</code></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><strong>removeListener(event, listener)</strong> 移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器。它接受两个参数，第一个是事件名称，第二个是回调函数名称。<code>var callback = function(stream) &#123;   console.log(&#39;someone connected!&#39;); &#125;; server.on(&#39;connection&#39;, callback); // ... server.removeListener(&#39;connection&#39;, callback);</code></td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><strong>removeAllListeners([event])</strong> 移除所有事件的所有监听器， 如果指定事件，则移除指定事件的所有监听器。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><strong>setMaxListeners(n)</strong> 默认情况下， EventEmitters 如果你添加的监听器超过 10 个就会输出警告信息。 setMaxListeners 函数用于提高监听器的默认限制的数量。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><strong>listeners(event)</strong> 返回指定事件的监听器数组。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><strong>emit(event, [arg1], [arg2], […])</strong> 按监听器的顺序执行执行每个监听器，如果事件有注册监听返回 true，否则返回 false。</td>
+</tr>
+</tbody></table>
+<h3 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h3><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>listenerCount(emitter, event)</strong> 返回指定事件的监听器数量。</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">events.EventEmitter.listenerCount(emitter, eventName) &#x2F;&#x2F;已废弃，不推荐</span><br><span class="line">events.emitter.listenerCount(eventName) &#x2F;&#x2F;推荐</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">事件 &amp; 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>newListener</strong> <strong>event</strong> - 字符串，事件名称<strong>listener</strong> - 处理事件函数该事件在添加新监听器时被触发。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>removeListener</strong> <strong>event</strong> - 字符串，事件名称<strong>listener</strong> - 处理事件函数从指定监听器数组中删除一个监听器。需要注意的是，此操作将会改变处于被删监听器之后的那些监听器的索引。</td>
+</tr>
+</tbody></table>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>以下实例通过 connection（连接）事件演示了 EventEmitter 类的应用。</p>
+<p>创建 main.js 文件，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">&#x27;events&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> eventEmitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听器 #1</span></span><br><span class="line"><span class="keyword">var</span> listener1 = <span class="function"><span class="keyword">function</span> <span class="title">listener1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;监听器 listener1 执行。&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听器 #2</span></span><br><span class="line"><span class="keyword">var</span> listener2 = <span class="function"><span class="keyword">function</span> <span class="title">listener2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;监听器 listener2 执行。&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定 connection 事件，处理函数为 listener1 </span></span><br><span class="line">eventEmitter.addListener(<span class="string">&#x27;connection&#x27;</span>, listener1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定 connection 事件，处理函数为 listener2</span></span><br><span class="line">eventEmitter.on(<span class="string">&#x27;connection&#x27;</span>, listener2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> eventListeners = eventEmitter.listenerCount(<span class="string">&#x27;connection&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(eventListeners + <span class="string">&quot; 个监听器监听连接事件。&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理 connection 事件 </span></span><br><span class="line">eventEmitter.emit(<span class="string">&#x27;connection&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除监绑定的 listener1 函数</span></span><br><span class="line">eventEmitter.removeListener(<span class="string">&#x27;connection&#x27;</span>, listener1);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;listener1 不再受监听。&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发连接事件</span></span><br><span class="line">eventEmitter.emit(<span class="string">&#x27;connection&#x27;</span>);</span><br><span class="line"></span><br><span class="line">eventListeners = eventEmitter.listenerCount(<span class="string">&#x27;connection&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(eventListeners + <span class="string">&quot; 个监听器监听连接事件。&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;程序执行完毕。&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>以上代码，执行结果如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ node main.js</span><br><span class="line"><span class="number">2</span> 个监听器监听连接事件。</span><br><span class="line">监听器 listener1 执行。</span><br><span class="line">监听器 listener2 执行。</span><br><span class="line">listener1 不再受监听。</span><br><span class="line">监听器 listener2 执行。</span><br><span class="line"><span class="number">1</span> 个监听器监听连接事件。</span><br><span class="line">程序执行完毕。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="error-事件"><a href="#error-事件" class="headerlink" title="error 事件"></a>error 事件</h2><p>EventEmitter 定义了一个特殊的事件 error，它包含了错误的语义，我们在遇到 异常的时候通常会触发 error 事件。</p>
+<p>当 error 被触发时，EventEmitter 规定如果没有响 应的监听器，Node.js 会把它当作异常，退出程序并输出错误信息。</p>
+<p>我们一般要为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">&#x27;events&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter(); </span><br><span class="line">emitter.emit(<span class="string">&#x27;error&#x27;</span>); </span><br></pre></td></tr></table></figure>
+
+<p>运行时会显示以下错误：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">node.js:<span class="number">201</span> </span><br><span class="line"><span class="keyword">throw</span> e; <span class="comment">// process.nextTick error, or &#x27;error&#x27; event on first tick </span></span><br><span class="line">^ </span><br><span class="line"><span class="built_in">Error</span>: Uncaught, unspecified <span class="string">&#x27;error&#x27;</span> event. </span><br><span class="line">at EventEmitter.emit (events.js:<span class="number">50</span>:<span class="number">15</span>) </span><br><span class="line">at <span class="built_in">Object</span>.&lt;anonymous&gt; (<span class="regexp">/home/</span>byvoid/error.js:<span class="number">5</span>:<span class="number">9</span>) </span><br><span class="line">at Module._compile (<span class="built_in">module</span>.js:<span class="number">441</span>:<span class="number">26</span>) </span><br><span class="line">at <span class="built_in">Object</span>..js (<span class="built_in">module</span>.js:<span class="number">459</span>:<span class="number">10</span>) </span><br><span class="line">at Module.load (<span class="built_in">module</span>.js:<span class="number">348</span>:<span class="number">31</span>) </span><br><span class="line">at <span class="built_in">Function</span>._load (<span class="built_in">module</span>.js:<span class="number">308</span>:<span class="number">12</span>) </span><br><span class="line">at <span class="built_in">Array</span><span class="number">.0</span> (<span class="built_in">module</span>.js:<span class="number">479</span>:<span class="number">10</span>) </span><br><span class="line">at EventEmitter._tickCallback (node.js:<span class="number">192</span>:<span class="number">40</span>) </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="继承-EventEmitter"><a href="#继承-EventEmitter" class="headerlink" title="继承 EventEmitter"></a>继承 EventEmitter</h2><p>大多数时候我们不会直接使用 EventEmitter，而是在对象中继承它。包括 fs、net、 http 在内的，只要是支持事件响应的核心模块都是 EventEmitter 的子类。</p>
+<p>为什么要这样做呢？原因有两点：</p>
+<p>首先，具有某个实体功能的对象实现事件符合语义， 事件的监听和发生应该是一个对象的方法。</p>
+<p>其次 JavaScript 的对象机制是基于原型的，支持 部分多重继承，继承 EventEmitter 不会打乱对象原有的继承关系。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DolphinHome</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dolphinhome.gitee.io/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_EventEmitter/">http://dolphinhome.gitee.io/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_EventEmitter/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dolphinhome.gitee.io" target="_blank">DolphinHome博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/07/29/MSaeJck7UTHpFrN.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="wechat" onclick="window.open('/img/wechat.png')"/><div class="post-qr-code__desc">wechat</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.png" alt="alipay" onclick="window.open('/img/alipay.png')"/><div class="post-qr-code__desc">alipay</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1/"><img class="prev-cover" data-src="https://i.loli.net/2020/07/29/IxdrJlmEbausozQ.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2020/09/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python/%E5%88%98%E7%BB%AA%E6%A5%A0Python%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/NodeJS_Buffer/"><img class="next-cover" data-src="https://i.loli.net/2020/07/29/Ca9Mic3WNS7pr1q.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By DolphinHome</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>
